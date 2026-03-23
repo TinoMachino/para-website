@@ -1,0 +1,12 @@
+node_modules
+.pnpm-store
+.DS_Store
+dist
+build
+.svelte-kit
+coverage
+vite.config.timestamp-*.mjs
+.wrangler
+.env
+.env.*
+!.env.example
