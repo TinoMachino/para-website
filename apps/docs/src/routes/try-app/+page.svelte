@@ -252,8 +252,8 @@ Thanks.`;
 			<pre><code>{waitlistTemplate}</code></pre>
 			<p class="waitlist-note">
 				{hasAndroidApk
-					? 'The draft stays useful for non-Android requests and for newer internal packages.'
-					: 'The request draft opens your mail client without assuming a fixed public inbox.'}
+					? 'The request template stays useful for non-Android requests and for newer internal packages.'
+					: 'Copy the request template into your preferred mail client without assuming a fixed public inbox.'}
 			</p>
 			<div class="try-app-cta-row">
 				{#if hasAndroidApk}
@@ -266,13 +266,6 @@ Thanks.`;
 					>
 						{androidApkLabel}
 					</a>
-					<a class="app-button app-button-secondary" href={buildRequestDraft}
-						>Open request draft</a
-					>
-				{:else}
-					<a class="app-button app-button-primary" href={buildRequestDraft}
-						>Open request draft</a
-					>
 				{/if}
 				<button
 					class={`app-button ${hasAndroidApk ? 'app-button-accent' : 'app-button-secondary'}`}
