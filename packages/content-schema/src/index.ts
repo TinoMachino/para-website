@@ -18,49 +18,49 @@ import { z } from "zod";
 export const schemaStatusSchema = z.enum(["draft", "experimental", "stable"]);
 
 export const fieldDefinitionSchema = z.object({
-	name: z.string(),
-	type: z.string(),
-	required: z.boolean(),
-	description: z.string(),
+  name: z.string(),
+  type: z.string(),
+  required: z.boolean(),
+  description: z.string(),
 });
 
 export const schemaIndexEntrySchema = z.object({
-	id: z.string(),
-	title: z.string(),
-	summary: z.string(),
-	status: schemaStatusSchema,
-	tags: z.array(z.string()),
+  id: z.string(),
+  title: z.string(),
+  summary: z.string(),
+  status: schemaStatusSchema,
+  tags: z.array(z.string()),
 });
 
 export const schemaDocumentSchema = schemaIndexEntrySchema.extend({
-	backendOwner: z.string().optional(),
-	sourcePath: z.string().optional(),
-	examples: z.array(z.string()).optional(),
-	relationships: z.array(z.string()).optional(),
-	constraints: z.array(z.string()).optional(),
-	lifecycle: z.array(z.string()).optional(),
-	writers: z.array(z.string()).optional(),
-	readers: z.array(z.string()).optional(),
-	routes: z.array(z.string()).optional(),
-	xrpcMethods: z.array(z.string()).optional(),
-	indexing: z.array(z.string()).optional(),
-	moderation: z.array(z.string()).optional(),
-	productSurfaces: z.array(z.string()).optional(),
-	fields: z.array(fieldDefinitionSchema),
+  backendOwner: z.string().optional(),
+  sourcePath: z.string().optional(),
+  examples: z.array(z.string()).optional(),
+  relationships: z.array(z.string()).optional(),
+  constraints: z.array(z.string()).optional(),
+  lifecycle: z.array(z.string()).optional(),
+  writers: z.array(z.string()).optional(),
+  readers: z.array(z.string()).optional(),
+  routes: z.array(z.string()).optional(),
+  xrpcMethods: z.array(z.string()).optional(),
+  indexing: z.array(z.string()).optional(),
+  moderation: z.array(z.string()).optional(),
+  productSurfaces: z.array(z.string()).optional(),
+  fields: z.array(fieldDefinitionSchema),
 });
 
 export const architectureNoteSchema = z.object({
-	id: z.string(),
-	title: z.string(),
-	summary: z.string(),
-	status: z.enum(["active", "planned", "deprecated"]),
+  id: z.string(),
+  title: z.string(),
+  summary: z.string(),
+  status: z.enum(["active", "planned", "deprecated"]),
 });
 
 export const planMilestoneSchema = z.object({
-	id: z.string(),
-	title: z.string(),
-	summary: z.string(),
-	target: z.string(),
+  id: z.string(),
+  title: z.string(),
+  summary: z.string(),
+  target: z.string(),
 });
 
 export type FieldDefinition = z.infer<typeof fieldDefinitionSchema>;
@@ -70,38 +70,38 @@ export type ArchitectureNote = z.infer<typeof architectureNoteSchema>;
 export type PlanMilestone = z.infer<typeof planMilestoneSchema>;
 
 const schemaDocuments = [
-	postJson,
-	communityDefsJson,
-	actorDefsJson,
-	actorGetProfileStatsJson,
-	civicDefsJson,
-	civicGetCabildeoJson,
-	civicListCabildeosJson,
-	communityGetGovernanceJson,
-	highlightDefsJson,
-	highlightListHighlightsJson,
-	socialPostMetaJson,
-	statusJson,
+  postJson,
+  communityDefsJson,
+  actorDefsJson,
+  actorGetProfileStatsJson,
+  civicDefsJson,
+  civicGetCabildeoJson,
+  civicListCabildeosJson,
+  communityGetGovernanceJson,
+  highlightDefsJson,
+  highlightListHighlightsJson,
+  socialPostMetaJson,
+  statusJson,
 ].map((schema) => schemaDocumentSchema.parse(schema));
 
 export function getSchemaIndex(): SchemaIndexEntry[] {
-	return z.array(schemaIndexEntrySchema).parse(schemaIndexJson);
+  return z.array(schemaIndexEntrySchema).parse(schemaIndexJson);
 }
 
 export function getSchemaDocuments(): SchemaDocument[] {
-	return schemaDocuments;
+  return schemaDocuments;
 }
 
 export function getSchemaDocument(
-	schemaId: string,
+  schemaId: string,
 ): SchemaDocument | undefined {
-	return schemaDocuments.find((schema) => schema.id === schemaId);
+  return schemaDocuments.find((schema) => schema.id === schemaId);
 }
 
 export function getArchitectureNotes(): ArchitectureNote[] {
-	return z.array(architectureNoteSchema).parse(architectureNotesJson);
+  return z.array(architectureNoteSchema).parse(architectureNotesJson);
 }
 
 export function getPlanMilestones(): PlanMilestone[] {
-	return z.array(planMilestoneSchema).parse(planMilestonesJson);
+  return z.array(planMilestoneSchema).parse(planMilestonesJson);
 }

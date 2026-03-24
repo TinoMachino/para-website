@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import StatusPill from '$lib/components/StatusPill.svelte';
+	import { openSourceRepos } from '$lib/content/site';
 
 	let { children, data } = $props();
 
@@ -79,6 +80,15 @@
 						<StatusPill status={note.status} />
 					</div>
 				{/each}
+			</div>
+
+			<div class="sidebar-block">
+				<p class="sidebar-title">Open source repos</p>
+				<div class="nav-list compact">
+					{#each openSourceRepos as repo (repo.href)}
+						<a href={repo.href} target="_blank" rel="noreferrer">{repo.label}</a>
+					{/each}
+				</div>
 			</div>
 		</aside>
 

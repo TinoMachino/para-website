@@ -1,6 +1,24 @@
 export const docsBase = '/docs';
 export const aboutBase = '/about';
 
+export const openSourceRepos = [
+	{
+		label: 'Website',
+		href: 'https://github.com/TinoMachino/para-website',
+		copy: 'Public docs and website workspace'
+	},
+	{
+		label: 'App',
+		href: 'https://github.com/TinoMachino/para-app',
+		copy: 'Public PARA client workspace'
+	},
+	{
+		label: 'Backend',
+		href: 'https://github.com/TinoMachino/WhatZatppa',
+		copy: 'Public WhatZatppa backend workspace'
+	}
+] as const;
+
 export const landingHeroMetrics = [
 	{
 		value: '-3 to +3',
@@ -110,8 +128,7 @@ export const landingFeatures = [
 	{
 		eyebrow: 'RAQ + communities',
 		title: 'RAQ turns ideology into structured context',
-		problem:
-			'Helps people locate themselves politically instead of posting into one undifferentiated crowd.',
+		problem: 'Helps people locate themselves politically instead of posting into one undifferentiated crowd.',
 		copy: 'The RAQ helps users question themselves, place themselves politically, and generate structured data that communities can organize around.',
 		points: [
 			'Intergroup antagonism becomes visible data for education, comparison, and agent behavior',
@@ -123,8 +140,7 @@ export const landingFeatures = [
 	{
 		eyebrow: 'AI + search',
 		title: 'Agents and search are core utilities',
-		problem:
-			'Makes the network useful for reading, comparison, moderation, and external tools.',
+		problem: 'Makes the network useful for reading, comparison, moderation, and external tools.',
 		copy: 'PARA is meant to power more than a feed. Search, clustering, classification, and generation turn civic data into usable product utilities.',
 		points: [
 			'The API can classify political content, highlight bias, and generate text',

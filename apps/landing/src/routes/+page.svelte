@@ -3,13 +3,14 @@
 	import GlobeAnimation from '$lib/components/GlobeAnimation.svelte';
 	import {
 		aboutBase,
-		heroPrimaryAction,
-		heroSecondaryAction,
 		docsBase,
 		developerPromises,
+		heroPrimaryAction,
+		heroSecondaryAction,
 		landingFeatures,
 		landingPillars,
-		landingSignals
+		landingSignals,
+		openSourceRepos
 	} from '$lib/content/site';
 </script>
 
@@ -36,22 +37,18 @@
 					<span class="gradient-text">policy voting and plural identity.</span>
 				</h1>
 				<p class="section-copy hero-text fade-in-delay">
-					PARA started from a dream of a more plural democracy in Mexico. The problem is
-					not a lack of opinions, but how little of them becomes material. PARA turns
-					political identity, #POLICY|| and #MATTER| flairs, RAQ questioning, -3 to +3
-					policy votes, agents, search, and anonymity into one product story instead of
-					leaving politics trapped inside party branding and generic feeds.
+					PARA started from a dream of a more plural democracy in Mexico. The problem is not a lack
+					of opinions, but how little of them becomes material. PARA turns political identity,
+					#POLICY|| and #MATTER| flairs, RAQ questioning, -3 to +3 policy votes, agents, search, and
+					anonymity into one product story instead of leaving politics trapped inside party branding
+					and generic feeds.
 				</p>
 				<div class="cta-row fade-in-delay-2">
 					<a class="button button-primary" href={resolve(heroPrimaryAction.href)}>
 						{heroPrimaryAction.label}
 					</a>
 					<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-					<a
-						class="button button-secondary"
-						href={heroSecondaryAction.href}
-						rel="external"
-					>
+					<a class="button button-secondary" href={heroSecondaryAction.href} rel="external">
 						{heroSecondaryAction.label}
 					</a>
 				</div>
@@ -91,11 +88,11 @@
 				A political social network born from Mexico's democratic frustration.
 			</h2>
 			<p class="section-copy">
-				PARA takes the energy of political compass memes and Democracy 4 and turns it into a
-				serious civic layer. The idea is simple: if democracy is too thin, reduce the
-				friction between thought and consequence with #POLICY|| and #MATTER| flairs, RAQ
-				questioning, -3 to +3 policy voting, collective agents, anonymity with validation,
-				and search/API relevance that can classify political content in text and images.
+				PARA takes the energy of political compass memes and Democracy 4 and turns it into a serious
+				civic layer. The idea is simple: if democracy is too thin, reduce the friction between
+				thought and consequence with #POLICY|| and #MATTER| flairs, RAQ questioning, -3 to +3 policy
+				voting, collective agents, anonymity with validation, and search/API relevance that can
+				classify political content in text and images.
 			</p>
 			<div class="card-grid pillar-grid">
 				{#each landingPillars as pillar (pillar.title)}
@@ -115,9 +112,8 @@
 				Show people the mechanics: policies, matters, voting, RAQ, agents, and anonymity.
 			</h2>
 			<p class="section-copy">
-				Each feature card explains a concrete surface area and points to the matching part
-				of the public docs. No external docs domain, no generic political-brand copy, no
-				dead-end CTA.
+				Each feature card explains a concrete surface area and points to the matching part of the
+				public docs. No external docs domain, no generic political-brand copy, no dead-end CTA.
 			</p>
 			<div class="feature-grid">
 				{#each landingFeatures as feature (feature.title)}
@@ -145,11 +141,10 @@
 				Mexico is plural, but politics still pushes people into package deals.
 			</h2>
 			<p class="section-copy">
-				PARA should not read like a generic social network with political adjectives on top.
-				It is a second-layer civic network for people who agree with a party on some things,
-				reject it on others, want to vote on actual policies, and need tools to publish,
-				search, compare, and learn without exposing every opinion under their legal
-				identity.
+				PARA should not read like a generic social network with political adjectives on top. It is a
+				second-layer civic network for people who agree with a party on some things, reject it on
+				others, want to vote on actual policies, and need tools to publish, search, compare, and
+				learn without exposing every opinion under their legal identity.
 			</p>
 		</div>
 	</section>
@@ -167,13 +162,11 @@
 			</div>
 			<div class="glass-card developer-card accent-card">
 				<p class="panel-label">Next step</p>
-				<h3>
-					Move from the landing page into `/docs`, `/docs/schemas`, and `/docs/roadmap`.
-				</h3>
+				<h3>Move from the landing page into `/docs`, `/docs/schemas`, and `/docs/roadmap`.</h3>
 				<p>
-					The practical fix is simple: use the local docs routes that already exist, and
-					make the homepage explain the democratic problem, the second-layer model, and
-					the civic mechanics before the reader opens the reference pages.
+					The practical fix is simple: use the local docs routes that already exist, and make the
+					homepage explain the democratic problem, the second-layer model, and the civic mechanics
+					before the reader opens the reference pages.
 				</p>
 				<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 				<a class="button button-primary" href={`${docsBase}/schemas`} rel="external">
@@ -188,9 +181,15 @@
 			<div>
 				<p class="footer-mark gradient-text">PARA</p>
 				<p class="footer-copy">
-					One same-origin path from the homepage into product framing, roadmap, and schema
-					docs.
+					One same-origin path from the homepage into product framing, roadmap, and schema docs.
 				</p>
+				<div class="repo-links">
+					{#each openSourceRepos as repo (repo.href)}
+						<a href={repo.href} class="hover-link" target="_blank" rel="noreferrer">
+							{repo.label} repo
+						</a>
+					{/each}
+				</div>
 			</div>
 			<div class="footer-links">
 				<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
@@ -352,7 +351,8 @@
 
 	.cta-row,
 	.chip-list,
-	.footer-links {
+	.footer-links,
+	.repo-links {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.85rem;
@@ -603,6 +603,10 @@
 		font-family: var(--ps-font-display);
 		font-size: 2rem;
 		font-weight: 800;
+	}
+
+	.repo-links {
+		margin-top: 0.85rem;
 	}
 
 	.fade-in {

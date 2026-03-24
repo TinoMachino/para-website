@@ -26,13 +26,12 @@
 				<div class="eyebrow hero-eyebrow">PARA • political social network</div>
 				<p class="hero-tagline">The anonymous political arena.</p>
 				<p class="section-copy hero-text">
-					PARA is the political social network built for communities, policy votes, RAQ
-					flows, civic agents, and protected participation on top of the AT Protocol.
+					PARA is the political social network built for communities, policy votes, RAQ flows, civic
+					agents, and protected participation on top of the AT Protocol.
 				</p>
 				<div class="hero-cta-row">
-					<a
-						class="button button-primary docs-cta-button hero-button"
-						href={resolve(docsBase)}>Browse docs</a
+					<a class="button button-primary docs-cta-button hero-button" href={resolve(docsBase)}
+						>Browse docs</a
 					>
 				</div>
 				<div class="hero-metric-row">
@@ -78,8 +77,8 @@
 					<h2 class="section-title">Six ideas that make PARA distinct.</h2>
 				</div>
 				<p class="section-copy feature-map-copy">
-					Each card names the surface, the friction it reduces, and the next place to read
-					when you want more detail.
+					Each card names the surface, the friction it reduces, and the next place to read when you
+					want more detail.
 				</p>
 			</div>
 			<div class="feature-grid">
@@ -110,14 +109,14 @@
 		<div class="container section-stack">
 			<div class="eyebrow">Product focus</div>
 			<h2 class="section-title">
-				PARA is not a generic clone. The civic primitives and the democratic argument should
-				be visible immediately.
+				PARA is not a generic clone. The civic primitives and the democratic argument should be
+				visible immediately.
 			</h2>
 			<p class="section-copy">
 				The source app already includes routes for communities, RAQ flows, representatives,
-				cabildeos, policy dashboards, messages, moderation, and verification settings. The
-				site should explain that shape directly instead of falling back to abstract
-				social-backend copy or generic startup language.
+				cabildeos, policy dashboards, messages, moderation, and verification settings. The site
+				should explain that shape directly instead of falling back to abstract social-backend copy
+				or generic startup language.
 			</p>
 			<div class="card-grid pillar-grid">
 				{#each landingPillars as pillar (pillar.title)}
@@ -138,10 +137,10 @@
 					watx gives PARA a contract language that the site can actually explain.
 				</h2>
 				<p class="section-copy">
-					Developers should be able to read this site in two directions: product-first if
-					they are learning what PARA does, or protocol-first if they want the records,
-					services, and lexicons. The information architecture should support both without
-					switching mental models.
+					Developers should be able to read this site in two directions: product-first if they are
+					learning what PARA does, or protocol-first if they want the records, services, and
+					lexicons. The information architecture should support both without switching mental
+					models.
 				</p>
 			</div>
 			<div class="architecture-stack">
@@ -155,6 +154,7 @@
 			</div>
 		</div>
 	</section>
+
 </div>
 
 <style>
@@ -220,7 +220,8 @@
 	:global(.docs-cta-button) {
 		border: 1px solid rgba(164, 162, 177, 0.22);
 		background:
-			linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01)), #474652;
+			linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01)),
+			#474652;
 		color: #f6f4fa;
 		box-shadow:
 			0 16px 34px rgba(12, 10, 18, 0.34),
@@ -229,7 +230,8 @@
 
 	:global(.docs-cta-button:hover) {
 		background:
-			linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)), #474652;
+			linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+			#474652;
 		box-shadow:
 			0 20px 40px rgba(12, 10, 18, 0.4),
 			inset 0 1px 0 rgba(255, 255, 255, 0.1);
