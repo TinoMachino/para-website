@@ -28,13 +28,8 @@
 		<div class="site-header-inner">
 			<a class="site-header-mark" href={resolve('/')} aria-label="PARA home">
 				<span class="site-header-lockup">
-					<span class="site-header-motif-layer">
+					<span class="site-header-badge">
 						<img class="site-header-motif" src={logomark} alt="" />
-					</span>
-					<span class="site-header-wordmark-shell">
-						<span class="site-header-rhombus-layer">
-							<span class="site-header-rhombus"></span>
-						</span>
 						<span class="site-header-lockup-text">PARA</span>
 					</span>
 				</span>
@@ -131,65 +126,49 @@
 	}
 
 	.site-header-lockup {
-		position: relative;
 		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		height: 52px;
-		padding: 0 0.2rem;
-		z-index: 1;
+		justify-content: flex-start;
 	}
 
-	.site-header-motif-layer {
-		position: absolute;
-		inset: 0;
+	.site-header-badge {
+		position: relative;
+		display: inline-flex;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		z-index: 1;
-		filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.05));
+		width: 5.1rem;
+		height: 3.35rem;
+		padding: 0.2rem 0.4rem;
+		border-radius: 0.3rem;
+		background:
+			linear-gradient(180deg, rgba(34, 39, 56, 0.98), rgba(18, 22, 34, 0.98)),
+			#161927;
+		box-shadow:
+			inset 0 1px 0 rgba(255, 255, 255, 0.08),
+			0 10px 24px rgba(15, 12, 23, 0.24);
+		overflow: hidden;
 	}
 
 	.site-header-motif {
-		display: block;
-		width: 69px;
-		height: 69px;
-	}
-
-	.site-header-wordmark-shell {
 		position: absolute;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 4px 6px;
-		z-index: 2;
-	}
-
-	.site-header-rhombus-layer {
-		position: absolute;
-		inset: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transform: scaleX(3.15) scaleY(0.65);
-	}
-
-	.site-header-rhombus {
-		width: 24px;
-		height: 24px;
-		background: rgba(255, 255, 255, 0.9);
-		transform: rotate(45deg);
+		right: -0.2rem;
+		bottom: -0.35rem;
+		width: 2.85rem;
+		height: 2.85rem;
+		opacity: 0.48;
+		filter: none;
 	}
 
 	.site-header-lockup-text {
 		position: relative;
-		z-index: 3;
+		z-index: 1;
 		font-family: var(--ps-font-display);
-		font-size: 1.65rem;
-		letter-spacing: -0.04em;
+		font-size: 1.78rem;
+		letter-spacing: -0.05em;
 		line-height: 1;
-		color: #474652;
-		text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+		color: #ffffff;
+		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
 	}
 
 	.footer-mark {
