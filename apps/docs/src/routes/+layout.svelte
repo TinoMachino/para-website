@@ -1,4 +1,4 @@
-	<script lang="ts">
+<script lang="ts">
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { openSourceRepos } from '$lib/content/site';
@@ -16,10 +16,13 @@
 		{ href: '/docs', label: 'Docs' },
 		{ href: '/try-app', label: 'Try app' }
 	] as const;
+
+	const isActive = (href: string) =>
+		page.url.pathname === href || (href !== '/' && page.url.pathname.startsWith(`${href}/`));
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" type="image/png" href={favicon} />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
@@ -36,7 +39,7 @@
 			</a>
 			<nav class="site-nav">
 				{#each topNav as item (item.href)}
-					<a class:active={page.url.pathname === item.href} href={resolve(item.href)}>
+					<a class:active={isActive(item.href)} href={resolve(item.href)}>
 						{item.label}
 					</a>
 				{/each}
@@ -52,9 +55,7 @@
 		<div class="site-footer-inner">
 			<div>
 				<p class="footer-mark">
-					<span class="site-mark-shell">
-						<img class="site-mark" src={favicon} alt="" />
-					</span>
+					<img class="site-mark" src={logomark} alt="" />
 					<span class="site-brand-text">PARA</span>
 				</p>
 				<p class="footer-copy">
@@ -79,13 +80,20 @@
 </div>
 
 <style>
+	@font-face {
+		font-family: 'PARA Cinzel';
+		src: url('/fonts/Cinzel-SemiBold.ttf') format('truetype');
+		font-style: normal;
+		font-weight: 600;
+		font-display: swap;
+	}
+
 	:global(body) {
-		background: #0f0a14 !important;
+		background:
+			radial-gradient(circle at top left, rgba(42, 198, 255, 0.09), transparent 24%),
+			radial-gradient(circle at top right, rgba(255, 182, 93, 0.1), transparent 22%), #0d1522 !important;
 		color: #ffffff !important;
-		font-family:
-			'Inter',
-			-apple-system,
-			sans-serif;
+		font-family: var(--ps-font-body);
 	}
 
 	.site-header {
@@ -93,8 +101,8 @@
 		top: 0;
 		z-index: 20;
 		backdrop-filter: blur(18px);
-		background: rgba(255, 255, 255, 0.94);
-		border-bottom: 1px solid rgba(71, 70, 82, 0.14);
+		background: rgba(11, 18, 31, 0.74);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 	}
 
 	.site-header-inner,
@@ -110,7 +118,7 @@
 	.site-header-inner {
 		position: relative;
 		min-height: 4rem;
-		padding: 0.7rem 0;
+		padding: 0.85rem 0;
 	}
 
 	.site-header-mark,
@@ -127,82 +135,58 @@
 
 	.site-header-lockup {
 		display: inline-flex;
+		flex-direction: column;
 		align-items: center;
-		justify-content: flex-start;
+		justify-content: center;
 	}
 
 	.site-header-badge {
-		position: relative;
 		display: inline-flex;
-		display: flex;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		width: 5.1rem;
-		height: 3.35rem;
-		padding: 0.2rem 0.4rem;
-		border-radius: 0.3rem;
-		background:
-			linear-gradient(180deg, rgba(34, 39, 56, 0.98), rgba(18, 22, 34, 0.98)),
-			#161927;
-		box-shadow:
-			inset 0 1px 0 rgba(255, 255, 255, 0.08),
-			0 10px 24px rgba(15, 12, 23, 0.24);
-		overflow: hidden;
+		gap: 0.1rem;
+		color: #f3f3ef;
 	}
 
 	.site-header-motif {
-		position: absolute;
-		right: -0.2rem;
-		bottom: -0.35rem;
-		width: 2.85rem;
-		height: 2.85rem;
-		opacity: 0.48;
-		filter: none;
+		display: block;
+		width: 1.5rem;
+		height: 1.5rem;
+		color: #f3f3ef;
+		filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
 	}
 
 	.site-header-lockup-text {
-		position: relative;
-		z-index: 1;
-		font-family: var(--ps-font-display);
-		font-size: 1.78rem;
-		letter-spacing: -0.05em;
+		font-family: 'PARA Cinzel', serif;
+		font-size: 0.84rem;
+		font-weight: 600;
+		letter-spacing: 0.14em;
 		line-height: 1;
-		color: #ffffff;
-		text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+		color: #f3f3ef;
+		text-indent: 0.14em;
 	}
 
 	.footer-mark {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.7rem;
-		font-family: var(--ps-font-display);
-		font-size: 1.65rem;
-		letter-spacing: -0.03em;
+		font-family: 'PARA Cinzel', serif;
+		font-size: 1.42rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
 	}
 
 	.site-brand-text {
-		color: #474652;
-	}
-
-	.site-mark-shell {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 1.85rem;
-		height: 1.85rem;
-		border-radius: 0.5rem;
-		background: rgba(255, 255, 255, 0.12);
-		border: 1px solid rgba(255, 255, 255, 0.14);
-		box-shadow:
-			inset 0 1px 0 rgba(255, 255, 255, 0.08),
-			0 8px 20px rgba(0, 0, 0, 0.18);
-		flex: 0 0 auto;
+		color: #f3f3ef;
+		text-indent: 0.12em;
 	}
 
 	.site-mark {
-		width: 1.08rem;
-		height: 1.08rem;
-		filter: brightness(0) invert(1);
+		width: 1.4rem;
+		height: 1.4rem;
+		color: #f3f3ef;
+		filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.22));
 	}
 
 	.site-nav,
@@ -218,21 +202,27 @@
 
 	.site-nav a,
 	.footer-links a {
-		padding: 0.3rem 0;
-		border-radius: 0;
-		font-weight: 500;
-		color: #5b5a66;
-		transition: all 0.2s ease;
+		padding: 0.45rem 0.85rem;
+		border-radius: 999px;
+		font-weight: 600;
+		color: #bac7db;
+		transition:
+			background 0.2s ease,
+			color 0.2s ease,
+			transform 0.2s ease;
 	}
 
 	.site-nav a.active,
 	.site-nav a:hover {
-		background: transparent;
-		color: #2e2033;
+		background: rgba(255, 255, 255, 0.07);
+		color: #ffffff;
+		transform: translateY(-1px);
 	}
 
 	.site-footer {
-		padding: 2rem 0;
+		padding: 2.4rem 0 2.8rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(8, 13, 24, 0.52);
 	}
 
 	.site-footer-inner {
@@ -243,7 +233,7 @@
 
 	.footer-copy {
 		margin: 0.45rem 0 0;
-		color: #a1a1aa;
+		color: #9ba9c1;
 		line-height: 1.65;
 	}
 
@@ -255,12 +245,12 @@
 	}
 
 	.footer-repo-list a {
-		color: #5b5a66;
+		color: #c7d3e5;
 		font-weight: 600;
 	}
 
 	.footer-repo-list a:hover {
-		color: #2e2033;
+		color: #ffffff;
 	}
 
 	@media (max-width: 960px) {

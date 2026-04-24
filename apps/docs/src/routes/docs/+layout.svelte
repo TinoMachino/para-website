@@ -7,6 +7,9 @@
 	let { children, data } = $props();
 
 	function isSectionActive(href: string) {
+		if (href === '/docs') {
+			return page.url.pathname === href;
+		}
 		return page.url.pathname === href || page.url.pathname.startsWith(`${href}/`);
 	}
 </script>
@@ -14,16 +17,33 @@
 <div class="docs-shell">
 	<div class="docs-layout">
 		<aside class="docs-panel sidebar">
-			<div class="sidebar-block">
+			<div class="sidebar-block sidebar-start">
 				<p class="sidebar-kicker">Docs</p>
 				<a class="brand" href={resolve('/docs')}>PARA Docs</a>
 				<p class="sidebar-copy">
-					Product context at the surface, schema reference and technical framing nearby.
+					Product context first, protocol detail nearby, and clear exits into trust, app access, and
+					the open repos.
 				</p>
+				<div class="sidebar-shortcuts">
+					<a href={resolve('/docs')}>Guide</a>
+					<a href={resolve('/docs/schemas')}>Schemas</a>
+					<a href={resolve('/try-app')}>Try app</a>
+				</div>
+			</div>
+
+			<div class="sidebar-block sidebar-highlight">
+				<p class="sidebar-title">Recommended path</p>
+				<div class="highlight-card">
+					<strong>Start with the guide, then branch.</strong>
+					<p>
+						Read the docs overview, jump into product flows, and open schema reference only when you
+						want contract detail.
+					</p>
+				</div>
 			</div>
 
 			<nav class="sidebar-block">
-				<p class="sidebar-title">Sections</p>
+				<p class="sidebar-title">Core docs</p>
 				<div class="nav-list">
 					{#each data.primaryNav as item (item.href)}
 						<a class:active={isSectionActive(item.href)} href={resolve(item.href)}>
@@ -34,7 +54,7 @@
 			</nav>
 
 			<div class="sidebar-block">
-				<p class="sidebar-title">Reader paths</p>
+				<p class="sidebar-title">Cross-site paths</p>
 				<div class="nav-list compact">
 					{#each data.readerNav as item (item.href)}
 						<a class:active={page.url.pathname === item.href} href={resolve(item.href)}>
@@ -45,7 +65,7 @@
 			</div>
 
 			<div class="sidebar-block">
-				<p class="sidebar-title">Product flows</p>
+				<p class="sidebar-title">Route families</p>
 				<div class="nav-list compact">
 					{#each data.flowNav as item (item.href)}
 						<a class:active={isSectionActive(item.href)} href={resolve(item.href)}>
@@ -57,7 +77,7 @@
 
 			<div class="sidebar-block">
 				<p class="sidebar-title">Schemas</p>
-				<div class="nav-list compact">
+				<div class="nav-list compact schema-list">
 					{#each data.schemaIndex as schema (schema.id)}
 						<a
 							class:active={page.url.pathname === `/docs/schemas/${schema.id}`}
@@ -108,6 +128,11 @@
 		align-self: start;
 	}
 
+	.sidebar-start {
+		display: grid;
+		gap: 0.9rem;
+	}
+
 	.sidebar-block + .sidebar-block {
 		margin-top: 1.45rem;
 		padding-top: 1.2rem;
@@ -137,6 +162,28 @@
 		line-height: 1.72;
 	}
 
+	.sidebar-shortcuts {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.55rem;
+	}
+
+	.sidebar-shortcuts a {
+		padding: 0.5rem 0.75rem;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(255, 255, 255, 0.09);
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: #f0f6ff;
+	}
+
+	.sidebar-shortcuts a:hover {
+		background: rgba(255, 255, 255, 0.1);
+	}
+
 	.sidebar-title {
 		margin: 0 0 0.85rem;
 		font-size: 0.82rem;
@@ -149,6 +196,31 @@
 	.nav-list {
 		display: grid;
 		gap: 0.45rem;
+	}
+
+	.highlight-card {
+		display: grid;
+		gap: 0.45rem;
+		padding: 1rem;
+		border-radius: 1rem;
+		background:
+			radial-gradient(circle at top right, rgba(127, 214, 255, 0.16), transparent 35%),
+			rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(255, 255, 255, 0.09);
+	}
+
+	.highlight-card strong,
+	.highlight-card p {
+		margin: 0;
+	}
+
+	.highlight-card strong {
+		color: #ffffff;
+	}
+
+	.highlight-card p {
+		color: #d4ddeb;
+		line-height: 1.7;
 	}
 
 	.nav-list a {
@@ -169,6 +241,12 @@
 
 	.compact a {
 		font-size: 0.92rem;
+	}
+
+	.schema-list {
+		max-height: 18rem;
+		overflow: auto;
+		padding-right: 0.2rem;
 	}
 
 	.architecture-notes {

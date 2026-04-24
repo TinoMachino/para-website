@@ -2,7 +2,7 @@
 	<title>PARA Docs</title>
 	<meta
 		name="description"
-		content="Technical docs for PARA, grounded in watx services and com.para lexicons."
+		content="Documentation for PARA, organized around product surfaces, trust model, app access, and schema reference."
 	/>
 </svelte:head>
 
@@ -10,66 +10,94 @@
 	<p class="docs-hero-kicker">Documentation</p>
 	# PARA docs
 
-	PARA documentation should read like documentation, not like a backlog or a pitch deck. Browse the thesis, the product model, trust and safety, app access, or the schema reference in whatever order fits what you want to understand.
+	The docs now work as an entry hub instead of a backlog dump. Start with the product story if you
+	want to understand the civic model, or jump straight into routes, status language, and
+	`com.para.*` records if you are already evaluating the stack.
 
 	<div class="docs-link-grid">
 		<a class="docs-link-card" href="/docs/getting-started">
 			<strong>Getting started</strong>
-			<span>Choose the shortest path for product readers, engineers, contributors, or app explorers.</span>
+			<span>Choose the fastest path for product readers, engineers, contributors, or app explorers.</span>
 		</a>
 		<a class="docs-link-card" href="/docs/how-it-works">
 			<strong>How it works</strong>
-			<span>Read the route-level docs for communities, RAQ, cabildeo, highlights, map, and messages.</span>
-		</a>
-		<a class="docs-link-card" href="/about">
-			<strong>About</strong>
-			<span>Read the political thesis, the Mexico origin story, and the product worldview.</span>
+			<span>Read the civic route families: communities, RAQ, cabildeo, representatives, discovery, and messaging.</span>
 		</a>
 		<a class="docs-link-card" href="/docs/product">
 			<strong>Product</strong>
-			<span>See the product as a gallery: UI frames, post surfaces, maps, and screenshots grouped by how the app feels.</span>
+			<span>Read the app visually through screens, posts, maps, and civic participation surfaces.</span>
 		</a>
 		<a class="docs-link-card" href="/trust-and-safety">
 			<strong>Trust and safety</strong>
-			<span>Read how identity, moderation, verification, privacy, saved content, and account control work today.</span>
+			<span>See how anonymity, moderation, verification, privacy, and account control fit together.</span>
 		</a>
 		<a class="docs-link-card" href="/try-app">
 			<strong>Try app</strong>
-			<span>Open the shared host, request a build link, or run the app from source with the current stack.</span>
+			<span>Open the shared host, jump to GitHub, or run the app locally with the current stack.</span>
 		</a>
 		<a class="docs-link-card" href="/docs/schemas">
 			<strong>Schema reference</strong>
-			<span>Browse the curated `com.para.*` reference pages and their implementation framing.</span>
-		</a>
-		<a class="docs-link-card" href="/docs/glossary">
-			<strong>Glossary</strong>
-			<span>Use the canonical vocabulary for RAQ, cabildeo, matters, flairs, and civic intelligence.</span>
-		</a>
-		<a class="docs-link-card" href="/docs/status">
-			<strong>Status guide</strong>
-			<span>See what the site means by implemented, partial, experimental, and thesis-only.</span>
+			<span>Browse the curated `com.para.*` reference pages with implementation framing nearby.</span>
 		</a>
 	</div>
 </section>
 
-## What lives here
-
-- An About page that explains the political thesis: identity, flairs, voting, RAQ, agents, and anonymity
-- A Getting started page with short paths for readers, engineers, contributors, and app explorers
-- A How it works section that documents the actual civic route families
-- A Product page that shows the product visually: UI gallery, posts, maps, and civic surface examples
-- A standalone Trust and safety page that explains identity, moderation, verification, privacy, account, and saved-content behavior
-- A standalone Try app page that centralizes the current shared host, build-link request flow, and local run commands
-- A glossary and explicit maturity guide so the docs vocabulary and status language stay consistent
-- Manual schema reference for selected `com.para.*` records, queries, and definitions, with backend framing appended there
-- A secondary roadmap page for ongoing docs work, outside the main navigation
-
 <div class="docs-editorial-block">
 	<section class="docs-section-card">
-		<p class="docs-section-kicker">Structure</p>
-		## The product already has a clear civic shape
+		<p class="docs-section-kicker">Choose your lane</p>
+		## Start from the question you actually have
 
-		PARA is not one feed and not one profile. The implemented app already works more like a civic stack: `Base` and `My Base` act as orientation surfaces, communities are first-class objects, and the route tree already branches into RAQ, cabildeo, representatives, highlights, messages, maps, and profile-specific participation tabs.
+		<div class="docs-split-grid">
+			<div class="docs-note-panel">
+				<h3>What is PARA?</h3>
+				<p>Read <a href="/about">About</a>, then move into <a href="/docs/product">Product</a> to see how the thesis shows up in the app.</p>
+			</div>
+			<div class="docs-note-panel">
+				<h3>How does the civic model work?</h3>
+				<p>Open <a href="/docs/how-it-works">How it works</a> for route families such as RAQ, cabildeo, communities, and representatives.</p>
+			</div>
+			<div class="docs-note-panel">
+				<h3>How mature is this?</h3>
+				<p>Use <a href="/docs/status">Status</a> to understand what is implemented, partial, experimental, or still thesis-only.</p>
+			</div>
+			<div class="docs-note-panel">
+				<h3>What are the contracts?</h3>
+				<p>Jump into <a href="/docs/schemas">Schemas</a> once you want records, queries, and backend framing.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-section-card">
+		<p class="docs-section-kicker">How the docs are organized</p>
+		## The reference is arranged around real product surfaces
+
+		PARA is not one feed and not one profile. The docs reflect that by centering product surfaces,
+		operational pages, and protocol reference separately, while keeping them close enough to read as
+		one system.
+
+		<div class="docs-meta-grid">
+			<div class="docs-meta-card">
+				<span class="docs-meta-label">Thesis layer</span>
+				<div class="docs-meta-value"><a href="/about">About</a> explains the democratic-friction argument, plural identity, flairs, voting, and agents.</div>
+			</div>
+			<div class="docs-meta-card">
+				<span class="docs-meta-label">Product layer</span>
+				<div class="docs-meta-value"><a href="/docs/how-it-works">How it works</a> and <a href="/docs/product">Product</a> document routes, flows, and the lived app shape.</div>
+			</div>
+			<div class="docs-meta-card">
+				<span class="docs-meta-label">Operational layer</span>
+				<div class="docs-meta-value"><a href="/trust-and-safety">Trust and safety</a>, <a href="/try-app">Try app</a>, and <a href="/docs/status">Status</a> cover guardrails and access.</div>
+			</div>
+			<div class="docs-meta-card">
+				<span class="docs-meta-label">Reference layer</span>
+				<div class="docs-meta-value"><a href="/docs/schemas">Schema reference</a> keeps `watx` contracts and `com.para.*` records reachable from the product story.</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="docs-section-card">
+		<p class="docs-section-kicker">Core civic surfaces</p>
+		## The product already has a legible political shape
 
 		<div class="docs-meta-grid">
 			<div class="docs-meta-card">
@@ -81,96 +109,54 @@
 				<div class="docs-meta-value"><code>/communities</code>, <code>/communities/profile/:communityId</code></div>
 			</div>
 			<div class="docs-meta-card">
-				<span class="docs-meta-label">Why it matters</span>
-				<div class="docs-meta-value">The product is organized around civic spaces and navigation hubs, not around a single global feed.</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="docs-section-card">
-		<p class="docs-section-kicker">Participation</p>
-		## Policies, matters, representatives, and cabildeo define the civic layer
-
-		This is where PARA stops looking like a generic social app. The source product already includes a policies-and-matters dashboard, policy detail surfaces, representatives, and a structurally rich cabildeo route family with phases, delegated votes, and amendments.
-
-		<div class="docs-meta-grid">
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">Primary routes</span>
+				<span class="docs-meta-label">Participation routes</span>
 				<div class="docs-meta-value"><code>/policies-dashboard</code>, <code>/policy-details</code>, <code>/representatives</code>, <code>/communities/cabildeos/*</code></div>
 			</div>
 			<div class="docs-meta-card">
-				<span class="docs-meta-label">Current strength</span>
-				<div class="docs-meta-value">The cabildeo flow already expresses the deliberation model more clearly than the earlier site did.</div>
-			</div>
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">Current caveat</span>
-				<div class="docs-meta-value">Some policy surfaces are still early, so route maturity and data maturity are not the same thing.</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="docs-section-card">
-		<p class="docs-section-kicker">RAQ and discovery</p>
-		## RAQ, highlights, search, map, and compass shape the reading model
-
-		RAQ is already more than a quiz. It includes assessment, results, axis discovery, proposals, and open questions. Around that, the product also has search, highlights, memes-and-documents, map, comparison, and compass routes that frame PARA as a political reading and navigation system instead of a pure posting surface.
-
-		<div class="docs-meta-grid">
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">RAQ routes</span>
-				<div class="docs-meta-value"><code>/raq</code>, <code>/raq/assessment</code>, <code>/raq/results</code></div>
-			</div>
-			<div class="docs-meta-card">
 				<span class="docs-meta-label">Discovery routes</span>
-				<div class="docs-meta-value"><code>/search</code>, <code>/highlights</code>, <code>/map</code>, <code>/compass</code></div>
+				<div class="docs-meta-value"><code>/raq</code>, <code>/search</code>, <code>/highlights</code>, <code>/map</code>, <code>/compass</code></div>
 			</div>
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">Product reading</span>
-				<div class="docs-meta-value">Highlights behave as a separate political reading layer, not just as bookmarks with a new name.</div>
-			</div>
+		</div>
+
+		<div class="docs-callout">
+			<p>
+				The key documentation move is simple: PARA should read like a civic operating model with
+				clear route families, not like a generic social app with political adjectives on top.
+			</p>
 		</div>
 	</section>
 
 	<section class="docs-section-card">
-		<p class="docs-section-kicker">Communication</p>
-		## Messaging and agents sit inside the product
+		<p class="docs-section-kicker">Operational pages</p>
+		## Trust, access, and maturity are part of the docs experience
 
-		The app already has a proper inbox and conversation model, while agent chat is still an early surface for community or premium agents. That split matters because it shows PARA as a product where conversation, not just posting, is part of the political workflow.
-
-		<div class="docs-meta-grid">
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">Conversation routes</span>
-				<div class="docs-meta-value"><code>/messages</code>, <code>/messages/:conversation</code></div>
+		<div class="docs-split-grid">
+			<div class="docs-note-panel">
+				<h3>Trust and safety</h3>
+				<p>Identity, moderation, verification, privacy, saved content, and account control are documented outside the core reference so they stay easy to find.</p>
 			</div>
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">Agent route</span>
-				<div class="docs-meta-value"><code>/agent-chat/:agentId</code></div>
+			<div class="docs-note-panel">
+				<h3>Try app</h3>
+				<p>The current shared host, GitHub entry point, and local runbook are centralized in one place instead of being scattered across pages.</p>
 			</div>
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">Documentation stance</span>
-				<div class="docs-meta-value">Conversations are the stable part of the product. Agent chat should still be described as early behavior with a clear interaction contract.</div>
+			<div class="docs-note-panel">
+				<h3>Status language</h3>
+				<p>The docs explicitly distinguish implemented behavior from partial, experimental, and thesis-only areas.</p>
+			</div>
+			<div class="docs-note-panel">
+				<h3>Glossary</h3>
+				<p>Key vocabulary such as RAQ, cabildeo, matters, flairs, and civic intelligence stays canonical across the site.</p>
 			</div>
 		</div>
 	</section>
 </div>
 
-## Why these docs changed
-
-The first version of the site described a generic PARA backend. The second version leaned too far into feature inventory. This version keeps the structure editorial while grounding every page in the current product:
-
-- `PARA` for public product surfaces such as communities, policy flairs, voting, RAQ, moderation, verification, representatives, and civic flows
-- `watx` for backend terminology, service boundaries, and the `com.para.*` lexicon namespace
-- About for the thesis, Docs for implemented surfaces, Product for a visual product read, Trust and safety for operational guardrails, and Schema reference for technical detail
-
 ## Read next
 
 - Read the [Getting started page](/docs/getting-started)
 - Read [How it works](/docs/how-it-works)
-- Read the [About page](/about)
 - Read the [Product page](/docs/product)
 - Read the [Trust and safety page](/trust-and-safety)
 - Read the [Try app page](/try-app)
-- Read the [Glossary](/docs/glossary)
 - Read the [Status guide](/docs/status)
 - Browse the [schema reference](/docs/schemas)
-- Browse the [roadmap](/docs/roadmap) for ongoing documentation work

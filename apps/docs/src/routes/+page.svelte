@@ -1,622 +1,765 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import GlobeAnimation from '$lib/components/GlobeAnimation.svelte';
 	import {
 		architectureLayers,
+		architectureNotes,
+		developerPromises,
 		docsBase,
+		landingFeatures,
 		landingHeroActions,
 		landingHeroMetrics,
-		landingFeatures,
-		landingPillars
+		landingPillars,
+		openSourceRepos,
+		surfaceChecklist
 	} from '$lib/content/site';
-	import GlobeAnimation from '$lib/components/GlobeAnimation.svelte';
+
+	const experienceHighlights = [
+		{
+			eyebrow: 'Structured speech',
+			title: 'Flairs make politics legible',
+			copy: 'Policies and matters stop dissolving into generic posting and become comparable civic objects.'
+		},
+		{
+			eyebrow: 'Guided positioning',
+			title: 'RAQ gives disagreement a shape',
+			copy: 'Users can locate themselves, refine their stance, and contribute structured political context.'
+		},
+		{
+			eyebrow: 'Protected participation',
+			title: 'Trust is a product surface',
+			copy: 'Anonymity, validation, and moderation are treated like infrastructure, not an afterthought.'
+		}
+	] as const;
 </script>
 
 <svelte:head>
-	<title>PARA Docs</title>
+	<title>PARA | Civic Product and Docs</title>
 	<meta
 		name="description"
-		content="PARA explains its political thesis through democratic friction, policy flairs, RAQ, voting, agents, anonymity, and the technical layer beneath the product."
+		content="PARA is a civic social network for plural political identity, policy votes, RAQ flows, collective agents, and protected participation."
 	/>
 </svelte:head>
 
-<div class="landing-shell">
+<div class="site-home">
 	<section class="hero">
 		<div class="container hero-grid">
 			<div class="hero-copy">
-				<div class="eyebrow hero-eyebrow">PARA • political social network</div>
-				<p class="hero-tagline">The anonymous political arena.</p>
-				<p class="section-copy hero-text">
-					PARA is the political social network built for communities, policy votes, RAQ flows, civic
-					agents, and protected participation on top of the AT Protocol.
+				<div class="eyebrow">PARA • civic social network</div>
+				<h1 class="hero-title">
+					A political network for people who refuse the party package deal.
+				</h1>
+				<p class="hero-lede">
+					PARA turns plural identity, policy votes, RAQ flows, collective agents, and protected
+					participation into a civic product people can actually use.
 				</p>
-				<div class="hero-cta-row">
-					<a class="button button-primary docs-cta-button hero-button" href={resolve(docsBase)}
-						>Browse docs</a
-					>
+				<div class="hero-actions">
+					<a class="button button-primary" href={resolve(docsBase)}>Browse docs</a>
+					<a class="button button-secondary" href={resolve('/try-app')}>Try the app</a>
 				</div>
-				<div class="hero-metric-row">
+				<p class="hero-note">
+					Read it product-first or protocol-first. The public site now ties the thesis, the visible
+					app surface, and the schema reference into one path.
+				</p>
+				<div class="metric-grid">
 					{#each landingHeroMetrics as metric (metric.label)}
-						<div class="hero-metric">
-							<p class="hero-metric-value">{metric.value}</p>
-							<p class="hero-metric-label">{metric.label}</p>
-						</div>
+						<article class="metric-card">
+							<p class="metric-value">{metric.value}</p>
+							<p class="metric-label">{metric.label}</p>
+						</article>
 					{/each}
 				</div>
 			</div>
 
-			<div class="hero-panel">
-				<div class="hero-glow hero-glow-top"></div>
-				<div class="hero-glow hero-glow-bottom"></div>
-				<div class="hero-orb hero-orb-right"></div>
-				<div class="hero-orb hero-orb-left"></div>
-				<div class="globe-container">
-					<GlobeAnimation lines={35} textureScale={0.86} />
+			<div class="hero-stage">
+				<div class="stage-panel stage-globe-panel">
+					<div class="stage-pill-row">
+						<span>#POLICY||</span>
+						<span>RAQ</span>
+						<span>Agents</span>
+						<span>Anonymity</span>
+					</div>
+					<div class="globe-wrap">
+						<GlobeAnimation lines={35} textureScale={0.86} />
+					</div>
+				</div>
+				<div class="stage-stack">
+					{#each experienceHighlights as highlight (highlight.title)}
+						<article class="stage-panel stage-note">
+							<p class="stage-note-eyebrow">{highlight.eyebrow}</p>
+							<h2>{highlight.title}</h2>
+							<p>{highlight.copy}</p>
+						</article>
+					{/each}
 				</div>
 			</div>
 		</div>
 
-		<div class="container hero-action-shell">
-			<div class="hero-action-grid">
-				{#each landingHeroActions as action (action.title)}
-					<a class="hero-action-card" href={resolve(action.href)}>
-						<p class="hero-action-eyebrow">{action.eyebrow}</p>
-						<h2>{action.title}</h2>
-						<p>{action.copy}</p>
-						<span class="hero-action-link">Learn more →</span>
-					</a>
-				{/each}
-			</div>
+		<div class="container quick-link-grid">
+			{#each landingHeroActions as action (action.title)}
+				<a class="quick-link-card" href={resolve(action.href)}>
+					<p class="quick-link-eyebrow">{action.eyebrow}</p>
+					<h2>{action.title}</h2>
+					<p>{action.copy}</p>
+					<span class="quick-link-cta">Open path</span>
+				</a>
+			{/each}
 		</div>
 	</section>
 
-	<section class="feature-map" id="features">
-		<div class="container section-stack">
-			<div class="feature-map-header">
-				<div>
-					<div class="eyebrow">Feature map</div>
-					<h2 class="section-title">Six ideas that make PARA distinct.</h2>
-				</div>
-				<p class="section-copy feature-map-copy">
-					Each card names the surface, the friction it reduces, and the next place to read when you
-					want more detail.
-				</p>
-			</div>
-			<div class="feature-grid">
-				{#each landingFeatures as feature (feature.title)}
-					<article class="card feature-card">
-						<div class="feature-card-top">
-							<p class="feature-eyebrow">{feature.eyebrow}</p>
-							<h3>{feature.title}</h3>
-						</div>
-						<div class="feature-problem">
-							<span class="feature-problem-label">Reduces</span>
-							<p>{feature.problem}</p>
-						</div>
-						<p class="feature-summary">{feature.copy}</p>
-						<ul class="feature-points">
-							{#each feature.points as point (point)}
-								<li>{point}</li>
-							{/each}
-						</ul>
-						<a class="feature-link" href={resolve(feature.href)}>{feature.cta}</a>
-					</article>
-				{/each}
-			</div>
-		</div>
-	</section>
-
-	<section class="thesis" id="product">
-		<div class="container section-stack">
-			<div class="eyebrow">Product focus</div>
-			<h2 class="section-title">
-				PARA is not a generic clone. The civic primitives and the democratic argument should be
-				visible immediately.
-			</h2>
-			<p class="section-copy">
-				The source app already includes routes for communities, RAQ flows, representatives,
-				cabildeos, policy dashboards, messages, moderation, and verification settings. The site
-				should explain that shape directly instead of falling back to abstract social-backend copy
-				or generic startup language.
-			</p>
-			<div class="card-grid pillar-grid">
-				{#each landingPillars as pillar (pillar.title)}
-					<article class="card pillar-card">
-						<h3>{pillar.title}</h3>
-						<p>{pillar.copy}</p>
-					</article>
-				{/each}
-			</div>
-		</div>
-	</section>
-
-	<section class="architecture">
-		<div class="container architecture-grid">
-			<div class="architecture-copy">
-				<div class="eyebrow">Backend framing</div>
+	<section class="story-section">
+		<div class="container story-intro">
+			<div class="section-copy-block">
+				<div class="eyebrow">Why PARA exists</div>
 				<h2 class="section-title">
-					watx gives PARA a contract language that the site can actually explain.
+					The website should explain the democratic problem before it asks people to learn the
+					stack.
 				</h2>
 				<p class="section-copy">
-					Developers should be able to read this site in two directions: product-first if they are
-					learning what PARA does, or protocol-first if they want the records, services, and
-					lexicons. The information architecture should support both without switching mental
-					models.
+					PARA starts from democratic frustration in Mexico, but the product argument is broader:
+					people need a civic layer where disagreement, political identity, and policy preference
+					are more expressive than party labels and more actionable than generic feeds.
 				</p>
 			</div>
+
+			<aside class="story-card">
+				<p class="story-card-eyebrow">What the homepage covers</p>
+				<ul class="story-checklist">
+					{#each surfaceChecklist as item (item)}
+						<li>{item}</li>
+					{/each}
+				</ul>
+			</aside>
+		</div>
+
+		<div class="container pillar-grid">
+			{#each landingPillars as pillar (pillar.title)}
+				<article class="home-card pillar-card">
+					<h3>{pillar.title}</h3>
+					<p>{pillar.copy}</p>
+				</article>
+			{/each}
+		</div>
+	</section>
+
+	<section class="feature-section" id="features">
+		<div class="container feature-section-head">
+			<div class="section-copy-block">
+				<div class="eyebrow">Product map</div>
+				<h2 class="section-title">The civic mechanics are visible now, not buried behind docs.</h2>
+				<p class="section-copy">
+					Each feature card ties a user-facing behavior to the friction it reduces, so the site
+					feels closer to the actual product and less like a generic social platform pitch.
+				</p>
+			</div>
+
+			<aside class="home-card promise-card">
+				<p class="story-card-eyebrow">For builders</p>
+				<ul class="promise-list">
+					{#each developerPromises as promise (promise)}
+						<li>{promise}</li>
+					{/each}
+				</ul>
+			</aside>
+		</div>
+
+		<div class="container feature-grid">
+			{#each landingFeatures as feature (feature.title)}
+				<article class="home-card feature-card">
+					<p class="feature-eyebrow">{feature.eyebrow}</p>
+					<h3>{feature.title}</h3>
+					<div class="feature-problem">
+						<span>Reduces</span>
+						<p>{feature.problem}</p>
+					</div>
+					<p class="feature-copy">{feature.copy}</p>
+					<ul class="feature-points">
+						{#each feature.points as point (point)}
+							<li>{point}</li>
+						{/each}
+					</ul>
+					<a class="feature-link" href={resolve(feature.href)}>{feature.cta}</a>
+				</article>
+			{/each}
+		</div>
+	</section>
+
+	<section class="architecture-section">
+		<div class="container architecture-grid">
+			<div class="section-copy-block architecture-copy">
+				<div class="eyebrow">From product to protocol</div>
+				<h2 class="section-title">
+					The site now reads like one system instead of a landing page taped onto a reference
+					browser.
+				</h2>
+				<p class="section-copy">
+					PARA should make sense in both directions. Someone learning the product should find the
+					thesis, surfaces, and trust model fast. Someone evaluating the stack should be able to
+					jump straight into contracts, services, and schema docs without losing the product
+					context.
+				</p>
+				<a
+					class="button button-secondary architecture-button"
+					href={resolve(`${docsBase}/schemas`)}
+				>
+					Browse schema reference
+				</a>
+			</div>
+
 			<div class="architecture-stack">
 				{#each architectureLayers as layer (layer.title)}
-					<article class="card architecture-card">
-						<p class="diagram-title">{layer.eyebrow}</p>
+					<article class="home-card architecture-card">
+						<p class="architecture-eyebrow">{layer.eyebrow}</p>
 						<h3>{layer.title}</h3>
-						<p class="diagram-note">{layer.copy}</p>
+						<p>{layer.copy}</p>
 					</article>
 				{/each}
 			</div>
 		</div>
+
+		<div class="container architecture-notes">
+			{#each architectureNotes as note (note)}
+				<article class="home-card note-card">
+					<p>{note}</p>
+				</article>
+			{/each}
+		</div>
 	</section>
 
+	<section class="repo-section">
+		<div class="container repo-section-head">
+			<div class="section-copy-block">
+				<div class="eyebrow">Open work</div>
+				<h2 class="section-title">The website now points clearly to the real work behind it.</h2>
+				<p class="section-copy">
+					Product framing, code, and backend contracts all stay visible from the homepage, so people
+					can move from narrative to implementation without hitting a dead end.
+				</p>
+			</div>
+		</div>
+
+		<div class="container repo-grid">
+			{#each openSourceRepos as repo (repo.href)}
+				<a class="home-card repo-card" href={repo.href} rel="noreferrer" target="_blank">
+					<p class="repo-label">{repo.label}</p>
+					<h3>{repo.copy}</h3>
+					<span class="repo-link">View repository</span>
+				</a>
+			{/each}
+		</div>
+
+		<div class="container final-cta">
+			<div>
+				<div class="eyebrow">Next step</div>
+				<h2 class="section-title">
+					Start with the docs, then move straight into trust, product, or app access.
+				</h2>
+			</div>
+			<div class="final-cta-actions">
+				<a class="button button-primary" href={resolve(docsBase)}>Read the docs</a>
+				<a class="button button-secondary" href={resolve('/about')}>Read the thesis</a>
+			</div>
+		</div>
+	</section>
 </div>
 
 <style>
-	.hero {
-		padding: 3rem 0 3.75rem;
+	.site-home {
+		padding-bottom: 4.5rem;
+	}
+
+	.container {
+		width: min(var(--ps-max-width-docs), calc(100% - 2rem));
+		margin: 0 auto;
+	}
+
+	.hero,
+	.story-section,
+	.feature-section,
+	.architecture-section,
+	.repo-section {
+		padding-top: 2.5rem;
 	}
 
 	.hero-grid,
-	.architecture-grid {
+	.story-intro,
+	.feature-section-head,
+	.architecture-grid,
+	.final-cta {
 		display: grid;
 		grid-template-columns: repeat(12, minmax(0, 1fr));
-		gap: 1.5rem;
-		align-items: stretch;
+		gap: 1.25rem;
 	}
 
 	.hero-copy,
+	.section-copy-block,
 	.architecture-copy {
-		grid-column: span 4;
-		padding: 4.6rem 0 2.75rem;
+		display: grid;
+		align-content: start;
+		gap: 1rem;
 	}
 
 	.hero-copy {
+		grid-column: span 5;
+		padding: 2.25rem 0 0.5rem;
+	}
+
+	.hero-stage {
+		grid-column: span 7;
 		display: grid;
-		gap: 1.1rem;
-		max-width: 24rem;
-		position: relative;
-		z-index: 1;
+		grid-template-columns: minmax(0, 1.3fr) minmax(15rem, 0.85fr);
+		gap: 1rem;
+		align-items: stretch;
 	}
 
 	.eyebrow {
+		width: fit-content;
 		font-family: var(--ps-font-mono);
 		font-weight: 700;
-		letter-spacing: 0.1em;
+		letter-spacing: 0.08em;
 	}
 
-	.hero-eyebrow {
-		align-self: start;
-		width: fit-content;
-	}
-
-	.hero-tagline {
-		margin: -0.1rem 0 0;
-		font-family: var(--ps-font-mono);
-		font-size: clamp(1.35rem, 2.5vw, 2rem);
-		line-height: 1.1;
-		color: #a79cd1;
-	}
-
-	.hero-text {
-		max-width: 20rem;
-		font-size: 1rem;
-		line-height: 1.8;
-	}
-
-	.hero-cta-row {
-		padding-top: 0.3rem;
-	}
-
-	.hero-button {
-		min-width: 11rem;
-	}
-
-	:global(.docs-cta-button) {
-		border: 1px solid rgba(164, 162, 177, 0.22);
-		background:
-			linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01)),
-			#474652;
-		color: #f6f4fa;
-		box-shadow:
-			0 16px 34px rgba(12, 10, 18, 0.34),
-			inset 0 1px 0 rgba(255, 255, 255, 0.08);
-	}
-
-	:global(.docs-cta-button:hover) {
-		background:
-			linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
-			#474652;
-		box-shadow:
-			0 20px 40px rgba(12, 10, 18, 0.4),
-			inset 0 1px 0 rgba(255, 255, 255, 0.1);
-	}
-
-	.hero-metric-row {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.9rem;
-		padding-top: 1rem;
-	}
-
-	.hero-metric {
-		min-width: 7.4rem;
-		padding-right: 1rem;
-		border-right: 1px solid rgba(255, 255, 255, 0.12);
-	}
-
-	.hero-metric:last-child {
-		border-right: 0;
-		padding-right: 0;
-	}
-
-	.hero-metric-value {
+	.hero-title,
+	.section-title,
+	.quick-link-card h2,
+	.feature-card h3,
+	.pillar-card h3,
+	.architecture-card h3,
+	.repo-card h3,
+	.stage-note h2 {
 		margin: 0;
 		font-family: var(--ps-font-display);
-		font-size: clamp(1.8rem, 3.2vw, 2.3rem);
-		line-height: 0.95;
 		letter-spacing: -0.04em;
-		color: #ffffff;
+		color: #f8fbff;
 	}
 
-	.hero-metric-label {
-		margin: 0.28rem 0 0;
-		font-family: var(--ps-font-mono);
-		font-size: 0.76rem;
-		letter-spacing: 0.04em;
-		text-transform: uppercase;
-		color: #aba4ba;
+	.hero-title {
+		font-size: clamp(3.1rem, 6vw, 6rem);
+		line-height: 0.94;
+		max-width: 11ch;
 	}
 
-	.hero-action-shell {
-		margin-top: 1rem;
+	.hero-lede,
+	.section-copy,
+	.quick-link-card p,
+	.metric-label,
+	.feature-copy,
+	.feature-points li,
+	.pillar-card p,
+	.architecture-card p,
+	.note-card p,
+	.repo-card .repo-link,
+	.stage-note p,
+	.story-checklist li,
+	.promise-list li,
+	.hero-note {
+		margin: 0;
+		color: #b8c6d8;
+		line-height: 1.72;
 	}
 
-	.hero-action-grid {
+	.hero-lede {
+		max-width: 36rem;
+		font-size: 1.14rem;
+	}
+
+	.hero-actions,
+	.final-cta-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.85rem;
+	}
+
+	.button-primary {
+		background: linear-gradient(135deg, #f1eee6, #ffbd70);
+		color: #142033;
+		box-shadow: 0 20px 40px rgba(255, 182, 93, 0.18);
+	}
+
+	.button-secondary {
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(255, 255, 255, 0.04);
+		color: #eef5ff;
+	}
+
+	.hero-note {
+		max-width: 38rem;
+		font-size: 0.97rem;
+	}
+
+	.metric-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 0.9rem;
+		padding-top: 0.5rem;
 	}
 
-	.hero-action-card {
-		display: grid;
-		gap: 0.7rem;
-		padding: 1.35rem 1.3rem 1.25rem;
-		border: 1px solid rgba(255, 255, 255, 0.11);
-		border-radius: 1.1rem;
+	.metric-card,
+	.home-card,
+	.quick-link-card,
+	.stage-panel {
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 1.5rem;
 		background:
-			radial-gradient(circle at top left, rgba(130, 170, 255, 0.1), transparent 42%),
-			linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02)),
-			rgba(255, 255, 255, 0.02);
+			linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+			rgba(8, 16, 28, 0.62);
 		box-shadow:
-			inset 0 1px 0 rgba(255, 255, 255, 0.08),
-			0 16px 36px rgba(0, 0, 0, 0.18);
-		transition:
-			border-color 0.18s ease,
-			transform 0.18s ease,
-			background 0.18s ease;
+			inset 0 1px 0 rgba(255, 255, 255, 0.05),
+			0 20px 60px rgba(0, 0, 0, 0.18);
+		backdrop-filter: blur(18px);
 	}
 
-	.hero-action-card:hover {
-		transform: translateY(-2px);
-		border-color: rgba(169, 199, 255, 0.24);
+	.metric-card {
+		padding: 1rem 1.05rem;
 	}
 
-	.hero-action-eyebrow {
-		margin: 0;
-		font-family: var(--ps-font-mono);
-		font-size: 0.75rem;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: #8ea7d5;
-	}
-
-	.hero-action-card h2 {
+	.metric-value {
 		margin: 0;
 		font-family: var(--ps-font-display);
-		font-size: 2rem;
-		letter-spacing: -0.03em;
-		line-height: 0.96;
-		color: #ffffff;
+		font-size: clamp(1.7rem, 3.2vw, 2.35rem);
+		line-height: 0.94;
+		letter-spacing: -0.04em;
+		color: #f8fbff;
 	}
 
-	.hero-action-card p {
-		margin: 0;
-		font-size: 0.94rem;
-		line-height: 1.72;
-		color: #c9c3d4;
-	}
-
-	.hero-action-link {
-		padding-top: 0.15rem;
+	.metric-label {
+		padding-top: 0.35rem;
 		font-family: var(--ps-font-mono);
-		font-size: 0.82rem;
-		font-weight: 700;
-		letter-spacing: 0.04em;
+		font-size: 0.75rem;
 		text-transform: uppercase;
-		color: #ffffff;
+		letter-spacing: 0.08em;
 	}
 
-	.hero-panel {
+	.stage-globe-panel {
 		position: relative;
-		grid-column: span 8;
-		min-height: 560px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: visible;
+		overflow: hidden;
+		padding: 1rem;
+		min-height: 36rem;
 		background:
-			radial-gradient(circle at top, rgba(130, 170, 255, 0.16) 0%, transparent 34%),
-			radial-gradient(circle at center, rgba(72, 38, 127, 0.14) 0%, transparent 70%);
+			radial-gradient(circle at top, rgba(103, 194, 255, 0.2), transparent 30%),
+			radial-gradient(circle at bottom left, rgba(255, 182, 93, 0.16), transparent 26%),
+			linear-gradient(180deg, rgba(12, 23, 40, 0.9), rgba(8, 16, 28, 0.86));
 	}
 
-	.hero-orb {
-		position: absolute;
-		border-radius: 999px;
-		border: 1px solid rgba(255, 255, 255, 0.18);
-		background: rgba(255, 255, 255, 0.05);
-		backdrop-filter: blur(10px);
-		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
-		z-index: 2;
-	}
-
-	.hero-orb-right {
-		top: 8rem;
-		right: 4rem;
-		width: 5rem;
-		height: 5rem;
-	}
-
-	.hero-orb-left {
-		left: 1.2rem;
-		bottom: 9.5rem;
-		width: 2.55rem;
-		height: 2.55rem;
-	}
-
-	.hero-glow {
-		position: absolute;
-		border-radius: 999px;
-		filter: blur(28px);
-		opacity: 0.55;
-		pointer-events: none;
-	}
-
-	.hero-glow-top {
-		top: 3rem;
-		right: 2.8rem;
-		width: 8rem;
-		height: 8rem;
-		background: rgba(112, 160, 255, 0.22);
-	}
-
-	.hero-glow-bottom {
-		left: 2rem;
-		bottom: 3.4rem;
-		width: 7rem;
-		height: 7rem;
-		background: rgba(123, 92, 255, 0.18);
-	}
-
-	.globe-container {
-		--ps-globe-color: #474652;
+	.stage-pill-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
 		position: relative;
 		z-index: 1;
-		width: 100%;
-		height: 100%;
+	}
+
+	.stage-pill-row span {
+		padding: 0.45rem 0.75rem;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.08);
+		font-family: var(--ps-font-mono);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #dfe8f5;
+	}
+
+	.globe-wrap {
+		--ps-globe-color: #67c2ff;
+		position: absolute;
+		inset: 4rem 0 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transform: scale(1.2);
-		filter: drop-shadow(0 0 72px rgba(72, 38, 127, 0.34));
+		filter: drop-shadow(0 0 70px rgba(103, 194, 255, 0.2));
 	}
 
 	:global(.globe-ascii) {
-		color: #ffffff;
+		color: #f2f7ff;
 		font-family: var(--ps-font-mono);
 		font-weight: 900;
-		line-height: 1.1;
+		line-height: 1.08;
+		text-shadow: 0 0 18px rgba(103, 194, 255, 0.18);
 	}
 
-	.feature-map {
-		padding: 0.5rem 0 4rem;
-	}
-
-	.feature-map-header {
+	.stage-stack {
 		display: grid;
-		grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
-		gap: 1.5rem;
-		align-items: end;
+		gap: 1rem;
 	}
 
-	.feature-map-copy {
-		max-width: 28rem;
+	.stage-note {
+		padding: 1.1rem 1.15rem;
+		align-content: start;
+	}
+
+	.stage-note-eyebrow,
+	.quick-link-eyebrow,
+	.feature-eyebrow,
+	.story-card-eyebrow,
+	.architecture-eyebrow,
+	.repo-label {
 		margin: 0;
+		font-family: var(--ps-font-mono);
+		font-size: 0.74rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: #88d7cb;
+	}
+
+	.stage-note h2 {
+		font-size: 1.45rem;
+		line-height: 0.98;
+		padding: 0.1rem 0 0.35rem;
+	}
+
+	.quick-link-grid,
+	.pillar-grid,
+	.feature-grid,
+	.architecture-notes,
+	.repo-grid {
+		display: grid;
+		gap: 1rem;
+		margin-top: 1.25rem;
+	}
+
+	.quick-link-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.quick-link-card,
+	.repo-card {
+		display: grid;
+		gap: 0.7rem;
+		padding: 1.25rem;
+		transition:
+			transform 0.18s ease,
+			border-color 0.18s ease;
+	}
+
+	.quick-link-card:hover,
+	.repo-card:hover,
+	.feature-card:hover {
+		transform: translateY(-2px);
+		border-color: rgba(255, 255, 255, 0.18);
+	}
+
+	.quick-link-card h2,
+	.repo-card h3 {
+		font-size: 1.75rem;
+		line-height: 0.98;
+	}
+
+	.quick-link-cta,
+	.feature-link,
+	.repo-link {
+		font-weight: 700;
+		color: #f6fbff;
+	}
+
+	.story-intro {
+		align-items: start;
+	}
+
+	.section-copy-block {
+		grid-column: span 7;
+	}
+
+	.story-card,
+	.promise-card {
+		grid-column: span 5;
+		padding: 1.3rem;
+	}
+
+	.story-checklist,
+	.promise-list,
+	.feature-points {
+		display: grid;
+		gap: 0.7rem;
+		margin: 0;
+		padding-left: 1rem;
+	}
+
+	.pillar-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.home-card {
+		padding: 1.35rem;
+	}
+
+	.pillar-card h3,
+	.architecture-card h3,
+	.feature-card h3 {
+		font-size: 1.6rem;
+		line-height: 0.98;
+	}
+
+	.pillar-card p {
+		padding-top: 0.5rem;
+	}
+
+	.feature-section-head {
+		align-items: start;
 	}
 
 	.feature-grid {
-		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 1.1rem;
-		margin-top: 1.35rem;
 	}
 
 	.feature-card {
 		display: grid;
-		gap: 1rem;
 		align-content: start;
-		padding: 1.35rem;
-	}
-
-	.feature-card-top {
-		display: grid;
-		gap: 0.55rem;
-	}
-
-	.feature-eyebrow {
-		margin: 0;
-		font-size: 0.78rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--para-accent-text);
-	}
-
-	.feature-card h3 {
-		margin: 0;
-		font-family: var(--ps-font-display);
-		font-size: 1.35rem;
-		letter-spacing: -0.03em;
-		line-height: 1;
+		gap: 0.95rem;
+		transition:
+			transform 0.18s ease,
+			border-color 0.18s ease;
 	}
 
 	.feature-problem {
 		display: grid;
 		gap: 0.3rem;
 		padding: 0.9rem 0.95rem;
-		border: 1px solid rgba(255, 255, 255, 0.08);
 		border-radius: 1rem;
-		background:
-			linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
-			rgba(255, 255, 255, 0.02);
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.08);
 	}
 
-	.feature-problem-label {
+	.feature-problem span {
 		font-family: var(--ps-font-mono);
 		font-size: 0.72rem;
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
-		color: #8ea7d5;
+		color: #67c2ff;
 	}
 
 	.feature-problem p {
 		margin: 0;
-		color: #f1eef8;
-		line-height: 1.55;
+		color: #eef5ff;
+		line-height: 1.58;
 	}
 
-	.feature-summary {
-		margin: 0;
-		color: #d5cfdf;
-		line-height: 1.72;
-	}
-
-	.feature-card li {
-		margin: 0;
-		color: #cfc9d9;
-		line-height: 1.65;
-	}
-
-	.feature-points {
-		display: grid;
-		gap: 0.55rem;
-		margin: 0;
-		padding-left: 1rem;
-	}
-
-	.feature-link {
-		display: inline-flex;
-		align-items: center;
-		font-weight: 700;
-		color: #ffffff;
-	}
-
-	.feature-link:hover {
-		color: var(--para-accent-text);
-	}
-
-	.diagram-title {
-		margin: 0 0 1rem;
-		font-size: 0.82rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: #a1a1aa;
-	}
-
-	.section-stack {
-		padding: 2rem 0 4rem;
-		display: grid;
-		gap: 1rem;
-	}
-
-	.pillar-grid {
-		margin-top: 1rem;
-	}
-
-	.pillar-card {
-		grid-column: span 4;
-	}
-
-	.pillar-card h3,
-	.architecture-card h3 {
-		margin: 0 0 0.8rem;
-		font-family: var(--ps-font-display);
-		font-size: 1.8rem;
-		letter-spacing: -0.03em;
-	}
-
-	.pillar-card p,
-	.diagram-note {
-		margin: 0;
-		color: #a1a1aa;
-		line-height: 1.7;
-	}
-
-	.architecture {
-		padding: 1rem 0 4rem;
+	.architecture-copy {
+		grid-column: span 5;
 	}
 
 	.architecture-stack {
-		grid-column: span 5;
+		grid-column: span 7;
 		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 1rem;
-		align-content: start;
-		padding-top: 2.4rem;
 	}
 
-	.architecture-card {
+	.architecture-button {
+		width: fit-content;
+		margin-top: 0.3rem;
+	}
+
+	.architecture-notes,
+	.repo-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.note-card p {
+		color: #d8e2f1;
+	}
+
+	.repo-card {
+		min-height: 14rem;
+		align-content: start;
+	}
+
+	.repo-label {
+		color: #ffbd70;
+	}
+
+	.repo-link {
+		padding-top: 0.35rem;
+	}
+
+	.final-cta {
+		margin-top: 1.25rem;
+		padding: 1.5rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 1.75rem;
+		background:
+			radial-gradient(circle at left top, rgba(255, 182, 93, 0.14), transparent 24%),
+			radial-gradient(circle at right bottom, rgba(103, 194, 255, 0.12), transparent 26%),
+			rgba(9, 16, 28, 0.72);
+		align-items: center;
+	}
+
+	.final-cta > :first-child {
+		grid-column: span 8;
 		display: grid;
-		align-content: start;
-		gap: 0.25rem;
+		gap: 0.8rem;
 	}
 
-	@media (max-width: 960px) {
+	.final-cta-actions {
+		grid-column: span 4;
+		justify-content: flex-end;
+	}
+
+	@media (max-width: 1100px) {
 		.hero-grid,
+		.story-intro,
+		.feature-section-head,
 		.architecture-grid,
-		.hero-action-grid,
+		.final-cta,
+		.quick-link-grid,
+		.pillar-grid,
 		.feature-grid,
-		.feature-map-header {
+		.architecture-notes,
+		.repo-grid {
 			grid-template-columns: 1fr;
 		}
 
 		.hero-copy,
-		.hero-panel,
+		.hero-stage,
+		.section-copy-block,
+		.story-card,
+		.promise-card,
 		.architecture-copy,
 		.architecture-stack,
-		.pillar-card {
+		.final-cta > :first-child,
+		.final-cta-actions {
 			grid-column: 1 / -1;
 		}
 
-		.hero-copy,
-		.architecture-copy {
-			padding: 2.5rem 0 1rem;
+		.hero-stage {
+			grid-template-columns: 1fr;
 		}
 
-		.hero-panel {
-			min-height: 430px;
+		.architecture-stack {
+			grid-template-columns: 1fr;
 		}
 
-		.hero-metric {
-			border-right: 0;
-			padding-right: 0;
+		.final-cta-actions {
+			justify-content: flex-start;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.container {
+			width: min(var(--ps-max-width-docs), calc(100% - 1.25rem));
+		}
+
+		.site-home {
+			padding-bottom: 3rem;
+		}
+
+		.hero-title {
+			font-size: clamp(2.65rem, 13vw, 4rem);
+		}
+
+		.metric-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.stage-globe-panel {
+			min-height: 28rem;
+		}
+
+		.globe-wrap {
+			inset: 4.5rem -1rem 0;
 		}
 	}
 </style>
