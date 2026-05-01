@@ -7,3 +7,16 @@ build
 coverage
 vite.config.timestamp-*.mjs
 .wrangler/
+
+# Local Cloudflare/Wrangler state
+.wrangler/
+
+# Dependencies/build output
+node_modules/
+.svelte-kit/
+.vercel/
+dist/
+build/
+.DS_Store
+.env
+.env.local
