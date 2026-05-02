@@ -1,15 +1,3 @@
-:global(:root) {
-	--para-primary-200: rgba(72, 38, 127, 0.35);
-	--para-primary-300: rgba(72, 38, 127, 0.5);
-	--para-primary-400: rgba(72, 38, 127, 0.7);
-	--para-primary-500: #474652;
-	--para-primary-600: #48267f;
-	--para-primary-700: #2e2033;
-	--para-primary-800: #281d33;
-	--para-accent-text: #c8b6ef;
-	--para-accent-soft: #9d85d1;
-}
-
 .docs-shell {
 	min-height: 100vh;
 }

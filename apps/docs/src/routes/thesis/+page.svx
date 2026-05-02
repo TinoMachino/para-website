@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { resolve } from '$app/paths';
+</script>
+
 <svelte:head>
 	<title>About • PARA</title>
 	<meta
@@ -263,15 +267,15 @@
 		</div>
 
 		<div class="docs-link-grid">
-			<a class="docs-link-card" href="/docs/product">
+			<a class="docs-link-card" href={resolve('/docs/product')}>
 				<strong>Product</strong>
 				<span>See the concrete product surfaces, flows, and participation mechanics.</span>
 			</a>
-			<a class="docs-link-card" href="/trust-and-safety">
+			<a class="docs-link-card" href={resolve('/trust-and-safety')}>
 				<strong>Trust and safety</strong>
 				<span>Read how anonymity, moderation, verification, and control work in practice.</span>
 			</a>
-			<a class="docs-link-card" href="/docs/schemas">
+			<a class="docs-link-card" href={resolve('/docs/schemas')}>
 				<strong>Schema reference</strong>
 				<span>Browse the schema reference and the technical notes behind the product.</span>
 			</a>

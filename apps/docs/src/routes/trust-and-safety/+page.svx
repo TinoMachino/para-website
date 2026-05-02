@@ -222,7 +222,7 @@
 		</div>
 
 		<div class="docs-link-grid">
-			<a class="docs-link-card" href="/about">
+			<a class="docs-link-card" href="/thesis">
 				<strong>About</strong>
 				<span>Return to the broader political thesis and democratic-friction argument.</span>
 			</a>

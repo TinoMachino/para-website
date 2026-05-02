@@ -14,7 +14,7 @@
 	product reader is not the same as the shortest useful path for an engineer or contributor.
 
 	<div class="docs-link-grid">
-		<a class="docs-link-card" href="/about">
+		<a class="docs-link-card" href="/thesis">
 			<strong>Product reader</strong>
 			<span>Start with the thesis, then jump into how the civic flows work in the app.</span>
 		</a>
@@ -39,7 +39,7 @@
 	<p class="docs-section-kicker">Path 1</p>
 	<h2>If you want to understand the product</h2>
 	<ol>
-		<li>Read [About](/about) for the political thesis.</li>
+		<li>Read [Thesis](/thesis) for the political thesis.</li>
 		<li>Read [How it works](/docs/how-it-works) for the civic surfaces and route families.</li>
 		<li>Use [Product](/docs/product) to see the visual language.</li>
 		<li>Use [Trust and safety](/trust-and-safety) when identity, privacy, or moderation matter.</li>

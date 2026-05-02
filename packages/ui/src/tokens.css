@@ -1,4 +1,5 @@
 :root {
+  /* PARA light-theme tokens (default) */
   --ps-color-ink: #10243f;
   --ps-color-ink-soft: #365174;
   --ps-color-surface: #f7f3ec;
@@ -28,6 +29,17 @@
   --ps-space-6: 3rem;
   --ps-space-7: 4.5rem;
   --ps-space-8: 6rem;
+
+  /* PARA dark-theme civic tokens (docs / app pages) */
+  --para-primary-200: rgba(72, 38, 127, 0.35);
+  --para-primary-300: rgba(72, 38, 127, 0.5);
+  --para-primary-400: rgba(72, 38, 127, 0.7);
+  --para-primary-500: #474652;
+  --para-primary-600: #48267f;
+  --para-primary-700: #2e2033;
+  --para-primary-800: #281d33;
+  --para-accent-text: #c8b6ef;
+  --para-accent-soft: #9d85d1;
 }
 
 *,

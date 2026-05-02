@@ -1,5 +1,5 @@
 export const docsBase = '/docs';
-export const aboutBase = '/about';
+export const aboutBase = '/thesis';
 
 export const openSourceRepos = [
 	{
@@ -9,7 +9,7 @@ export const openSourceRepos = [
 	},
 	{
 		label: 'App',
-		href: 'https://github.com/TinoMachino/para-app',
+		href: 'https://github.com/TinoMachino/final',
 		copy: 'Public PARA client workspace'
 	},
 	{

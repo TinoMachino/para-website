@@ -6,7 +6,7 @@ const config = {
 		adapter: adapter(),
 		prerender: {
 			handleHttpError: ({ path, message }) => {
-				if (path.startsWith('/docs')) {
+				if (path.startsWith('/docs') || path === '/try-app' || path === '/trust-and-safety') {
 					return;
 				}
 

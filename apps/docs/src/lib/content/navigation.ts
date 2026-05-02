@@ -38,7 +38,7 @@ export const flowNav = [
 ] satisfies Array<{ href: FlowHref; label: string }>;
 
 export const readerNav = [
-	{ href: '/about', label: 'Thesis' },
+	{ href: '/thesis', label: 'Thesis' },
 	{ href: '/trust-and-safety', label: 'Trust and safety' },
 	{ href: '/try-app', label: 'Try app' }
 ] as const;

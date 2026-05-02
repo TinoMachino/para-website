@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 
-	const appRepoUrl = 'https://github.com/TinoMachino/para-app';
+	const appRepoUrl = 'https://github.com/TinoMachino/final';
 	const accessPaths = [
 		{
 			label: 'Android',
@@ -105,56 +105,6 @@
 	</section>
 
 	<section class="docs-section-card">
-		<p class="docs-section-kicker">Run from source</p>
-		<h2>Bring up the docs site and the PARA app separately.</h2>
-		<p>
-			The public site and the app client live in different workspaces, so they start separately even
-			though they describe the same product.
-		</p>
-
-		<div class="docs-meta-grid">
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">Docs site</span>
-				<div class="docs-meta-value">SvelteKit site in <code>website</code></div>
-			</div>
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">App client</span>
-				<div class="docs-meta-value">Expo web client in <code>PARA</code></div>
-			</div>
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">Backend</span>
-				<div class="docs-meta-value">PDS and AppView stack in <code>watx</code></div>
-			</div>
-		</div>
-
-		<div class="docs-split-grid">
-			<div class="docs-note-panel">
-				<h3>Docs site</h3>
-				<pre><code
-						>cd /Users/mlv/Desktop/MASTER/website
-pnpm install
-pnpm dev</code
-					></pre>
-			</div>
-			<div class="docs-note-panel">
-				<h3>PARA app client</h3>
-				<pre><code
-						>cd /Users/mlv/Desktop/MASTER/PARA
-yarn
-yarn web</code
-					></pre>
-			</div>
-		</div>
-
-		<div class="docs-callout">
-			<p>
-				<strong>Why this split exists:</strong> the website repo serves the public docs and marketing
-				site. The PARA repo is the actual app client.
-			</p>
-		</div>
-	</section>
-
-	<section class="docs-section-card">
 		<p class="docs-section-kicker">Backend path</p>
 		<h2>Bring up the backend the way the current runbooks describe it.</h2>
 		<p>
@@ -189,7 +139,7 @@ make run-dev-env</code
 	<section class="docs-section-card">
 		<p class="docs-section-kicker">Read next</p>
 		<div class="docs-link-grid">
-			<a class="docs-link-card" href={resolve('/about')}>
+			<a class="docs-link-card" href="/thesis">
 				<strong>About</strong>
 				<span>Return to the political thesis behind the app and the network model.</span>
 			</a>

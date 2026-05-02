@@ -14,7 +14,7 @@ describe('landing content contract', () => {
 		expect(docsBase).toBe('/docs');
 		expect(heroSecondaryAction).toEqual({
 			label: 'Read the Company',
-			href: '/about'
+			href: '/thesis'
 		});
 	});
 

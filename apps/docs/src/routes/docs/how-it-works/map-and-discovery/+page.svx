@@ -40,4 +40,4 @@
 
 - Read [Representatives](/docs/how-it-works/representatives)
 - Read [Communities](/docs/how-it-works/communities)
-- Read [About](/about)
+- Read [Thesis](/thesis)

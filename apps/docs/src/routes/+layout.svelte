@@ -10,10 +10,10 @@
 	let { children } = $props();
 
 	const topNav = [
-		{ href: '/about', label: 'About' },
-		{ href: '/docs/product', label: 'Product' },
+		{ href: '/thesis', label: 'Thesis' },
 		{ href: '/trust-and-safety', label: 'Trust and safety' },
 		{ href: '/docs', label: 'Docs' },
+		{ href: '/blog', label: 'Blog' },
 		{ href: '/try-app', label: 'Try app' }
 	] as const;
 
@@ -70,8 +70,9 @@
 			</div>
 			<div class="footer-links">
 				<a href={resolve('/docs')}>Docs</a>
-				<a href={resolve('/about')}>About</a>
+				<a href={resolve('/thesis')}>Thesis</a>
 				<a href={resolve('/trust-and-safety')}>Trust and safety</a>
+				<a href={resolve('/blog')}>Blog</a>
 				<a href={resolve('/try-app')}>Try app</a>
 				<a href={resolve('/docs/schemas')}>Schemas</a>
 			</div>

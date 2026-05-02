@@ -73,9 +73,6 @@
 				<div class="eyebrow">Three ideas</div>
 				<h2 class="section-title">The website only needs to make three claims clearly.</h2>
 			</div>
-			<p class="section-copy">
-				PARA is easier to understand when the homepage stops trying to say everything at once.
-			</p>
 		</div>
 
 		<div class="container principle-grid">
@@ -95,9 +92,6 @@
 				<div class="eyebrow">Start here</div>
 				<h2 class="section-title">Choose the path that matches what you need.</h2>
 			</div>
-			<p class="section-copy">
-				These are the only three entry points most readers need from the homepage.
-			</p>
 		</div>
 
 		<div class="container path-grid">
@@ -118,10 +112,6 @@
 				<div class="eyebrow">Core mechanics</div>
 				<h2 class="section-title">Four product ideas do most of the explanatory work.</h2>
 			</div>
-			<p class="section-copy">
-				Instead of a big grid of equal-weight cards, the homepage now uses a smaller set of clearer
-				product bands.
-			</p>
 		</div>
 
 		<div class="container feature-stack">
@@ -150,13 +140,10 @@
 			<div>
 				<div class="eyebrow">Next step</div>
 				<h2 class="section-title">Start with the docs, then go deeper only where you need to.</h2>
-				<p class="section-copy">
-					The site is leaner now: thesis, product routes, trust model, app access, and schemas.
-				</p>
 			</div>
 			<div class="hero-actions">
 				<a class="button button-primary" href={resolve(docsBase)}>Browse docs</a>
-				<a class="button button-secondary" href={resolve('/about')}>Read about</a>
+				<a class="button button-secondary" href={resolve('/thesis')}>Read thesis</a>
 			</div>
 		</div>
 	</section>

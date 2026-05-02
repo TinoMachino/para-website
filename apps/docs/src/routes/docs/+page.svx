@@ -14,7 +14,7 @@
 	what you actually need.
 
 	<div class="docs-link-grid">
-		<a class="docs-link-card" href="/about">
+		<a class="docs-link-card" href="/thesis">
 			<strong>Understand PARA</strong>
 			<span>Read the political thesis and the second-layer argument first.</span>
 		</a>
@@ -37,7 +37,7 @@
 		<div class="docs-split-grid">
 			<div class="docs-note-panel">
 				<h3>What is PARA?</h3>
-				<p>Read <a href="/about">About</a>, then move into <a href="/docs/product">Product</a>.</p>
+				<p>Read <a href="/thesis">Thesis</a>, then move into <a href="/docs/product">Product</a>.</p>
 			</div>
 			<div class="docs-note-panel">
 				<h3>How does the civic model work?</h3>
@@ -61,7 +61,7 @@
 		<div class="docs-meta-grid">
 			<div class="docs-meta-card">
 				<span class="docs-meta-label">Thesis</span>
-				<div class="docs-meta-value"><a href="/about">About</a> explains the democratic-friction argument and the product worldview.</div>
+				<div class="docs-meta-value"><a href="/thesis">Thesis</a> explains the democratic-friction argument and the product worldview.</div>
 			</div>
 			<div class="docs-meta-card">
 				<span class="docs-meta-label">Product</span>

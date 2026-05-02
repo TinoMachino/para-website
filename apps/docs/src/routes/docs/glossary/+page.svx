@@ -69,4 +69,4 @@
 
 - Read [How it works](/docs/how-it-works)
 - Read the [Status guide](/docs/status)
-- Read [About](/about)
+- Read [Thesis](/thesis)

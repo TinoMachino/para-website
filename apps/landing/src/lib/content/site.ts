@@ -1,5 +1,5 @@
 export const docsBase = '/docs';
-export const aboutBase = '/about';
+export const aboutBase = '/thesis';
 export const productTourHref = '/tour';
 
 export const openSourceRepos = [
@@ -10,7 +10,7 @@ export const openSourceRepos = [
 	},
 	{
 		label: 'App',
-		href: 'https://github.com/TinoMachino/para-app',
+		href: 'https://github.com/TinoMachino/final',
 		copy: 'Public PARA client workspace'
 	},
 	{
@@ -21,13 +21,13 @@ export const openSourceRepos = [
 ] as const;
 
 export const heroPrimaryAction = {
-	label: 'Take the Product Tour',
-	href: productTourHref
+	label: 'Try the app',
+	href: '/try-app'
 } as const;
 
 export const heroSecondaryAction = {
-	label: 'Read the Company',
-	href: aboutBase
+	label: 'Read the docs',
+	href: docsBase
 } as const;
 
 export const landingSignals = [
