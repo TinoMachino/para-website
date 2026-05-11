@@ -51,9 +51,11 @@
 						<span>RAQ</span>
 						<span>Trust</span>
 					</div>
-					<div class="globe-wrap">
-						<GlobeAnimation lines={36} globeScale={0.88} textureScale={0.72} />
+					<div class="globe-container">
+						<GlobeAnimation lines={38} globeScale={1} textureScale={0.72} />
 					</div>
+					<div class="glass-orb orb-1"></div>
+					<div class="glass-orb orb-2"></div>
 				</div>
 			</div>
 		</div>
@@ -178,7 +180,6 @@
 	.hero-stage {
 		grid-column: span 7;
 		display: grid;
-		grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
 		gap: 1rem;
 	}
 
@@ -300,12 +301,44 @@
 	.stage-card {
 		position: relative;
 		overflow: hidden;
-		min-height: 28rem;
+		min-height: 34rem;
 		padding: 1rem;
 		background:
 			radial-gradient(circle at top, rgba(72, 38, 127, 0.28), transparent 30%),
 			radial-gradient(circle at bottom left, rgba(71, 70, 82, 0.22), transparent 26%),
 			linear-gradient(180deg, rgba(12, 23, 40, 0.9), rgba(8, 16, 28, 0.86));
+	}
+
+	.globe-container {
+		position: relative;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.glass-orb {
+		position: absolute;
+		border-radius: 999px;
+		filter: blur(18px);
+		pointer-events: none;
+		opacity: 0.45;
+	}
+
+	.orb-1 {
+		top: 1.75rem;
+		right: 1.5rem;
+		width: 6.25rem;
+		height: 6.25rem;
+		background: rgba(99, 102, 241, 0.22);
+	}
+
+	.orb-2 {
+		bottom: 1.5rem;
+		right: 2rem;
+		width: 4.5rem;
+		height: 4.5rem;
+		background: rgba(37, 99, 235, 0.18);
 	}
 
 	.stage-topline {
