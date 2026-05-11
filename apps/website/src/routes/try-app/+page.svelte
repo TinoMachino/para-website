@@ -25,7 +25,7 @@
 		},
 		{
 			label: 'Workspace split',
-			value: 'Expo client in PARA, backend stack in watx, docs site in website.'
+			value: 'Expo client in PARA, backend stack in WhatZatppa, docs site in website.'
 		},
 		{
 			label: 'App source repo',
@@ -57,16 +57,9 @@
 			</p>
 
 			<div class="try-app-cta-row">
-				<div class="app-button app-button-primary static-cta">Find it on Android</div>
 				<a class="app-button app-button-accent" href={appRepoUrl} rel="noreferrer" target="_blank">
 					View on GitHub
 				</a>
-			</div>
-
-			<div class="hero-chip-row">
-				<span class="hero-chip">Android app-store path</span>
-				<span class="hero-chip">GitHub source</span>
-				<span class="hero-chip">Local stack commands below</span>
 			</div>
 		</div>
 
@@ -220,8 +213,7 @@ make run-dev-env</code
 		line-height: 1.84;
 	}
 
-	.try-app-cta-row,
-	.hero-chip-row {
+	.try-app-cta-row {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.85rem;
@@ -237,6 +229,7 @@ make run-dev-env</code
 		border-radius: 999px;
 		font-weight: 700;
 		line-height: 1;
+		text-decoration: none;
 		transition:
 			transform 0.18s ease,
 			background 0.18s ease,
@@ -249,35 +242,10 @@ make run-dev-env</code
 		transform: translateY(-1px);
 	}
 
-	.static-cta {
-		cursor: default;
-	}
-
-	.static-cta:hover {
-		transform: none;
-	}
-
-	.app-button-primary {
-		background: var(--para-primary-600);
-		border-color: var(--para-primary-600);
-		color: #ffffff;
-		box-shadow: 0 14px 30px rgba(72, 38, 127, 0.32);
-	}
-
 	.app-button-accent {
 		background: rgba(200, 182, 239, 0.12);
 		border-color: rgba(200, 182, 239, 0.24);
 		color: #f7f2ff;
-	}
-
-	.hero-chip {
-		padding: 0.5rem 0.78rem;
-		border-radius: 999px;
-		background: rgba(255, 255, 255, 0.05);
-		border: 1px solid rgba(255, 255, 255, 0.08);
-		color: #d8d1e5;
-		font-size: 0.84rem;
-		font-weight: 600;
 	}
 
 	.hero-panel-card {

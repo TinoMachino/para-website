@@ -1,9 +1,9 @@
 # PARA web monorepo
 
-This workspace contains two SvelteKit apps:
+One primary SvelteKit app ships the full public experience (home, product pages, and the `/docs` reference tree). A second app exists only as a slim landing mirror for previews or split deploys.
 
-- `apps/docs`: the canonical public site, with the landing page at `/` and the reference docs at `/docs`
-- `apps/landing`: a standalone landing variant kept in the workspace so branding, links, and typechecks do not drift
+- **`apps/website`** (`@parasocial/website`): canonical site — everything lives here as one app.
+- **`apps/landing`** (`@parasocial/landing`): optional standalone landing variant so branding and links can be checked without the full tree.
 
 Shared packages:
 
@@ -15,6 +15,7 @@ Shared packages:
 ```bash
 pnpm install
 pnpm dev
+pnpm dev:website
 pnpm dev:landing
 pnpm check
 pnpm lint
@@ -22,4 +23,4 @@ pnpm test
 pnpm build
 ```
 
-`pnpm dev` runs the same-origin public site in `apps/docs`. `pnpm dev:landing` runs the standalone landing variant.
+`pnpm dev` runs the full public site from `apps/website`. `pnpm dev:landing` runs the standalone landing variant.

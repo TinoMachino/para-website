@@ -1,6 +1,14 @@
 export const docsBase = '/docs';
 export const aboutBase = '/thesis';
 
+/** Replace with live operational inboxes before launch. */
+export const contactEmails = {
+	support: 'support@paramx.social',
+	legal: 'legal@paramx.social',
+	regulatory: 'regulatory@paramx.social',
+	euDsa: 'dsa@paramx.social'
+} as const;
+
 export const openSourceRepos = [
 	{
 		label: 'Website',
@@ -18,6 +26,18 @@ export const openSourceRepos = [
 		copy: 'Public WhatZatppa backend workspace'
 	}
 ] as const;
+
+export const productTourHref = '/tour';
+
+export const heroPrimaryAction = {
+	label: 'Try the app',
+	href: '/try-app'
+} as const;
+
+export const heroSecondaryAction = {
+	label: 'Read the docs',
+	href: docsBase
+} as const;
 
 export const landingHeroMetrics = [
 	{

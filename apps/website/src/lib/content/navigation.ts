@@ -40,5 +40,6 @@ export const flowNav = [
 export const readerNav = [
 	{ href: '/thesis', label: 'Thesis' },
 	{ href: '/trust-and-safety', label: 'Trust and safety' },
-	{ href: '/try-app', label: 'Try app' }
+	{ href: '/try-app', label: 'Try app' },
+	{ href: '/about/support', label: 'Support' }
 ] as const;

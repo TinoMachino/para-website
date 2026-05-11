@@ -15,7 +15,7 @@ To recreate this project with the same configuration:
 
 ```sh
 # recreate this project
-npx sv@0.12.8 create --template minimal --types ts --add eslint prettier vitest="usages:unit" mdsvex sveltekit-adapter="adapter:static" --no-install apps/docs
+npx sv@0.12.8 create --template minimal --types ts --add eslint prettier vitest="usages:unit" mdsvex sveltekit-adapter="adapter:static" --no-install apps/website
 ```
 
 ## Developing

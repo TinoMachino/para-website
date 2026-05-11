@@ -4,9 +4,47 @@ export interface BlogPost {
 	description: string;
 	date: string;
 	author?: string;
+	body?: string[];
 }
 
 export const blogPosts: BlogPost[] = [
+	{
+		slug: 'm8-identity-broker-estado-tecnico',
+		title: 'm8: Estado técnico del broker de identidad',
+		description:
+			'Reporte técnico del estado actual del m8 Identity Broker: arquitectura de pruebas, componentes clave, y cómo encaja en el ecosistema PARA.',
+		date: 'May 9, 2026',
+		author: 'PARA',
+		body: [
+			'm8 no es una wallet de identidad. Es un **broker de pruebas**. Esta distinción no es semántica: define toda la arquitectura.',
+			'El problema que resuelve m8 es simple de enunciar y complejo de implementar: ¿cómo pruebo algo sobre mí mismo sin revelar quién soy? En un contexto cívico mexicano, esto no es paranoia. Es necesidad. La correlación entre identidad real y opinión política tiene consecuencias.',
+			'**Arquitectura de tres capas.**\nLa sesión comienza con ATProto sign-in: el usuario demuestra control sobre un DID. Eso no dice nada sobre su persona física, solo sobre su capacidad de firmar con una clave. Luego entra el proof broker session: un estado intermedio donde el usuario acumula pruebas verificadas. Finalmente, persona/surface/grant management: decidir qué pruebas se exponen en qué superficie, bajo qué condiciones.',
+			'**Componentes actuales.**\n- Persona switcher: permite operar con distintas máscaras cívicas sin logout.\n- Custom surface builder: el usuario define qué combinación de pruebas se muestra en cada contexto.\n- INE verification modal: escaneo de credencial de elector con validación cruzada.\n- Biometric gate + AppState auto-lock: si el usuario abandona la app, la sesión de pruebas se bloquea.\n- QR export: compartir un bundle de pruebas verificadas sin canal digital directo.',
+			'**MyBase: el canvas de conocimiento.**\nPolicyTreeCanvas con gesture pan/zoom y colores por tipo de nodo. PolicyList como vista mobile alternativa. SpaceShareModal para enviar espacios permissioned. EndorsementPanel como cola de moderación. Los tipos subyacentes — PolicyNode, PolicyEdge, KnowledgeBundle, PermissionedSpace — son la gramática que permite que el mapa cívico personal se convierta en comunitario.',
+			'**Stack técnico.**\nReact Native Expo, react-native-gesture-handler, react-native-reanimated, react-native-svg. Todo integrado en ConsoleScreen con navegación por secciones. No usamos WebView para el grafo: SVG nativo con simulación de fuerzas propia (d3-force adaptado) para paridad mobile/web.',
+			'**Estado actual.**\nFuncional en dev. La arquitectura de pruebas está completa: puedes crear personas, acumular pruebas, definir superficies, y exportar bundles. Lo que sigue es endurecimiento: más verificadores de prueba (INE es solo el primero), integración con Ozone para decisión de moderación sobre bundles rechazados, y optimización de performance del canvas para >100 nodos.',
+			'La pregunta que m8 responde no es "¿quién eres?" sino "¿qué puedes demostrar?". Esa inversión es intencional y es el núcleo del diseño.'
+		]
+	},
+	{
+		slug: 'passkit-vs-m8-arquitectura-prueba',
+		title: 'PassKit Identity vs m8: traer tu credencial vs construir tu reputación',
+		description:
+			'Análisis arquitectónico: cómo funciona PassKit Identity de Apple, por qué México no tiene mDL todavía, y cómo m8 ocupa ese vacío con un modelo de prueba distribuida.',
+		date: 'May 9, 2026',
+		author: 'PARA',
+		body: [
+			'Apple publicó recientemente la documentación para **requesting identity data from a Wallet pass**: una API que permite a apps de terceros leer credenciales verificadas almacenadas en Apple Wallet. El caso de uso estrella es el Mobile Driving License (mDL), un estándar ISO que varios estados de EE.UU. ya emiten.',
+			'**Cómo funciona PassKit Identity.**\nEl flujo es: emisor oficial (gobierno, banco, universidad) genera una credencial criptográficamente firmada → usuario la almacena en Apple Wallet → app de terceros solicita lectura con permiso explícito del usuario → Apple valida la firma contra el emisor antes de entregar los datos. La confianza viene del emisor, no de Apple. Apple es solo el pipe con UI consistente.',
+			'**Por qué esto no resuelve el problema cívico mexicano hoy.**\nMéxico no tiene emisor de mDL. El INE no emite credenciales digitales verificables. No hay infraestructura de PKI gubernamental accesible para ciudadanos comunes. PassKit, en este momento, es una especificación sin contenido para el 99% de los mexicanos.',
+			'**La diferencia arquitectónica central.**\nPassKit es **trae tu credencial**: el usuario ya tiene una prueba emitida por una autoridad, y la presenta cuando se la piden. m8 es **construye tu reputación**: el usuario genera pruebas progresivamente, cada una verificada por distintos mecanismos, y el agregado es lo que cuenta. No hay emisor único. Hay un broker que orquesta múltiples fuentes de confianza.',
+			'**Analogía concreta.**\nPassKit es como mostrar tu pasaporte en la aduana: una credencial única, fuerte, emitida por un estado. m8 es como construir una historia crediticia: muchas transacciones pequeñas, verificadas por distintos actores, que en conjunto generan confianza suficiente para una transacción mayor.',
+			'**¿Pueden coexistir? Sí, y deberían.**\nEn un futuro donde México emita mDL o credencial digital INE, m8 podría integrar PassKit como **una fuente más** de prueba. El INE scan actual es un hack necesario; un mDL oficial sería estrictamente mejor. Pero m8 no se vuelve obsoleto: el valor no está en la verificación del INE, está en la **composición de pruebas** y el **control de exposición** que el usuario tiene sobre ellas.',
+			'**El vacío que m8 ocupa ahora.**\nMientras no haya infraestructura estatal de identidad verificable, alguien tiene que construir el puente. m8 no finge ser el estado. No emite credenciales oficiales. Lo que hace es: (1) definir un formato de prueba interoperable, (2) permitir múltiples verificadores (INE, biometría, red social, endorsers), (3) dar al usuario control granular sobre qué pruebas se exponen dónde.',
+			'**Lección para otros mercados emergentes.**\nLa arquitectura de PassKit asume un emisor confiable. Esa asunción no se sostiene en países donde la institucionalidad es débil o donde la correlación identidad-opinión es peligrosa. m8 es un modelo para esos contextos: distribuido, progresivo, reversible, controlado por el usuario.',
+			'PassKit es el futuro que el norte ya está construyendo. m8 es el presente que el sur necesita sobrevivir hasta que ese futuro llegue.'
+		]
+	},
 	{
 		slug: 'working-to-decentralize-fedcm',
 		title: 'Working to Decentralize FedCM',

@@ -33,5 +33,5 @@ APK_URL="${R2_PUBLIC_BASE_URL%/}/${OBJECT_KEY}"
 printf '\nUploaded Android APK.\n'
 printf 'Source: %s\n' "$APK_SOURCE"
 printf 'Public URL: %s\n' "$APK_URL"
-printf '\nSet this for the docs build:\n'
+printf '\nSet this for the website build:\n'
 printf 'PUBLIC_ANDROID_APK_URL=%s\n' "$APK_URL"

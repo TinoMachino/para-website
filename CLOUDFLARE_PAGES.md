@@ -1,14 +1,13 @@
 ## Cloudflare Pages Deployment
 
-Use `apps/docs` for the production public site on `paramx.social`.
+Use `apps/website` for the production public site on `paramx.social`.
 
 Why:
-- `apps/docs` builds the marketing homepage and the `/docs` tree together.
-- `apps/landing` is a narrower landing variant and does not include `/docs`.
+- `apps/website` builds the marketing homepage, the `/docs` tree, and additional routes together.
 
 Verified locally:
-- `pnpm --filter @parasocial/site build`
-- static output written to `apps/docs/build`
+- `pnpm --filter @parasocial/website build`
+- static output written to `apps/website/build`
 
 ### Recommended Pages project settings
 
@@ -22,7 +21,7 @@ Build command:
 - `pnpm build:site`
 
 Build output directory:
-- `apps/docs/build`
+- `apps/website/build`
 
 Root directory:
 - `website`
@@ -39,7 +38,7 @@ should include the folder change explicitly:
 
 The output directory would still be:
 
-- `apps/docs/build`
+- `apps/website/build`
 
 ### Domain plan
 
@@ -62,12 +61,12 @@ Do not try to ship the Android APK as a normal Pages static asset.
 
 Why:
 - the current local artifact at `../PARA/android/app/build/outputs/apk/debug/app-debug.apk` is much larger than the current Cloudflare Pages per-file limit of `25 MiB`
-- Pages is still the right host for the docs site, but the APK itself should live in R2 behind a public bucket or custom domain
+- Pages is still the right host for the public site, but the APK itself should live in R2 behind a public bucket or custom domain
 
 Recommended split:
 - `paramx.social` stays on Cloudflare Pages
 - Android APK lives in an R2 bucket, for example `https://downloads.paramx.social/android/para-android-debug.apk`
-- the docs site reads that URL from `PUBLIC_ANDROID_APK_URL` at build time and turns `/try-app` into a direct download path
+- the site reads that URL from `PUBLIC_ANDROID_APK_URL` at build time and turns `/try-app` into a direct download path
 
 ### One-time setup
 
@@ -100,7 +99,7 @@ page picks up the updated `PUBLIC_ANDROID_APK_URL`.
 1. Create a Cloudflare Pages project from the GitHub repo.
 2. Point the project at the `website` directory in the monorepo.
 3. Set build command to `pnpm build:site`.
-4. Set output directory to `apps/docs/build`.
+4. Set output directory to `apps/website/build`.
 5. Deploy once and verify:
    - `/`
    - `/about`
@@ -121,8 +120,8 @@ pnpm deploy:site
 ```
 
 That script:
-- builds `apps/docs`
-- uploads `apps/docs/build` with Wrangler Pages
+- builds `apps/website`
+- uploads `apps/website/build` with Wrangler Pages
 
 Required auth is whatever Wrangler uses in your environment, for example:
 - `CLOUDFLARE_API_TOKEN`

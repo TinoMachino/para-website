@@ -3,7 +3,10 @@
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
-	const { post } = data;
+	const post = $derived(data.post);
+
+	const renderInlineMarkdown = (text: string) =>
+		text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br />');
 </script>
 
 <svelte:head>
@@ -26,12 +29,20 @@
 
 		<div class="container blog-post-content">
 			<p class="post-description">{post.description}</p>
-			<p class="post-notice">
-				<em>
-					This is a brief overview. For the full article and more details, visit the AT Protocol
-					blog.
-				</em>
-			</p>
+			{#if post.body?.length}
+				<div class="post-body">
+					{#each post.body as paragraph}
+						<p>{@html renderInlineMarkdown(paragraph)}</p>
+					{/each}
+				</div>
+			{:else}
+				<p class="post-notice">
+					<em>
+						This is a brief overview. For the full article and more details, visit the AT Protocol
+						blog.
+					</em>
+				</p>
+			{/if}
 		</div>
 	</article>
 </div>
@@ -102,6 +113,23 @@
 		line-height: 1.8;
 		color: #e5e5e5;
 		margin-bottom: 2rem;
+	}
+
+	.post-body {
+		display: grid;
+		gap: 1.35rem;
+	}
+
+	.post-body p {
+		margin: 0;
+		color: #e5e5e5;
+		font-size: 1.05rem;
+		line-height: 1.85;
+	}
+
+	.post-body :global(strong) {
+		color: #ffffff;
+		font-weight: 650;
 	}
 
 	.post-notice {

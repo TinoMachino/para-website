@@ -74,6 +74,8 @@
 				<a href={resolve('/trust-and-safety')}>Trust and safety</a>
 				<a href={resolve('/blog')}>Blog</a>
 				<a href={resolve('/try-app')}>Try app</a>
+				<a href={resolve('/about/support')}>Support</a>
+				<a href={resolve('/tos')}>Terms</a>
 				<a href={resolve('/docs/schemas')}>Schemas</a>
 			</div>
 		</div>
