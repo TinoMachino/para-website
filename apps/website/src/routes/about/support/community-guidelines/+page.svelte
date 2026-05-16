@@ -15,7 +15,7 @@
 
 <div class="docs-page cg-page">
 	<nav class="cg-breadcrumb" aria-label="Breadcrumb">
-		<a href={resolve('/about/support')}>Support</a>
+		<a href={resolve('/support')}>Support</a>
 		<span aria-hidden="true">/</span>
 		<span>Community guidelines</span>
 	</nav>

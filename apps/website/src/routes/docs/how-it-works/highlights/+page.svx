@@ -8,7 +8,7 @@
 
 <section class="docs-hero-card">
 	<p class="docs-hero-kicker">How it works</p>
-	# Highlights
+# Highlights
 
 	<StatusPill status="partial" />
 
@@ -19,7 +19,7 @@
 
 <section class="docs-section-card">
 	<p class="docs-section-kicker">Routes</p>
-	<h2>Primary routes</h2>
+## Primary routes
 	<div class="docs-meta-grid">
 		<div class="docs-meta-card"><span class="docs-meta-label">Main routes</span><div class="docs-meta-value"><code>/highlights</code>, <code>/highlights/:highlightId</code></div></div>
 		<div class="docs-meta-card"><span class="docs-meta-label">Post adjacency</span><div class="docs-meta-value"><code>/profile/:name/post/:rkey/highlights</code></div></div>
@@ -29,7 +29,7 @@
 
 <section class="docs-section-card">
 	<p class="docs-section-kicker">State ownership</p>
-	<h2>What this route family owns</h2>
+## What this route family owns
 	<ul>
 		<li>Highlight ranges over a subject record using <code>start</code> and <code>end</code>.</li>
 		<li>Reader annotation text, color, optional tag, and location/community metadata.</li>
@@ -37,11 +37,62 @@
 	</ul>
 </section>
 
+<section class="docs-section-card">
+	<p class="docs-section-kicker">Backend contracts</p>
+## Schema support
+
+	<p>
+		Highlights use a view definition for annotation shape and a list query for browse surfaces. The
+		underlying records store ranges and text; the AppView indexes them into filterable views.
+	</p>
+
+	### <code>com.para.highlight.defs</code>
+	<div class="docs-meta-grid">
+		<div class="docs-meta-card">
+			<span class="docs-meta-label"><code>highlightView</code></span>
+			<div class="docs-meta-value">Indexed highlight with subject URI, creator, range, text, color, tag, and visibility.</div>
+		</div>
+	</div>
+	<ul>
+		<li><code>subjectUri</code> — The record being annotated.</li>
+		<li><code>creator</code> — Who created the highlight.</li>
+		<li><code>start</code> / <code>end</code> — Character range within the subject.</li>
+		<li><code>text</code> — The annotation text.</li>
+		<li><code>color</code> — Visual classification for the highlight.</li>
+		<li><code>tag</code> — Optional topical tag.</li>
+		<li><code>location</code> / <code>community</code> — Geographic and community context.</li>
+		<li><code>visibility</code> — Public or private.</li>
+	</ul>
+
+	### <code>com.para.highlight.listHighlights</code>
+	<p>
+		Returns paginated highlight annotations with subject, creator, community, state, and visibility
+		filters.
+	</p>
+	<ul>
+		<li>Default limit is 30, max is 100.</li>
+		<li>Filters support community, state, subject URI, and creator.</li>
+		<li>Serves from indexed highlight views rather than raw annotation records.</li>
+		<li>Routes: <code>/highlights</code>, <code>/profile/:name/post/:rkey/highlights</code></li>
+	</ul>
+</section>
+
+<section class="docs-section-card">
+	<p class="docs-section-kicker">Data flow</p>
+## How highlights are indexed
+
+	<ol>
+		<li>A user selects a range on a subject record and writes a highlight record to their PDS.</li>
+		<li>The AppView indexes the highlight into <code>highlightView</code> state with creator, subject, range, and visibility.</li>
+		<li>List queries serve from the indexed view, applying filters without scanning raw records.</li>
+		<li>Post-adjacent highlights (<code>/profile/:name/post/:rkey/highlights</code>) are filtered by subject URI.</li>
+	</ol>
+</section>
+
 ## Related contracts
 
 - `com.para.highlight.defs`
 - `com.para.highlight.listHighlights`
-- `com.para.highlight.getHighlight`
 
 ## Read next
 

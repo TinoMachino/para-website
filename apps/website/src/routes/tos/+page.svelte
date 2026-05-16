@@ -1,5 +1,7 @@
-<script lang="ts">
-	import TermsOfService from '$lib/components/legal/TermsOfService.svelte';
-</script>
+<svelte:head>
+	<title>Terms of Service • PARA</title>
+	<meta http-equiv="refresh" content="0; url=/support/terms-of-service" />
+	<link rel="canonical" href="/support/terms-of-service" />
+</svelte:head>
 
-<TermsOfService />
+<p>Redirecting to <a href="/support/terms-of-service">Terms of Service</a>...</p>

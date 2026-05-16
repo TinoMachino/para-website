@@ -1,44 +1,43 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-
 	const appRepoUrl = 'https://github.com/TinoMachino/final';
 	const accessPaths = [
 		{
-			label: 'Android',
-			title: 'Use the Android app listing',
-			copy: 'The simplest path for most people is the Android release distributed through the app-store channel.'
+			label: `Android`,
+			title: `Use the Android app listing`,
+			copy: `The simplest path for most people is the Android release distributed through the app-store channel.`
 		},
 		{
-			label: 'GitHub',
-			title: 'Run the app locally from source',
-			copy: 'Use the public repo when you want the actual client code, local setup commands, and full testing control.'
+			label: `GitHub`,
+			title: `Run the app locally from source`,
+			copy: `Use the public repo when you want the actual client code, local setup commands, and full testing control.`
 		}
 	] as const;
 	const runtimeNotes = [
 		{
-			label: 'Recommended default',
-			value: 'Android app-store distribution for normal app access.'
+			label: `Recommended defaul`,
+			value: `Android app-store distribution for normal app access.`
 		},
 		{
-			label: 'Developer path',
-			value: 'GitHub repo plus local client and backend runbooks.'
+			label: `Developer path`,
+			value: `GitHub repo plus local client and backend runbooks.`
 		},
 		{
-			label: 'Workspace split',
-			value: 'Expo client in PARA, backend stack in WhatZatppa, docs site in website.'
+			label: `Workspace spli`,
+			value: `Expo client in PARA, backend stack in WhatZatppa, docs site in website.`
 		},
 		{
-			label: 'App source repo',
+			label: `App source repo`,
 			value: appRepoUrl
 		}
 	] as const;
 </script>
 
 <svelte:head>
-	<title>Try App • PARA</title>
+	<title>{`Try App • PARA`}</title>
 	<meta
 		name="description"
-		content="Find PARA through the Android app distribution path or run the app locally from GitHub."
+		content={`Find PARA through the Android app distribution path or run the app locally from GitHub.`}
 	/>
 </svelte:head>
 
@@ -48,9 +47,11 @@
 			<p class="docs-hero-kicker">Try app</p>
 			<h1>Use Android first, GitHub second.</h1>
 			<p class="try-app-lead">
-				This page is intentionally simple now: if you want the app, look for the Android build in
-				the app-store distribution path. If you want to develop or test deeply, use GitHub and run
-				the stack locally.
+				
+					This page is intentionally simple now: if you want the app, look for the Android build in
+					the app-store distribution path. If you want to develop or test deeply, use GitHub and run
+					the stack locally.
+				
 			</p>
 			<p class="hero-detail">
 				No shared demo links, no seeded tester accounts, and no extra decision tree.
@@ -101,8 +102,10 @@
 		<p class="docs-section-kicker">Backend path</p>
 		<h2>Bring up the backend the way the current runbooks describe it.</h2>
 		<p>
-			The backend development flow in <code>watx</code> is the part that expects Docker. This is the short
-			path that matches the repo runbook.
+			
+				The backend development flow in <code>watx</code> is the part that expects Docker. This is the short
+				path that matches the repo runbook.
+			
 		</p>
 
 		<pre><code
@@ -152,8 +155,7 @@ make run-dev-env</code
 
 <style>
 	h1,
-	h2,
-	h3 {
+	h2 {
 		margin: 0;
 	}
 

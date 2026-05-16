@@ -518,6 +518,7 @@
 	.map-card {
 		display: grid;
 		gap: 0.55rem;
+		min-height: 180px;
 		background:
 			linear-gradient(180deg, rgba(72, 38, 127, 0.18), rgba(46, 32, 51, 0.34)),
 			rgba(255, 255, 255, 0.03);

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
+	import { beforeNavigate, afterNavigate } from '$app/navigation';
 	import { openSourceRepos } from '$lib/content/site';
 	import '@parasocial/ui/tokens.css';
 	import favicon from '$lib/assets/favicon.png';
@@ -19,6 +20,15 @@
 
 	const isActive = (href: string) =>
 		page.url.pathname === href || (href !== '/' && page.url.pathname.startsWith(`${href}/`));
+
+	beforeNavigate(() => {
+		document.documentElement.style.scrollBehavior = 'auto';
+	});
+
+	afterNavigate(() => {
+		window.scrollTo(0, 0);
+		document.documentElement.style.scrollBehavior = '';
+	});
 </script>
 
 <svelte:head>
@@ -74,8 +84,8 @@
 				<a href={resolve('/trust-and-safety')}>Trust and safety</a>
 				<a href={resolve('/blog')}>Blog</a>
 				<a href={resolve('/try-app')}>Try app</a>
-				<a href={resolve('/about/support')}>Support</a>
-				<a href={resolve('/tos')}>Terms</a>
+				<a href={resolve('/support')}>Support</a>
+				<a href={resolve('/support/terms-of-service')}>Terms</a>
 				<a href={resolve('/docs/schemas')}>Schemas</a>
 			</div>
 		</div>
@@ -97,6 +107,12 @@
 			radial-gradient(circle at top right, rgba(72, 38, 127, 0.16), transparent 22%), #0d1522 !important;
 		color: #ffffff !important;
 		font-family: var(--ps-font-body);
+	}
+
+	.site-shell {
+		min-height: 100vh;
+		display: grid;
+		grid-template-rows: auto 1fr auto;
 	}
 
 	.site-header {

@@ -1,12 +1,12 @@
-<script>
+<script lang="ts">
 	import StatusPill from '$lib/components/StatusPill.svelte';
 </script>
 
 <svelte:head>
-	<title>How It Works • PARA Docs</title>
+	<title>{`How It Works • PARA Docs`}</title>
 	<meta
 		name="description"
-		content="Operational docs for PARA’s main civic route families: communities, RAQ, cabildeo, representatives, highlights, maps, and agent-adjacent communication."
+		content={`Operational docs for PARA’s main civic route families: communities, RAQ, cabildeo, representatives, highlights, maps, and agent-adjacent communication.`}
 	/>
 </svelte:head>
 
@@ -14,9 +14,11 @@
 	<p class="docs-hero-kicker">How it works</p>
 	# The product layer between thesis and schemas
 
-	This section explains PARA as a working civic app. It sits between the thesis pages and the
-	schema reference because most readers need route behavior, state ownership, and maturity before
-	they need lexicon detail.
+	
+		This section explains PARA as a working civic app. It sits between the thesis pages and the
+		schema reference because most readers need route behavior, state ownership, and maturity before
+		they need lexicon detail.
+	
 </section>
 
 <div class="docs-link-grid">

@@ -1,3 +1,7 @@
+
+export const siteUrl = 'https://paramx.social';
+export const siteName = 'PARA';
+
 export const docsBase = '/docs';
 export const aboutBase = '/thesis';
 
@@ -11,66 +15,62 @@ export const contactEmails = {
 
 export const openSourceRepos = [
 	{
-		label: 'Website',
+		label: `Website`,
 		href: 'https://github.com/TinoMachino/para-website',
-		copy: 'Public docs and website workspace'
+		copy: `Public docs and website workspace`
 	},
 	{
-		label: 'App',
+		label: `App`,
 		href: 'https://github.com/TinoMachino/final',
-		copy: 'Public PARA client workspace'
+		copy: `Public PARA client workspace`
 	},
 	{
-		label: 'Backend',
+		label: `Backend`,
 		href: 'https://github.com/TinoMachino/WhatZatppa',
-		copy: 'Public WhatZatppa backend workspace'
+		copy: `Public WhatZatppa backend workspace`
 	}
 ] as const;
 
 export const productTourHref = '/tour';
 
 export const heroPrimaryAction = {
-	label: 'Try the app',
+	label: `Try the app`,
 	href: '/try-app'
 } as const;
 
 export const heroSecondaryAction = {
-	label: 'Read the docs',
+	label: `Read the docs`,
 	href: docsBase
 } as const;
 
 export const landingHeroMetrics = [
 	{
 		value: '-3 to +3',
-		label: 'policy vote range'
+		label: `policy vote range`
 	},
 	{
 		value: '#POLICY||',
-		label: 'structured political flairs'
-	},
-	{
-		value: '2nd layer',
-		label: 'cross-network civic context'
+		label: `structured political flairs`
 	}
 ] as const;
 
 export const landingHeroActions = [
 	{
-		eyebrow: 'About',
-		title: 'Read the political thesis',
-		copy: 'Understand the democratic problem, the second-layer idea, and why PARA exists.',
+		eyebrow: `Abou`,
+		title: `Read the political thesis`,
+		copy: `Understand the democratic problem, the second-layer idea, and why PARA exists.`,
 		href: aboutBase
 	},
 	{
-		eyebrow: 'Try app',
-		title: 'Find the app or run it locally',
-		copy: 'Use Android for normal access, or GitHub when you want local setup.',
+		eyebrow: `Try app`,
+		title: `Find the app or run it locally`,
+		copy: `Use Android for normal access, or GitHub when you want local setup.`,
 		href: '/try-app'
 	},
 	{
-		eyebrow: 'Schemas',
-		title: 'Browse the schema reference',
-		copy: 'Open the `com.para.*` reference when you want the contract layer.',
+		eyebrow: `Schemas`,
+		title: `Browse the schema reference`,
+		copy: `Open the \`com.para.*\` reference when you want the contract layer.`,
 		href: `${docsBase}/schemas`
 	}
 ] as const;
@@ -78,148 +78,147 @@ export const landingHeroActions = [
 export const landingSignals = [
 	{
 		value: '-3 to +3',
-		label: 'policy voting range',
-		copy: 'Policies can be voted across a full disagreement-to-support range, with quadratic voting layered on top.'
+		label: `policy voting range`,
+		copy: `Policies can be voted across a full disagreement-to-support range, with quadratic voting layered on top.`
 	},
 	{
 		value: '#POLICY||-2',
-		label: 'policy + matter flairs',
-		copy: 'Political expression is structured through dedicated #POLICY|| and #MATTER| tags, including vote intensity, instead of disappearing into generic posting.'
+		label: `policy + matter flairs`,
+		copy: `Political expression is structured through dedicated #POLICY|| and #MATTER| tags, including vote intensity, instead of disappearing into generic posting.`
 	},
 	{
 		value: '2nd layer',
-		label: 'cross-network civic layer',
-		copy: 'PARA is designed as a second-layer political social network that can sit on top of existing platforms while being built on FOSS Bluesky-style infrastructure.'
+		label: `cross-network civic layer`,
+		copy: `PARA is designed as a second-layer political social network that can sit on top of existing platforms while being built on FOSS Bluesky-style infrastructure.`
 	}
 ] as const;
 
 export const landingPillars = [
 	{
-		title: 'Insufficient democracy is a friction problem',
-		copy: 'PARA starts from a simple idea: democracy fails when making yourself heard is too slow, too opaque, or too socially risky.'
+		title: `Insufficient democracy is a friction problem`,
+		copy: `PARA starts from a simple idea: democracy fails when making yourself heard is too slow, too opaque, or too socially risky.`
 	},
 	{
-		title: 'Political identity should be more plural than party packages',
-		copy: 'People should be able to locate themselves, disagree selectively, and vote on policies without buying an entire partisan package.'
+		title: `Political identity should be more plural than party packages`,
+		copy: `People should be able to locate themselves, disagree selectively, and vote on policies without buying an entire partisan package.`
 	},
 	{
-		title: 'Agents, anonymity, and civic infrastructure belong together',
-		copy: 'Agents, search, and anonymity tooling belong in the same civic stack, with the main investment going into data and trust infrastructure.'
+		title: `Agents, anonymity, and civic infrastructure belong together`,
+		copy: `Agents, search, and anonymity tooling belong in the same civic stack, with the main investment going into data and trust infrastructure.`
 	}
 ] as const;
 
 export const landingFeatures = [
 	{
-		eyebrow: 'Problem',
-		title: 'From opinion to political impact',
-		problem: 'Makes political positions visible, comparable, and easier to act on.',
-		copy: 'PARA starts from a simple premise: democracy stays thin when public opinion is hard to express clearly and hard to turn into civic consequence.',
+		eyebrow: `Problem`,
+		title: `From opinion to political impac`,
+		problem: `Makes political positions visible, comparable, and easier to act on.`,
+		copy: `PARA starts from a simple premise: democracy stays thin when public opinion is hard to express clearly and hard to turn into civic consequence.`,
 		points: [
-			'Built around a more plural democratic future for Mexico, not a prettier political feed',
-			'Designed to reduce the friction between thought, expression, and political consequence'
+			`Built around a more plural democratic future for Mexico, not a prettier political feed`,
+			`Designed to reduce the friction between thought, expression, and political consequence`
 		],
 		href: aboutBase,
-		cta: 'Read the thesis'
+		cta: `Read the thesis`
 	},
 	{
-		eyebrow: 'Second layer',
-		title: 'A second layer across existing networks',
-		problem: 'Lowers the cost of participation without asking users to abandon their audience.',
-		copy: 'PARA can link identities, publish across networks, and carry political context wherever public discussion is already happening.',
+		eyebrow: `Second layer`,
+		title: `A second layer across existing networks`,
+		problem: `Lowers the cost of participation without asking users to abandon their audience.`,
+		copy: `PARA can link identities, publish across networks, and carry political context wherever public discussion is already happening.`,
 		points: [
-			'Cross-network publishing preserves reach while adding civic context',
-			'Shared political tags make posts legible as political speech instead of generic content'
+			`Cross-network publishing preserves reach while adding civic contex`,
+			`Shared political tags make posts legible as political speech instead of generic conten`
 		],
 		href: aboutBase,
-		cta: 'Read the second-layer model'
+		cta: `Read the second-layer model`
 	},
 	{
-		eyebrow: 'Flairs + voting',
-		title: 'Policies and matters get their own format',
-		problem: 'Turns generic posting into structured political input.',
-		copy: 'PARA introduces #POLICY|| and #MATTER| so users can separate policy design from issue attention, then vote with both direction and intensity.',
+		eyebrow: `Flairs + voting`,
+		title: `Policies and matters get their own forma`,
+		problem: `Turns generic posting into structured political input.`,
+		copy: `PARA introduces #POLICY|| and #MATTER| so users can separate policy design from issue attention, then vote with both direction and intensity.`,
 		points: [
-			'#POLICY||-2 captures both subject and degree of support or disagreement',
-			'Policy voting becomes a live political dataset rather than a one-day ritual'
+			`#POLICY||-2 captures both subject and degree of support or disagreemen`,
+			`Policy voting becomes a live political dataset rather than a one-day ritual`
 		],
 		href: aboutBase,
-		cta: 'Read the voting model'
+		cta: `Read the voting model`
 	},
 	{
-		eyebrow: 'RAQ + communities',
-		title: 'RAQ turns ideology into structured context',
-		problem:
-			'Helps people locate themselves politically instead of posting into one undifferentiated crowd.',
-		copy: 'The RAQ helps users question themselves, place themselves politically, and generate structured data that communities can organize around.',
+		eyebrow: `RAQ + communities`,
+		title: `RAQ turns ideology into structured contex`,
+		problem: `Helps people locate themselves politically instead of posting into one undifferentiated crowd.`,
+		copy: `The RAQ helps users question themselves, place themselves politically, and generate structured data that communities can organize around.`,
 		points: [
-			'Intergroup antagonism becomes visible data for education, comparison, and agent behavior',
-			'Communities can support debate, memes, coordination, and conflict without losing the data value'
+			`Intergroup antagonism becomes visible data for education, comparison, and agent behavior`,
+			`Communities can support debate, memes, coordination, and conflict without losing the data value`
 		],
 		href: aboutBase,
-		cta: 'Read the RAQ model'
+		cta: `Read the RAQ model`
 	},
 	{
-		eyebrow: 'AI + search',
-		title: 'Agents and search are core utilities',
-		problem: 'Makes the network useful for reading, comparison, moderation, and external tools.',
-		copy: 'PARA is meant to power more than a feed. Search, clustering, classification, and generation turn civic data into usable product utilities.',
+		eyebrow: `AI + search`,
+		title: `Agents and search are core utilities`,
+		problem: `Makes the network useful for reading, comparison, moderation, and external tools.`,
+		copy: `PARA is meant to power more than a feed. Search, clustering, classification, and generation turn civic data into usable product utilities.`,
 		points: [
-			'The API can classify political content, highlight bias, and generate text',
-			'Collective and individual agents can support education, writing, comparison, and entertainment'
+			`The API can classify political content, highlight bias, and generate tex`,
+			`Collective and individual agents can support education, writing, comparison, and entertainmen`
 		],
 		href: aboutBase,
-		cta: 'Read the agent model'
+		cta: `Read the agent model`
 	},
 	{
-		eyebrow: 'Trust + infra',
-		title: 'Trust needs real infrastructure',
-		problem: 'Balances protected participation with public trust.',
-		copy: 'PARA combines anonymity where freedom of thought needs protection with validation where civic participation needs grounding.',
+		eyebrow: `Trust + infra`,
+		title: `Trust needs real infrastructure`,
+		problem: `Balances protected participation with public trust.`,
+		copy: `PARA combines anonymity where freedom of thought needs protection with validation where civic participation needs grounding.`,
 		points: [
-			'Geographic trends and opinion tooling can push parties toward greater coherence',
-			'The main differentiated investment is anonymity technology with broader public-sector value'
+			`Geographic trends and opinion tooling can push parties toward greater coherence`,
+			`The main differentiated investment is anonymity technology with broader public-sector value`
 		],
 		href: aboutBase,
-		cta: 'Read the trust model'
+		cta: `Read the trust model`
 	}
 ] as const;
 
 export const surfaceChecklist = [
-	'A problem statement centered on democratic friction',
-	'Second-layer publishing and cross-network political context',
-	'#POLICY|| and #MATTER| flairs',
-	'Policy voting from -3 to +3 with RAQ flows',
-	'Belief-based communities and collective agents',
-	'Anonymity, validation, and fair visibility',
-	'Search, API services, and schema docs under `/docs`'
+	`A problem statement centered on democratic friction`,
+	`Second-layer publishing and cross-network political contex`,
+	`#POLICY|| and #MATTER| flairs`,
+	`Policy voting from -3 to +3 with RAQ flows`,
+	`Belief-based communities and collective agents`,
+	`Anonymity, validation, and fair visibility`,
+	`Search, API services, and schema docs under \`/docs\``
 ] as const;
 
 export const architectureLayers = [
 	{
-		eyebrow: 'Product layer',
-		title: 'Visible civic product surfaces',
-		copy: 'The app exposes communities, participation routes, trust settings, and communication tools that should be legible before anyone opens the schema browser.'
+		eyebrow: `Product layer`,
+		title: `Visible civic product surfaces`,
+		copy: `The app exposes communities, participation routes, trust settings, and communication tools that should be legible before anyone opens the schema browser.`
 	},
 	{
-		eyebrow: 'Protocol layer',
-		title: 'watx contracts underneath',
-		copy: 'Lexicons, records, xrpc methods, service boundaries, and repository semantics describe how those surfaces are stored and moved through the stack.'
+		eyebrow: `Protocol layer`,
+		title: `watx contracts underneath`,
+		copy: `Lexicons, records, xrpc methods, service boundaries, and repository semantics describe how those surfaces are stored and moved through the stack.`
 	},
 	{
-		eyebrow: 'Reference layer',
-		title: 'Docs that connect both views',
-		copy: 'The public site should bridge product language and protocol language so the docs read like a coherent system rather than disconnected notes.'
+		eyebrow: `Reference layer`,
+		title: `Docs that connect both views`,
+		copy: `The public site should bridge product language and protocol language so the docs read like a coherent system rather than disconnected notes.`
 	}
 ] as const;
 
 export const architectureNotes = [
-	'Policies and matters can be encoded as dedicated flairs, then voted on quantitatively instead of being reduced to generic posting.',
-	'RAQ, intergroup antagonism, and community voting can build a political dataset that keeps personal and collective agents evolving.',
-	'Bluesky-derived infrastructure keeps distribution costs lower while cryptographic anonymity and civic intelligence remain the main differentiated investments.'
+	`Policies and matters can be encoded as dedicated flairs, then voted on quantitatively instead of being reduced to generic posting.`,
+	`RAQ, intergroup antagonism, and community voting can build a political dataset that keeps personal and collective agents evolving.`,
+	`Bluesky-derived infrastructure keeps distribution costs lower while cryptographic anonymity and civic intelligence remain the main differentiated investments.`
 ] as const;
 
 export const developerPromises = [
-	'About and schema docs that explain the democratic-friction thesis, flairs, voting, RAQ, agents, and community governance',
-	'One origin for the landing page, about page, roadmap, and /docs reference',
-	'Technical docs for Bluesky-based civic infrastructure, classification APIs, search systems, and anonymity methods'
+	`About and schema docs that explain the democratic-friction thesis, flairs, voting, RAQ, agents, and community governance`,
+	`One origin for the landing page, about page, roadmap, and /docs reference`,
+	`Technical docs for Bluesky-based civic infrastructure, classification APIs, search systems, and anonymity methods`
 ] as const;

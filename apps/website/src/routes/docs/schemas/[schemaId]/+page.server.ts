@@ -1,18 +1,18 @@
 import { error } from '@sveltejs/kit';
-import { getSchemaDocument, getSchemaIndex } from '@parasocial/content-schema';
+import { getSchemaDocument } from '@parasocial/content-schema';
+import { ensureHighlighter, highlightCodeSync } from '$lib/shiki.js';
 
-export function entries() {
-	return getSchemaIndex().map((schema) => ({ schemaId: schema.id }));
-}
-
-export function load({ params }) {
+export async function load({ params }) {
+	await ensureHighlighter();
 	const schema = getSchemaDocument(params.schemaId);
+	if (!schema) error(404, 'Schema not found');
 
-	if (!schema) {
-		error(404, `Unknown schema: ${params.schemaId}`);
-	}
+	const highlightedExamples = schema.examples?.map((ex) => highlightCodeSync(ex, 'json')) ?? [];
 
 	return {
-		schema
+		schema,
+		highlightedExamples,
+		title: `${schema.title} • Schema Reference`,
+		description: schema.summary
 	};
 }

@@ -1,48 +1,55 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 	import type { PageData } from './$types';
+	import { siteUrl, siteName } from '$lib/content/site';
 
 	let { data }: { data: PageData } = $props();
-	const post = $derived(data.post);
+	const Post = $derived(data.component);
 
-	const renderInlineMarkdown = (text: string) =>
-		text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br />');
+	const canonical = $derived(`${siteUrl}${page.url.pathname}`);
+	const ogImage = $derived(`${siteUrl}/product/social-card-default.png`);
 </script>
 
 <svelte:head>
-	<title>{post.title} | Blog | PARA</title>
-	<meta name="description" content={post.description} />
+	<title>{data.metadata.title} | Blog | {siteName}</title>
+	<meta name="description" content={data.metadata.description} />
+
+	<!-- Open Graph -->
+	<meta property="og:title" content={data.metadata.title} />
+	<meta property="og:description" content={data.metadata.description} />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content={canonical} />
+	<meta property="og:image" content={ogImage} />
+	<meta property="og:site_name" content={siteName} />
+	<meta property="article:published_time" content={new Date(data.metadata.date).toISOString()} />
+	{#if data.metadata.author}
+		<meta property="article:author" content={data.metadata.author} />
+	{/if}
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={data.metadata.title} />
+	<meta name="twitter:description" content={data.metadata.description} />
+	<meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
 <div class="site-blog-post">
 	<article class="blog-post-container">
 		<div class="container blog-post-header">
 			<a href={resolve('/blog')} class="back-link">← Back to blog</a>
-			<h1 class="post-title">{post.title}</h1>
+			<h1 class="post-title">{data.metadata.title}</h1>
 			<div class="post-meta">
-				<time class="post-date">{post.date}</time>
-				{#if post.author}
-					<span class="post-author">By {post.author}</span>
+				<time class="post-date">{data.metadata.date}</time>
+				{#if data.metadata.author}
+					<span class="post-author">By {data.metadata.author}</span>
 				{/if}
+				<span class="post-reading-time">{data.readingTime} min read</span>
 			</div>
 		</div>
 
 		<div class="container blog-post-content">
-			<p class="post-description">{post.description}</p>
-			{#if post.body?.length}
-				<div class="post-body">
-					{#each post.body as paragraph}
-						<p>{@html renderInlineMarkdown(paragraph)}</p>
-					{/each}
-				</div>
-			{:else}
-				<p class="post-notice">
-					<em>
-						This is a brief overview. For the full article and more details, visit the AT Protocol
-						blog.
-					</em>
-				</p>
-			{/if}
+			<Post />
 		</div>
 	</article>
 </div>
@@ -91,7 +98,8 @@
 	.post-meta {
 		display: flex;
 		align-items: center;
-		gap: 1.5rem;
+		gap: 1rem;
+		flex-wrap: wrap;
 		font-size: 0.95rem;
 		color: #858585;
 	}
@@ -104,44 +112,50 @@
 		display: block;
 	}
 
+	.post-reading-time {
+		display: block;
+		color: #6b6580;
+	}
+
 	.blog-post-content {
 		padding-top: 1.5rem;
 	}
 
-	.post-description {
-		font-size: 1.125rem;
-		line-height: 1.8;
-		color: #e5e5e5;
-		margin-bottom: 2rem;
-	}
-
-	.post-body {
-		display: grid;
-		gap: 1.35rem;
-	}
-
-	.post-body p {
-		margin: 0;
+	.blog-post-content :global(p) {
+		margin: 0 0 1.35rem;
 		color: #e5e5e5;
 		font-size: 1.05rem;
 		line-height: 1.85;
 	}
 
-	.post-body :global(strong) {
+	.blog-post-content :global(p:last-child) {
+		margin-bottom: 0;
+	}
+
+	.blog-post-content :global(strong) {
 		color: #ffffff;
 		font-weight: 650;
 	}
 
-	.post-notice {
-		padding: 1rem;
-		background: rgba(255, 255, 255, 0.05);
-		border-left: 3px solid #2ac6ff;
-		border-radius: 0.25rem;
-		color: #a3a3a3;
-		font-size: 0.95rem;
+	.blog-post-content :global(ul) {
+		margin: 0 0 1.35rem;
+		padding-left: 1.25rem;
+		color: #e5e5e5;
+		font-size: 1.05rem;
+		line-height: 1.85;
+		display: grid;
+		gap: 0.5rem;
 	}
 
-	.post-notice em {
-		color: #c5c5c5;
+	.blog-post-content :global(li::marker) {
+		color: var(--para-accent-soft);
+	}
+
+	.blog-post-content :global(img:not([class])),
+	.blog-post-content :global(video) {
+		max-width: 100%;
+		height: auto;
+		border-radius: 1rem;
+		margin: 1.5rem 0;
 	}
 </style>

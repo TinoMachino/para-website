@@ -1,8 +1,11 @@
+<script lang="ts">
+</script>
+
 <svelte:head>
-	<title>PARA Docs</title>
+	<title>{`PARA Docs`}</title>
 	<meta
 		name="description"
-		content="Documentation for PARA, organized around the thesis, product routes, trust model, and schema reference."
+		content={`Documentation for PARA, organized around the thesis, product routes, trust model, and schema reference.`}
 	/>
 </svelte:head>
 
@@ -10,8 +13,10 @@
 	<p class="docs-hero-kicker">Documentation</p>
 	# PARA docs
 
-	The docs are simpler now. Start with the thesis, the product routes, or the contracts depending on
-	what you actually need.
+	
+		The docs are simpler now. Start with the thesis, the product routes, or the contracts depending on
+		what you actually need.
+	
 
 	<div class="docs-link-grid">
 		<a class="docs-link-card" href="/thesis">
@@ -79,8 +84,10 @@
 
 		<div class="docs-callout">
 			<p>
-				The core rule is simple: product language first, protocol language second. That keeps the docs
-				useful for both readers and builders.
+				
+					The core rule is simple: product language first, protocol language second. That keeps the docs
+					useful for both readers and builders.
+				
 			</p>
 		</div>
 	</section>

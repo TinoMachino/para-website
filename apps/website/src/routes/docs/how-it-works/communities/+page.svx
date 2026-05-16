@@ -8,18 +8,18 @@
 
 <section class="docs-hero-card">
 	<p class="docs-hero-kicker">How it works</p>
-	# Communities
+# Communities
 
 	<StatusPill status="implemented" />
 
-	Communities are one of PARA’s clearest non-generic structures. They turn the app away from a
+	Communities are one of PARA's clearest non-generic structures. They turn the app away from a
 	single global feed and toward belief clusters, civic hubs, badges, governance, and community-level
 	participation.
 </section>
 
 <section class="docs-section-card">
 	<p class="docs-section-kicker">Routes</p>
-	<h2>Primary routes</h2>
+## Primary routes
 	<div class="docs-meta-grid">
 		<div class="docs-meta-card"><span class="docs-meta-label">Hub routes</span><div class="docs-meta-value"><code>/communities</code>, <code>/base</code>, <code>/my-base</code></div></div>
 		<div class="docs-meta-card"><span class="docs-meta-label">Profile route</span><div class="docs-meta-value"><code>/communities/profile/:communityId</code></div></div>
@@ -29,7 +29,7 @@
 
 <section class="docs-section-card">
 	<p class="docs-section-kicker">State ownership</p>
-	<h2>What this route family owns</h2>
+## What this route family owns
 	<ul>
 		<li>Community identity, slug, and profile framing.</li>
 		<li>Governance roster and role hierarchy overlays.</li>
@@ -40,7 +40,7 @@
 
 <section class="docs-section-card">
 	<p class="docs-section-kicker">User actions</p>
-	<h2>What users do here</h2>
+## What users do here
 	<ul>
 		<li>Find a political home around ideas, regions, or issue clusters.</li>
 		<li>Read governance and role assignment instead of treating the community as a flat feed.</li>
@@ -52,6 +52,47 @@
 			navigation and participation.
 		</p>
 	</div>
+</section>
+
+<section class="docs-section-card">
+	<p class="docs-section-kicker">Backend contracts</p>
+## Schema support
+
+	<p>
+		Community governance is backed by two schemas: a view definition that describes the shape of
+		governance data, and a query that returns the live roster for a given community.
+	</p>
+
+	### <code>com.para.community.defs</code>
+	<div class="docs-meta-grid">
+		<div class="docs-meta-card">
+			<span class="docs-meta-label"><code>moderators</code></span>
+			<div class="docs-meta-value">Array of moderator handles with role and active status.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label"><code>officials</code></span>
+			<div class="docs-meta-value">Array of officials with title, scope, and tenure.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label"><code>deputies</code></span>
+			<div class="docs-meta-value">Array of deputy handles with delegation and active status.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label"><code>history</code></span>
+			<div class="docs-meta-value">Chronological governance events: role changes, elections, and moderation actions.</div>
+		</div>
+	</div>
+
+	### <code>com.para.community.getGovernance</code>
+	<p>
+		This XRPC query returns the live governance view for a community. It is read-only and serves
+		from indexed state rather than scanning raw records.
+	</p>
+	<ul>
+		<li>Returns the full governance roster: moderators, officials, deputies, and history.</li>
+		<li>Used by the community profile route and moderation dashboards.</li>
+		<li>Backed by indexed governance state in the AppView.</li>
+	</ul>
 </section>
 
 ## Related contracts

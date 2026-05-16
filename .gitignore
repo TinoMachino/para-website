@@ -18,5 +18,8 @@ node_modules/
 dist/
 build/
 .DS_Store
+
+# Temporary cloned repos
+tmp_atproto/
 .env
 .env.local

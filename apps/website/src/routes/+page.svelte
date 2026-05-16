@@ -8,15 +8,14 @@
 		landingHeroMetrics,
 		landingPillars
 	} from '$lib/content/site';
-
 	const coreFeatures = landingFeatures.slice(0, 4);
 </script>
 
 <svelte:head>
-	<title>PARA | Civic Product and Docs</title>
+	<title>{`PARA | Civic Product and Docs`}</title>
 	<meta
 		name="description"
-		content="PARA is a civic social network for plural political identity, policy votes, RAQ flows, and protected participation."
+		content={`PARA is a civic social network for plural political identity, policy votes, RAQ flows, and protected participation.`}
 	/>
 </svelte:head>
 
@@ -25,10 +24,12 @@
 		<div class="container hero-grid">
 			<div class="hero-copy">
 				<div class="eyebrow">PARA • civic social network</div>
-				<h1 class="hero-title">A political network that treats disagreement as signal.</h1>
+				<h1 class="hero-title">Latent Numerical Solidarity</h1>
 				<p class="hero-lede">
-					PARA gives people a clearer way to express policy views, locate themselves politically,
-					and participate without collapsing everything into party branding or generic feeds.
+					
+						PARA gives people a clearer way to express policy views, locate themselves politically,
+						and participate without collapsing everything into party branding or generic feeds.
+					
 				</p>
 				<div class="hero-actions">
 					<a class="button button-primary" href={resolve(docsBase)}>Read the docs</a>
@@ -46,11 +47,6 @@
 
 			<div class="hero-stage">
 				<div class="surface-card stage-card">
-					<div class="stage-topline">
-						<span>#POLICY||</span>
-						<span>RAQ</span>
-						<span>Trust</span>
-					</div>
 					<div class="globe-container">
 						<GlobeAnimation lines={38} globeScale={1} textureScale={0.72} />
 					</div>
@@ -129,18 +125,6 @@
 		</div>
 	</section>
 
-	<section class="closing">
-		<div class="container closing-card surface-card">
-			<div>
-				<div class="eyebrow">Next step</div>
-				<h2 class="section-title">Start with the docs, then go deeper only where you need to.</h2>
-			</div>
-			<div class="hero-actions">
-				<a class="button button-primary" href={resolve(docsBase)}>Browse docs</a>
-				<a class="button button-secondary" href={resolve('/thesis')}>Read thesis</a>
-			</div>
-		</div>
-	</section>
 </div>
 
 <style>
@@ -225,12 +209,10 @@
 	}
 
 	.hero-lede,
-	.section-copy,
 	.principle-card p,
 	.path-card p,
 	.feature-band-copy p,
-	.feature-band-side p,
-	.signal-list li {
+	.feature-band-side p {
 		margin: 0;
 		color: #bcc8d9;
 		line-height: 1.72;
@@ -341,27 +323,7 @@
 		background: rgba(37, 99, 235, 0.18);
 	}
 
-	.stage-topline {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.55rem;
-		position: relative;
-		z-index: 1;
-	}
-
-	.stage-topline span {
-		padding: 0.42rem 0.75rem;
-		border-radius: 999px;
-		background: rgba(255, 255, 255, 0.08);
-		font-family: var(--ps-font-mono);
-		font-size: 0.72rem;
-		font-weight: 700;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: #eef5ff;
-	}
-
-	.globe-wrap {
+	.globe-container {
 		--ps-globe-color: #67c2ff;
 		position: absolute;
 		inset: 3.75rem 0 0;
@@ -377,17 +339,6 @@
 		font-weight: 900;
 		line-height: 1.08;
 		text-shadow: 0 0 18px rgba(72, 38, 127, 0.28);
-	}
-
-	.signal-card {
-		padding: 1.25rem;
-	}
-
-	.signal-list {
-		display: grid;
-		gap: 0.8rem;
-		margin: 0;
-		padding-left: 1rem;
 	}
 
 	.section-head > :first-child {
@@ -545,7 +496,7 @@
 			min-height: 22rem;
 		}
 
-		.globe-wrap {
+		.globe-container {
 			inset: 4rem -1rem 0;
 		}
 	}

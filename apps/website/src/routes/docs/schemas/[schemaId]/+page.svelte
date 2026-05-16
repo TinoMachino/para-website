@@ -1,5 +1,6 @@
 <script lang="ts">
 	import StatusPill from '$lib/components/StatusPill.svelte';
+	import CodeBlock from '$lib/components/docs/CodeBlock.svelte';
 
 	let { data } = $props();
 </script>
@@ -189,8 +190,8 @@
 <section class="docs-panel detail-card examples-card">
 	<h2>Examples</h2>
 	{#if data.schema.examples?.length}
-		{#each data.schema.examples as example (example)}
-			<pre><code>{example}</code></pre>
+		{#each data.highlightedExamples as html, i (i)}
+			<CodeBlock code={data.schema.examples[i]} highlighted={html} />
 		{/each}
 	{:else}
 		<p class="empty">No example payloads exported yet.</p>
@@ -316,6 +317,23 @@
 
 	.examples-card {
 		margin-top: 1rem;
+	}
+
+	.examples-card :global(pre) {
+		overflow-x: auto;
+		padding: 1.15rem 1.2rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 1rem;
+		background: #0d1117;
+		font-size: 0.9rem;
+		line-height: 1.65;
+	}
+
+	.examples-card :global(pre code) {
+		font-family: var(--ps-font-mono);
+		background: transparent;
+		padding: 0;
+		box-shadow: none;
 	}
 
 	@media (max-width: 920px) {
