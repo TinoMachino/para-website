@@ -5,7 +5,7 @@
   "status": "experimental",
   "tags": ["actors", "status", "profiles"],
   "backendOwner": "lexicons/com/para/actor/defs.json",
-  "sourcePath": "watx/lexicons/com/para/actor/defs.json",
+  "sourcePath": "WhatZatppa/lexicons/com/para/actor/defs.json",
   "examples": [
     "{\"profileStats\":{\"influence\":824,\"votesReceivedAllTime\":4200,\"votesCastAllTime\":330,\"contributions\":{\"policies\":12,\"matters\":5,\"comments\":42},\"activeIn\":[\"mx-federal\",\"nuevo-leon\"],\"computedAt\":\"2026-03-18T00:00:00.000Z\"}}"
   ],

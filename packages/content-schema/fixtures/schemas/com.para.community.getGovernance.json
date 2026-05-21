@@ -5,7 +5,7 @@
   "status": "experimental",
   "tags": ["communities", "governance", "queries"],
   "backendOwner": "lexicons/com/para/community/getGovernance.json",
-  "sourcePath": "watx/lexicons/com/para/community/getGovernance.json",
+  "sourcePath": "WhatZatppa/lexicons/com/para/community/getGovernance.json",
   "examples": [
     "{\"community\":\"mx-federal\",\"moderators\":[{\"handle\":\"alice.test\"}],\"summary\":{\"members\":42}}"
   ],

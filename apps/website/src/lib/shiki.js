@@ -21,10 +21,10 @@ export function highlightCodeSync(code, lang = 'text') {
 		return `<pre><code>${escapeHtml(code)}</code></pre>`;
 	}
 	try {
-		return highlighter.codeToHtml(code, {
+		return escapeSvelte(highlighter.codeToHtml(code, {
 			lang: lang === 'svelte' ? 'html' : lang,
 			theme: 'github-dark'
-		});
+		}));
 	} catch {
 		return `<pre><code>${escapeHtml(code)}</code></pre>`;
 	}
@@ -37,4 +37,10 @@ function escapeHtml(text) {
 		.replace(/>/g, '&gt;')
 		.replace(/"/g, '&quot;')
 		.replace(/'/g, '&#039;');
+}
+
+function escapeSvelte(html) {
+	return html
+		.replace(/\{/g, '&#123;')
+		.replace(/\}/g, '&#125;');
 }

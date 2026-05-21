@@ -12,6 +12,9 @@ import highlightListHighlightsJson from "../fixtures/schemas/com.para.highlight.
 import postJson from "../fixtures/schemas/com.para.post.json";
 import socialPostMetaJson from "../fixtures/schemas/com.para.social.postMeta.json";
 import statusJson from "../fixtures/schemas/com.para.status.json";
+import identityDefsJson from "../fixtures/schemas/com.para.identity.defs.json";
+import identityGrantJson from "../fixtures/schemas/com.para.identity.grant.json";
+import identityProofJson from "../fixtures/schemas/com.para.identity.proof.json";
 import schemaIndexJson from "../fixtures/schemas/index.json";
 import { z } from "zod";
 
@@ -82,6 +85,9 @@ const schemaDocuments = [
   highlightListHighlightsJson,
   socialPostMetaJson,
   statusJson,
+  identityDefsJson,
+  identityGrantJson,
+  identityProofJson,
 ].map((schema) => schemaDocumentSchema.parse(schema));
 
 export function getSchemaIndex(): SchemaIndexEntry[] {

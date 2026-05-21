@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { landingFeatures } from '$lib/content/site';
 </script>
 
 <svelte:head>
@@ -244,6 +245,38 @@
 
 
 
+	<section class="about-band">
+		<div class="about-band-header">
+			<p class="docs-section-kicker">Product surfaces</p>
+			<h2>Six ideas that do most of the explanatory work.</h2>
+			<p>
+				
+					PARA is built around concrete civic surfaces that reduce friction between thought,
+					expression, and political consequence.
+				
+			</p>
+		</div>
+		<div class="feature-grid">
+			{#each landingFeatures as feature (feature.title)}
+				<article class="feature-card">
+					<p class="feature-eyebrow">{feature.eyebrow}</p>
+					<h3>{feature.title}</h3>
+					<div class="feature-problem">
+						<span class="problem-label">Reduces</span>
+						<p>{feature.problem}</p>
+					</div>
+					<p class="feature-copy">{feature.copy}</p>
+					<ul class="feature-points">
+						{#each feature.points as point (point)}
+							<li>{point}</li>
+						{/each}
+					</ul>
+					<a class="feature-link" href={resolve(feature.href)}>{feature.cta}</a>
+				</article>
+			{/each}
+		</div>
+	</section>
+
 	<section class="about-band about-next">
 		<div class="about-band-header">
 			<p class="docs-section-kicker">Culture</p>
@@ -410,8 +443,95 @@
 		gap: 0.9rem;
 	}
 
+	.feature-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+		margin-top: 1.25rem;
+	}
+
+	.feature-card {
+		display: grid;
+		gap: 0.75rem;
+		padding: 1.35rem;
+		border: 1px solid rgba(255, 255, 255, 0.09);
+		border-radius: 1.4rem;
+		background:
+			linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+			rgba(255, 255, 255, 0.02);
+	}
+
+	.feature-eyebrow {
+		margin: 0;
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: #a9c7ff;
+	}
+
+	.feature-card h3 {
+		margin: 0;
+		font-family: var(--ps-font-display);
+		font-size: 1.35rem;
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+		color: #ffffff;
+	}
+
+	.feature-problem {
+		display: grid;
+		gap: 0.35rem;
+		padding: 0.85rem 1rem;
+		border-radius: 1rem;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(255, 255, 255, 0.04);
+	}
+
+	.problem-label {
+		font-size: 0.72rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: #c8b6ef;
+	}
+
+	.feature-problem p {
+		margin: 0;
+		color: #ede8f6;
+		line-height: 1.6;
+	}
+
+	.feature-copy {
+		margin: 0;
+		color: #d5cfde;
+		line-height: 1.75;
+	}
+
+	.feature-points {
+		margin: 0;
+		padding-left: 1.1rem;
+		display: grid;
+		gap: 0.5rem;
+		color: #d5cfde;
+	}
+
+	.feature-link {
+		width: fit-content;
+		color: #ffffff;
+		font-weight: 700;
+		text-decoration: none;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+		padding-bottom: 0.1rem;
+		margin-top: 0.25rem;
+	}
+
 	@media (max-width: 960px) {
 		.about-hero {
+			grid-template-columns: 1fr;
+		}
+
+		.feature-grid {
 			grid-template-columns: 1fr;
 		}
 	}

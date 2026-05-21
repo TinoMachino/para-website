@@ -16,18 +16,18 @@ export const contactEmails = {
 export const openSourceRepos = [
 	{
 		label: `Website`,
-		href: 'https://github.com/TinoMachino/para-website',
+		href: 'https://github.com/mexico-parasocial/para-app',
 		copy: `Public docs and website workspace`
 	},
 	{
 		label: `App`,
-		href: 'https://github.com/TinoMachino/final',
+		href: 'https://github.com/mexico-parasocial/para-app',
 		copy: `Public PARA client workspace`
 	},
 	{
 		label: `Backend`,
-		href: 'https://github.com/TinoMachino/WhatZatppa',
-		copy: `Public WhatZatppa backend workspace`
+		href: 'https://github.com/mexico-parasocial/m8-app',
+		copy: `Public m8 identity backend workspace`
 	}
 ] as const;
 
@@ -56,7 +56,7 @@ export const landingHeroMetrics = [
 
 export const landingHeroActions = [
 	{
-		eyebrow: `Abou`,
+		eyebrow: `About`,
 		title: `Read the political thesis`,
 		copy: `Understand the democratic problem, the second-layer idea, and why PARA exists.`,
 		href: aboutBase
@@ -111,7 +111,7 @@ export const landingPillars = [
 export const landingFeatures = [
 	{
 		eyebrow: `Problem`,
-		title: `From opinion to political impac`,
+		title: `From opinion to political impact`,
 		problem: `Makes political positions visible, comparable, and easier to act on.`,
 		copy: `PARA starts from a simple premise: democracy stays thin when public opinion is hard to express clearly and hard to turn into civic consequence.`,
 		points: [
@@ -127,8 +127,8 @@ export const landingFeatures = [
 		problem: `Lowers the cost of participation without asking users to abandon their audience.`,
 		copy: `PARA can link identities, publish across networks, and carry political context wherever public discussion is already happening.`,
 		points: [
-			`Cross-network publishing preserves reach while adding civic contex`,
-			`Shared political tags make posts legible as political speech instead of generic conten`
+			`Cross-network publishing preserves reach while adding civic context`,
+			`Shared political tags make posts legible as political speech instead of generic content`
 		],
 		href: aboutBase,
 		cta: `Read the second-layer model`
@@ -139,7 +139,7 @@ export const landingFeatures = [
 		problem: `Turns generic posting into structured political input.`,
 		copy: `PARA introduces #POLICY|| and #MATTER| so users can separate policy design from issue attention, then vote with both direction and intensity.`,
 		points: [
-			`#POLICY||-2 captures both subject and degree of support or disagreemen`,
+			`#POLICY||-2 captures both subject and degree of support or disagreement`,
 			`Policy voting becomes a live political dataset rather than a one-day ritual`
 		],
 		href: aboutBase,
@@ -147,7 +147,7 @@ export const landingFeatures = [
 	},
 	{
 		eyebrow: `RAQ + communities`,
-		title: `RAQ turns ideology into structured contex`,
+		title: `RAQ turns ideology into structured context`,
 		problem: `Helps people locate themselves politically instead of posting into one undifferentiated crowd.`,
 		copy: `The RAQ helps users question themselves, place themselves politically, and generate structured data that communities can organize around.`,
 		points: [
@@ -164,7 +164,7 @@ export const landingFeatures = [
 		copy: `PARA is meant to power more than a feed. Search, clustering, classification, and generation turn civic data into usable product utilities.`,
 		points: [
 			`The API can classify political content, highlight bias, and generate tex`,
-			`Collective and individual agents can support education, writing, comparison, and entertainmen`
+			`Collective and individual agents can support education, writing, comparison, and entertainment`
 		],
 		href: aboutBase,
 		cta: `Read the agent model`
@@ -185,7 +185,7 @@ export const landingFeatures = [
 
 export const surfaceChecklist = [
 	`A problem statement centered on democratic friction`,
-	`Second-layer publishing and cross-network political contex`,
+	`Second-layer publishing and cross-network political context`,
 	`#POLICY|| and #MATTER| flairs`,
 	`Policy voting from -3 to +3 with RAQ flows`,
 	`Belief-based communities and collective agents`,
@@ -201,7 +201,7 @@ export const architectureLayers = [
 	},
 	{
 		eyebrow: `Protocol layer`,
-		title: `watx contracts underneath`,
+		title: `WhatZatppa contracts underneath`,
 		copy: `Lexicons, records, xrpc methods, service boundaries, and repository semantics describe how those surfaces are stored and moved through the stack.`
 	},
 	{

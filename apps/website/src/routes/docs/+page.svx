@@ -78,7 +78,7 @@
 			</div>
 			<div class="docs-meta-card">
 				<span class="docs-meta-label">Contracts</span>
-				<div class="docs-meta-value"><a href="/docs/schemas">Schemas</a> keeps the `watx` and `com.para.*` reference reachable when needed.</div>
+				<div class="docs-meta-value"><a href="/docs/schemas">Schemas</a> keeps the `WhatZatppa` and `com.para.*` reference reachable when needed.</div>
 			</div>
 		</div>
 

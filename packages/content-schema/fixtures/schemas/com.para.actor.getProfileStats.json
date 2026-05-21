@@ -5,7 +5,7 @@
   "status": "experimental",
   "tags": ["actors", "queries", "profiles"],
   "backendOwner": "lexicons/com/para/actor/getProfileStats.json",
-  "sourcePath": "watx/lexicons/com/para/actor/getProfileStats.json",
+  "sourcePath": "WhatZatppa/lexicons/com/para/actor/getProfileStats.json",
   "examples": [
     "{\"actor\":\"did:plc:example\",\"stats\":{\"communities\":6,\"posts\":42},\"status\":{\"literal\":\"Independent\",\"party\":\"none\"}}"
   ],

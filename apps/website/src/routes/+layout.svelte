@@ -3,9 +3,11 @@
 	import { page } from '$app/state';
 	import { beforeNavigate, afterNavigate } from '$app/navigation';
 	import { openSourceRepos } from '$lib/content/site';
+import { content } from '$lib/content/i18n';
+import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 	import '@parasocial/ui/tokens.css';
 	import favicon from '$lib/assets/favicon.png';
-	import logomark from '$lib/assets/logomark.svg';
+	import logomark from '$lib/assets/logomark.png';
 	import '$lib/styles/app.css';
 
 	let { children } = $props();
@@ -54,6 +56,7 @@
 					</a>
 				{/each}
 			</nav>
+			<LanguageSwitcher />
 		</div>
 	</header>
 
@@ -69,12 +72,13 @@
 					<span class="site-brand-text">PARA</span>
 				</p>
 				<p class="footer-copy">
-					Browse the thesis, product surfaces, trust model, app access, and schema reference from
-					any entry point.
+					{$content.footerCopy}
 				</p>
 				<div class="footer-repo-list">
-					{#each openSourceRepos as repo (repo.href)}
-						<a href={repo.href} target="_blank" rel="noreferrer">{repo.label} repo</a>
+					{#each openSourceRepos as repo, i (repo.label)}
+						<a href={repo.href} target="_blank" rel="noreferrer">
+							{i === 0 ? $content.footerRepoLabels.website : i === 1 ? $content.footerRepoLabels.app : $content.footerRepoLabels.backend} repo
+						</a>
 					{/each}
 				</div>
 			</div>
@@ -136,8 +140,8 @@
 
 	.site-header-inner {
 		position: relative;
-		min-height: 4rem;
-		padding: 0.85rem 0;
+		min-height: 4.5rem;
+		padding: 1rem 0;
 	}
 
 	.site-header-mark,
@@ -164,21 +168,20 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 0.1rem;
+		gap: 0.2rem;
 		color: #f3f3ef;
 	}
 
 	.site-header-motif {
 		display: block;
-		width: 1.5rem;
-		height: 1.5rem;
-		color: #f3f3ef;
+		width: 2.4rem;
+		height: 2.4rem;
 		filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
 	}
 
 	.site-header-lockup-text {
 		font-family: 'PARA Cinzel', serif;
-		font-size: 0.84rem;
+		font-size: 1.05rem;
 		font-weight: 600;
 		letter-spacing: 0.14em;
 		line-height: 1;
@@ -191,7 +194,7 @@
 		align-items: center;
 		gap: 0.7rem;
 		font-family: 'PARA Cinzel', serif;
-		font-size: 1.42rem;
+		font-size: 1.55rem;
 		font-weight: 600;
 		letter-spacing: 0.12em;
 	}
@@ -202,9 +205,8 @@
 	}
 
 	.site-mark {
-		width: 1.4rem;
-		height: 1.4rem;
-		color: #f3f3ef;
+		width: 1.8rem;
+		height: 1.8rem;
 		filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.22));
 	}
 

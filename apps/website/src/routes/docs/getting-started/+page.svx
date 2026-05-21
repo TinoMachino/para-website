@@ -69,7 +69,7 @@
 			<div class="docs-meta-value">Actual app routes, screens, and the civic surface area the docs describe.</div>
 		</div>
 		<div class="docs-meta-card">
-			<span class="docs-meta-label">watx</span>
+			<span class="docs-meta-label">WhatZatppa</span>
 			<div class="docs-meta-value">Backend lexicons, service behavior, indexed views, and xrpc contracts.</div>
 		</div>
 	</div>

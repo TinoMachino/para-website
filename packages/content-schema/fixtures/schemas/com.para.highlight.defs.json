@@ -5,7 +5,7 @@
   "status": "experimental",
   "tags": ["highlights", "reading", "views"],
   "backendOwner": "lexicons/com/para/highlight/defs.json",
-  "sourcePath": "watx/lexicons/com/para/highlight/defs.json",
+  "sourcePath": "WhatZatppa/lexicons/com/para/highlight/defs.json",
   "examples": [
     "{\"highlightView\":{\"subjectUri\":\"at://did:plc:example/app.bsky.feed.post/3x\",\"text\":\"Key quote\",\"start\":0,\"end\":44,\"visibility\":\"public\"}}"
   ],

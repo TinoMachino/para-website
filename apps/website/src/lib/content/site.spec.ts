@@ -12,7 +12,7 @@ describe('site content contract', () => {
 		expect(docsBase).toBe('/docs');
 	});
 
-	it('reflects PARA and watx themes', () => {
+	it('reflects PARA and WhatZatppa themes', () => {
 		expect(landingPillars).toHaveLength(3);
 		expect(landingFeatures).toHaveLength(6);
 		expect(architectureNotes[0]).toContain('flairs');

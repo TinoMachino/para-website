@@ -6,7 +6,7 @@
 	<title>Backend Architecture • PARA Docs</title>
 	<meta
 		name="description"
-		content="How watx works: PDS, AppView, indexing pipeline, and the com.para.* schema layers that power PARA's civic surfaces."
+		content="How WhatZatppa works: PDS, AppView, indexing pipeline, and the com.para.* schema layers that power PARA's civic surfaces."
 	/>
 </svelte:head>
 
@@ -14,15 +14,15 @@
 	<p class="docs-hero-kicker">Architecture</p>
 # Backend architecture
 
-	watx is the TypeScript atproto-style backend that powers PARA. It separates personal data hosting
-	from application views, keeps all contracts in lexicons, and materializes civic state through an
-	indexing pipeline so queries serve pre-aggregated views rather than scanning raw records.
+	PARA runs on two backends: WhatZatppa (the atproto-style PDS and AppView that handles posts,
+		communities, and civic surfaces) and m8 (the identity broker that handles verification,
+		zero-knowledge proofs, grants, and persona management). This page explains how both fit together.
 </section>
 
 <div class="docs-link-grid">
 	<a class="docs-link-card" href="/docs/schemas">
 		<strong>Schema reference</strong>
-		<span>Browse the 12 <code>com.para.*</code> contracts that define records, views, and queries.</span>
+		<span>Browse the <code>com.para.*</code> and <code>com.para.identity.*</code> contracts that define records, views, and queries.</span>
 	</a>
 	<a class="docs-link-card" href="/docs/how-it-works">
 		<strong>How it works</strong>
@@ -36,7 +36,7 @@
 
 <section class="docs-section-card">
 	<p class="docs-section-kicker">Service topology</p>
-## Three service layers
+## Four service layers
 
 	<div class="docs-split-grid">
 		<div class="docs-note-panel">
@@ -59,6 +59,14 @@
 
 	<div class="docs-split-grid">
 		<div class="docs-note-panel">
+			<h3>m8 — Identity broker</h3>
+			<p>
+				m8 sits between the citizen and PARA. It handles INE verification, zero-knowledge proof
+				generation, grant consent, persona management, and anonymous identity issuance. m8 does not
+				replace the PDS; it feeds verified credentials into it.
+			</p>
+		</div>
+		<div class="docs-note-panel">
 			<h3>Indexing pipeline</h3>
 			<p>
 				When a record is written to the PDS, the AppView indexes it into derived tables. Posts become
@@ -66,6 +74,9 @@
 				activity becomes profile stats.
 			</p>
 		</div>
+	</div>
+
+	<div class="docs-split-grid">
 		<div class="docs-note-panel">
 			<h3>Shared platform packages</h3>
 			<p>
@@ -125,9 +136,10 @@
 ## Four categories of com.para.* contract
 
 	<p>
-		The 12 published schemas fall into four groups. Records are what users write. Metadata overlays
+		The 12 published WhatZatppa schemas fall into four groups. Records are what users write. Metadata overlays
 		attach civic semantics to existing content. Views are the read models the AppView materializes.
-		Queries are the XRPC methods that surface those views.
+		Queries are the XRPC methods that surface those views. m8 adds identity-specific contracts
+		(<code>com.para.identity.*</code>) for proofs, grants, and anonymous credentials.
 	</p>
 
 	### Records
@@ -234,7 +246,7 @@
 
 <section class="docs-section-card">
 	<p class="docs-section-kicker">Backend repo</p>
-## watx structure
+## WhatZatppa structure
 
 	<div class="docs-split-grid">
 		<div class="docs-note-panel">
@@ -267,6 +279,48 @@
 			<p>
 				Lexicon validation, DID resolution, XRPC client/server framing, and MST operations. These
 				packages are reused across PDS and AppView boundaries.
+			</p>
+		</div>
+	</div>
+</section>
+
+<section class="docs-section-card">
+	<p class="docs-section-kicker">Backend repo</p>
+	## m8 structure
+
+	<div class="docs-split-grid">
+		<div class="docs-note-panel">
+			<h3>AdonisJS controllers</h3>
+			<p>
+				<code>app/controllers/*_controller.ts</code> handles the 10 route groups: sessions, grants,
+				claims, providers, identities, issuers, karma, ledger, anonymous, and health. Each controller
+				owns its validation, i18n, and error formatting.
+			</p>
+		</div>
+		<div class="docs-note-panel">
+			<h3>Identity routes</h3>
+			<p>
+				<code>start/routes.ts</code> wires all controllers under the <code>/v1</code> prefix.
+				Identity presentation, INE verification, ZKP verification, credential revocation, and
+				CRL are all served from this single router.
+			</p>
+		</div>
+	</div>
+
+	<div class="docs-split-grid">
+		<div class="docs-note-panel">
+			<h3>ZKP prover assets</h3>
+			<p>
+				Static <code>.wasm</code> and <code>.zkey</code> files for the Circom age verifier are served
+				from <code>public/zkp/</code> so the mobile app can download them on demand.
+			</p>
+		</div>
+		<div class="docs-note-panel">
+			<h3>Chat key backup</h3>
+			<p>
+				Matrix E2EE key backup material is stored per-session via
+				<code>POST /v1/identities/chat-key-backup</code> and retrieved with
+				<code>GET /v1/identities/chat-key-backup</code>.
 			</p>
 		</div>
 	</div>
@@ -317,6 +371,13 @@
 			<div class="docs-meta-value">
 				<code>com.para.status</code> for public presence, party affiliation, and community-scoped
 				messaging.
+			</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Identity</span>
+			<div class="docs-meta-value">
+				<code>com.para.identity.*</code> for INE proofs, ZKP age verification, grant consent,
+				and anonymous persona issuance. Managed by m8, surfaced in the Identity tab.
 			</div>
 		</div>
 	</div>

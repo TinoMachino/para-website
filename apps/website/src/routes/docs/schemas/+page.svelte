@@ -16,7 +16,7 @@
 		<h1>Schema reference</h1>
 		<p>
 			Use this section when you want the technical shape behind PARA's public surfaces. These
-			pages curate the `com.para.*` lexicons in watx so the records and views are easier to read in
+			pages curate the <code>com.para.*</code> lexicons in WhatZatppa and m8 so the records and views are easier to read in
 			the context of the product.
 		</p>
 	</div>

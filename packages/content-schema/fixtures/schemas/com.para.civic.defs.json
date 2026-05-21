@@ -5,7 +5,7 @@
   "status": "experimental",
   "tags": ["civic", "governance", "views"],
   "backendOwner": "lexicons/com/para/civic/defs.json",
-  "sourcePath": "watx/lexicons/com/para/civic/defs.json",
+  "sourcePath": "WhatZatppa/lexicons/com/para/civic/defs.json",
   "examples": [
     "{\"cabildeoView\":{\"title\":\"Water allocation reform\",\"phase\":\"voting\",\"optionSummary\":[{\"optionIndex\":0,\"label\":\"Approve\",\"votes\":82,\"positions\":16}]}}"
   ],

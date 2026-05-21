@@ -5,7 +5,7 @@
   "status": "stable",
   "tags": ["actors", "status", "records"],
   "backendOwner": "lexicons/com/para/status.json",
-  "sourcePath": "watx/lexicons/com/para/status.json",
+  "sourcePath": "WhatZatppa/lexicons/com/para/status.json",
   "examples": [
     "{\"$type\":\"com.para.status\",\"status\":\"Working on housing reform outreach this week.\",\"community\":\"mx-federal\",\"createdAt\":\"2026-03-18T00:00:00.000Z\"}"
   ],

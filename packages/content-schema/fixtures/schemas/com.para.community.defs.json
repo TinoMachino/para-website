@@ -5,7 +5,7 @@
   "status": "experimental",
   "tags": ["communities", "governance", "views"],
   "backendOwner": "lexicons/com/para/community/defs.json",
-  "sourcePath": "watx/lexicons/com/para/community/defs.json",
+  "sourcePath": "WhatZatppa/lexicons/com/para/community/defs.json",
   "examples": [
     "{\"summary\":{\"members\":1200,\"visiblePosters\":340,\"policyPosts\":98,\"matterPosts\":75,\"badgeHolders\":18}}"
   ],

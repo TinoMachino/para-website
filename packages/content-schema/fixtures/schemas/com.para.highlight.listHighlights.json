@@ -5,7 +5,7 @@
   "status": "experimental",
   "tags": ["highlights", "queries", "lists"],
   "backendOwner": "lexicons/com/para/highlight/listHighlights.json",
-  "sourcePath": "watx/lexicons/com/para/highlight/listHighlights.json",
+  "sourcePath": "WhatZatppa/lexicons/com/para/highlight/listHighlights.json",
   "examples": [
     "{\"highlights\":[{\"subjectUri\":\"at://did:plc:example/app.bsky.feed.post/3x\",\"tag\":\"water\"}],\"cursor\":\"next-token\"}"
   ],

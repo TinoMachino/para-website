@@ -5,7 +5,7 @@
   "status": "experimental",
   "tags": ["civic", "queries", "lists"],
   "backendOwner": "lexicons/com/para/civic/listCabildeos.json",
-  "sourcePath": "watx/lexicons/com/para/civic/listCabildeos.json",
+  "sourcePath": "WhatZatppa/lexicons/com/para/civic/listCabildeos.json",
   "examples": [
     "{\"cabildeos\":[{\"title\":\"Water allocation reform\",\"phase\":\"open\"}],\"cursor\":\"next-token\"}"
   ],

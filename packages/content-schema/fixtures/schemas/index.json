@@ -82,5 +82,26 @@
     "summary": "Literal-self status record for the current public status, party, and community label of a Para account.",
     "status": "stable",
     "tags": ["actors", "status", "records"]
+  },
+  {
+    "id": "com.para.identity.defs",
+    "title": "com.para.identity.defs",
+    "summary": "Core identity definitions for personas, verification status, device trust, and anonymous credentials.",
+    "status": "experimental",
+    "tags": ["identity", "definitions", "views"]
+  },
+  {
+    "id": "com.para.identity.grant",
+    "title": "com.para.identity.grant",
+    "summary": "Consent grant record for third-party access to identity data and actions.",
+    "status": "experimental",
+    "tags": ["identity", "grants", "consent", "records"]
+  },
+  {
+    "id": "com.para.identity.proof",
+    "title": "com.para.identity.proof",
+    "summary": "Zero-knowledge or INE verification proof record attesting to citizen attributes without revealing identity data.",
+    "status": "experimental",
+    "tags": ["identity", "proofs", "zkp", "records"]
   }
 ]

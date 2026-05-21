@@ -7,8 +7,8 @@
 	const toc = [
 		['#eligibility', `Eligibility and age verification`],
 		['#accounts', `Account registration and responsibilities`],
-		['#user-content', `User conten`],
-		['#moderation', `Proactive moderation and illegal conten`],
+		['#user-content', `User content`],
+		['#moderation', `Proactive moderation and illegal content`],
 		['#feeds', `Feeds and recommender systems`],
 		['#appeals', `Complaints and appeals`],
 		['#termination', `Termination`],

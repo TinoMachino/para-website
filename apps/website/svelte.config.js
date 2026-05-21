@@ -35,12 +35,16 @@ function rehypeExternalLinks() {
 function rehypeSlug() {
 	return (tree) => {
 		const slugCounts = new Map();
+		function extractText(node) {
+			if (node.type === 'text') return node.value;
+			if (Array.isArray(node.children)) {
+				return node.children.map(extractText).join('');
+			}
+			return '';
+		}
 		function walk(node) {
 			if (node.type === 'element' && (node.tagName === 'h2' || node.tagName === 'h3')) {
-				const text = node.children
-					.filter((c) => c.type === 'text')
-					.map((c) => c.value)
-					.join('');
+				const text = extractText(node);
 				let slug = text
 					.toLowerCase()
 					.replace(/[^\w\s-]/g, '')

@@ -103,13 +103,13 @@
 		<h2>Bring up the backend the way the current runbooks describe it.</h2>
 		<p>
 			
-				The backend development flow in <code>watx</code> is the part that expects Docker. This is the short
+				The backend development flow in <code>WhatZatppa</code> is the part that expects Docker. This is the short
 				path that matches the repo runbook.
 			
 		</p>
 
 		<pre><code
-				>cd /Users/mlv/Desktop/MASTER/watx
+				>cd /Users/mlv/Desktop/MASTER/WhatZatppa
 make nvm-setup
 make deps
 make build

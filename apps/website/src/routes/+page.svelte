@@ -1,14 +1,16 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import GlobeAnimation from '$lib/components/GlobeAnimation.svelte';
-	import {
-		docsBase,
-		landingFeatures,
-		landingHeroActions,
-		landingHeroMetrics,
-		landingPillars
-	} from '$lib/content/site';
-	const coreFeatures = landingFeatures.slice(0, 4);
+	import { content } from '$lib/content/i18n';
+	import { docsBase } from '$lib/content/site';
+
+	const landingFeatures = $derived($content.landingFeatures);
+	const landingHeroActions = $derived($content.landingHeroActions);
+	const landingHeroMetrics = $derived($content.landingHeroMetrics);
+	const landingPillars = $derived($content.landingPillars);
+	const heroPrimaryAction = $derived($content.heroPrimaryAction);
+	const heroSecondaryAction = $derived($content.heroSecondaryAction);
+	const coreFeatures = $derived(landingFeatures.slice(0, 4));
 </script>
 
 <svelte:head>
@@ -32,8 +34,8 @@
 					
 				</p>
 				<div class="hero-actions">
-					<a class="button button-primary" href={resolve(docsBase)}>Read the docs</a>
-					<a class="button button-secondary" href={resolve('/try-app')}>Try the app</a>
+					<a class="button button-primary" href={resolve(heroSecondaryAction.href)}>{heroSecondaryAction.label}</a>
+					<a class="button button-secondary" href={resolve(heroPrimaryAction.href)}>{heroPrimaryAction.label}</a>
 				</div>
 				<div class="metric-row">
 					{#each landingHeroMetrics as metric (metric.label)}
@@ -140,8 +142,7 @@
 	.hero,
 	.principles,
 	.paths,
-	.features,
-	.closing {
+	.features {
 		padding-top: 2.5rem;
 	}
 
@@ -441,15 +442,6 @@
 		border-left: 1px solid rgba(255, 255, 255, 0.08);
 	}
 
-	.closing-card {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
-		gap: 1rem;
-		align-items: center;
-		padding: 1.45rem;
-		margin-top: 1.25rem;
-	}
-
 	@media (max-width: 1100px) {
 		.hero-grid,
 		.section-head,
@@ -470,7 +462,6 @@
 		}
 
 		.hero-stage,
-		.closing-card,
 		.feature-band {
 			grid-template-columns: 1fr;
 		}

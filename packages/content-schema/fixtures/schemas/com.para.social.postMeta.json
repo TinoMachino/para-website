@@ -5,7 +5,7 @@
   "status": "experimental",
   "tags": ["posts", "social", "metadata"],
   "backendOwner": "lexicons/com/para/social/postMeta.json",
-  "sourcePath": "watx/lexicons/com/para/social/postMeta.json",
+  "sourcePath": "WhatZatppa/lexicons/com/para/social/postMeta.json",
   "examples": [
     "{\"post\":\"at://did:plc:example/com.para.post/3x\",\"postType\":\"policy\",\"community\":\"mx-federal\",\"voteScore\":2,\"createdAt\":\"2026-03-20T00:00:00.000Z\"}"
   ],
