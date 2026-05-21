@@ -131,10 +131,18 @@
 			route: '/map',
 			copy: 'Map surfaces make clustering, regional trends, and civic distribution spatially legible instead of purely textual.',
 			href: '/docs/how-it-works/map-and-discovery'
+		},
+		{
+			eyebrow: 'Identity',
+			title: 'm8 — Sovereign identity broker',
+			route: '/identity',
+			copy: 'm8 is the identity layer underneath PARA: INE verification, zero-knowledge proofs, persona cards, and fine-grained consent for every civic action.',
+			href: '/docs/glossary'
 		}
 	];
 
 	const productLoops = [
+		'Verify identity through m8 and choose your civic persona.',
 		'Open Base or a community and establish civic context first.',
 		'Read through highlights, policy posts, or representative surfaces.',
 		'Participate through policy votes, matter framing, comments, or cabildeo.',
@@ -216,6 +224,64 @@
 					<a class="surface-link" href={surface.href}>Open related docs</a>
 				</article>
 			{/each}
+		</div>
+	</section>
+
+	<section class="docs-section-card">
+		<p class="docs-section-kicker">Identity and trust</p>
+		<h2>m8 is not a settings page. It is the civic trust layer.</h2>
+		<p>
+			Before a user posts, votes, or joins a cabildeo, m8 answers the question: is this person a
+			unique, verified citizen? The identity flow is designed to feel like a civic ritual, not a
+			bureaucratic form.
+		</p>
+
+		<div class="docs-split-grid">
+			<div class="docs-note-panel product-note-panel">
+				<h3>Three cards, one vote</h3>
+				<p>
+					Card 1 (PARA) is the default civic face. Card 2 (Independent) is anonymous and unlinked
+					for sensitive posts. Card 3 (Public) is linkable to Bluesky or Mastodon. No matter how
+					many cards you use, your central private identity guarantees one vote per policy.
+				</p>
+			</div>
+			<div class="docs-note-panel product-note-panel">
+				<h3>Proofs, not data dumps</h3>
+				<p>
+					When an app asks for your age or eligibility, m8 does not send your CURP or photo. It
+					sends a zero-knowledge proof — a cryptographic receipt that says "verified" without
+					revealing the underlying document.
+				</p>
+			</div>
+		</div>
+
+		<div class="docs-split-grid">
+			<div class="docs-note-panel product-note-panel">
+				<h3>Grants you can revoke</h3>
+				<p>
+					Every app request is a grant. You see exactly what claims the app wants, approve or deny
+					in plain language, and revoke the grant at any time. The ledger keeps an audit trail of
+					every permission you have ever given.
+				</p>
+			</div>
+			<div class="docs-note-panel product-note-panel">
+				<h3>Biometric vault</h3>
+				<p>
+					Sensitive identity data lives behind Face ID, Touch ID, or device PIN. After 5 minutes
+					in the background, the vault auto-locks. The app does not store biometric data — it
+					delegates to the device's secure enclave.
+				</p>
+			</div>
+		</div>
+
+		<div class="loop-card">
+			<p class="loop-kicker">Identity flow</p>
+			<ol class="loop-list">
+				<li>Onboarding explains the 3-card limit and the one-vote guarantee.</li>
+				<li>INE verification extracts data locally; nothing leaves the device unencrypted.</li>
+				<li>The user chooses a public name and receives a verified credential.</li>
+				<li>From then on, every civic action carries proof of unique citizenship — not identity.</li>
+			</ol>
 		</div>
 	</section>
 

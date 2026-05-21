@@ -50,6 +50,38 @@
 			<span class="docs-meta-label">Civic intelligence</span>
 			<div class="docs-meta-value">The combination of clustering, classification, embeddings, agents, trend reading, and assisted reasoning built on top of civic data.</div>
 		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Persona</span>
+			<div class="docs-meta-value">A face or card within m8. A user can have up to 3 personas (PARA, Independent, Public), but all share a single central private identity that enforces one vote per policy.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Grant</span>
+			<div class="docs-meta-value">A permission that an app requests to access specific identity claims. Grants are fine-grained, time-bounded, and revocable by the user at any time.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Proof</span>
+			<div class="docs-meta-value">A cryptographic receipt that certifies a claim (e.g., "age ≥ 18") without revealing the underlying data. Proofs are generated as zero-knowledge artifacts.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">ZKP</span>
+			<div class="docs-meta-value">Zero-Knowledge Proof. A method by which m8 can prove a citizen is eligible to vote without revealing their name, CURP, or photo to PARA or any third party.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">INE verification</span>
+			<div class="docs-meta-value">The process by which m8 reads a user's Mexican voter ID (INE) locally, extracts verifiable claims, and issues a cryptographic credential. Raw documents never leave the device.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Anonymous identity</span>
+			<div class="docs-meta-value">An unlinked pseudonymous profile used for sensitive posts. Anonymous identities are created automatically upon credential issuance and carry karma independently.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Surface</span>
+			<div class="docs-meta-value">A sharing context that replaces the old global-privacy switch. Each persona can have different states per surface (public, civic, dating), making privacy explicit rather than binary.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">One vote guarantee</span>
+			<div class="docs-meta-value">The promise that no matter how many personas a user activates, their central private identity ensures they can only vote once per policy. Multiple faces, one voice, one vote.</div>
+		</div>
 	</div>
 </section>
 
