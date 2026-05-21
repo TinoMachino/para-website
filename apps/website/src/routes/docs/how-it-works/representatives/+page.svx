@@ -1,6 +1,3 @@
-<script>
-	import StatusPill from '$lib/components/StatusPill.svelte';
-</script>
 
 <svelte:head>
 	<title>Representatives • How It Works • PARA Docs</title>
@@ -10,7 +7,6 @@
 	<p class="docs-hero-kicker">How it works</p>
 # Representatives
 
-	<StatusPill status="partial" />
 
 	Representatives sit between profile, civic identity, and comparison. The route family matters
 	because PARA does not want policy participation to stop at generic posting or user follow graphs.

@@ -8,10 +8,11 @@
 
 <section class="docs-hero-card">
 	<p class="docs-hero-kicker">Getting started</p>
-	# Start from the right angle
-
-	This page exists because PARA has different kinds of readers. The shortest useful path for a
-	product reader is not the same as the shortest useful path for an engineer or contributor.
+	<h1>Start from the right angle</h1>
+	<p>
+		This page exists because PARA has different kinds of readers. The shortest useful path for a
+		product reader is not the same as the shortest useful path for an engineer or contributor.
+	</p>
 
 	<div class="docs-link-grid">
 		<a class="docs-link-card" href="/thesis">
@@ -85,5 +86,5 @@
 
 - Read [How it works](/docs/how-it-works)
 - Read the [Glossary](/docs/glossary)
-- Read the [Status guide](/docs/status)
-- Browse the [Schema reference](/docs/schemas)
+- Read the [Schema reference](/docs/schemas)
+- Browse the [Architecture docs](/docs/architecture)

@@ -1,5 +1,17 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import type { RouteId } from '$app/types';
+
+	type ProductHref = Extract<
+		RouteId,
+		| '/docs/glossary'
+		| '/docs/how-it-works/cabildeo'
+		| '/docs/how-it-works/communities'
+		| '/docs/how-it-works/highlights'
+		| '/docs/how-it-works/map-and-discovery'
+		| '/docs/how-it-works/raq'
+		| '/docs/how-it-works/representatives'
+	>;
 
 	type GalleryShot = {
 		src: string;
@@ -12,7 +24,7 @@
 		title: string;
 		route: string;
 		copy: string;
-		href: string;
+		href: ProductHref;
 	};
 
 	const interfaceShots: GalleryShot[] = [
@@ -221,7 +233,7 @@
 					<h3>{surface.title}</h3>
 					<p class="surface-route">{surface.route}</p>
 					<p>{surface.copy}</p>
-					<a class="surface-link" href={surface.href}>Open related docs</a>
+					<a class="surface-link" href={resolve(surface.href)}>Open related docs</a>
 				</article>
 			{/each}
 		</div>
@@ -267,9 +279,9 @@
 			<div class="docs-note-panel product-note-panel">
 				<h3>Biometric vault</h3>
 				<p>
-					Sensitive identity data lives behind Face ID, Touch ID, or device PIN. After 5 minutes
-					in the background, the vault auto-locks. The app does not store biometric data — it
-					delegates to the device's secure enclave.
+					Sensitive identity data lives behind Face ID, Touch ID, or device PIN. After 5 minutes in
+					the background, the vault auto-locks. The app does not store biometric data — it delegates
+					to the device's secure enclave.
 				</p>
 			</div>
 		</div>
@@ -280,7 +292,9 @@
 				<li>Onboarding explains the 3-card limit and the one-vote guarantee.</li>
 				<li>INE verification extracts data locally; nothing leaves the device unencrypted.</li>
 				<li>The user chooses a public name and receives a verified credential.</li>
-				<li>From then on, every civic action carries proof of unique citizenship — not identity.</li>
+				<li>
+					From then on, every civic action carries proof of unique citizenship — not identity.
+				</li>
 			</ol>
 		</div>
 	</section>
@@ -420,9 +434,9 @@
 				<strong>How it works</strong>
 				<span>Route-level explanation of the civic product surfaces.</span>
 			</a>
-			<a class="docs-link-card" href={resolve('/docs/status')}>
-				<strong>Status</strong>
-				<span>See what is implemented, partial, experimental, or thesis-only.</span>
+			<a class="docs-link-card" href={resolve('/docs/schemas')}>
+				<strong>Schemas</strong>
+				<span>Browse the contracts to see which are stable and which are still experimental.</span>
 			</a>
 			<a class="docs-link-card" href={resolve('/try-app')}>
 				<strong>Try app</strong>

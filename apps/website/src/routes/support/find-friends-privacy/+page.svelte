@@ -29,33 +29,35 @@
 	<section class="docs-section-card legal-section">
 		<h2>What this covers</h2>
 		<p>
-			This policy describes how PARA handles address-book and contact-matching data when you choose to
-			use find-friends features. It supplements the main <a href={resolve('/support/privacy')}>Privacy Policy</a>.
+			This policy describes how PARA handles address-book and contact-matching data when you choose
+			to use find-friends features. It supplements the main <a href={resolve('/support/privacy')}
+				>Privacy Policy</a
+			>.
 		</p>
 	</section>
 
 	<section class="docs-section-card legal-section">
 		<h2>What we collect</h2>
 		<p>
-			If you opt in to contact matching, we may process hashed or encrypted representations of contacts
-			from your device address book solely to suggest connections. We do not store raw contact details
-			longer than necessary to perform the match.
+			If you opt in to contact matching, we may process hashed or encrypted representations of
+			contacts from your device address book solely to suggest connections. We do not store raw
+			contact details longer than necessary to perform the match.
 		</p>
 	</section>
 
 	<section class="docs-section-card legal-section">
 		<h2>How we use it</h2>
 		<p>
-			Contact data is used only to generate suggestions. We do not sell contact information, use it for
-			advertising, or share it with third parties outside the matching operation.
+			Contact data is used only to generate suggestions. We do not sell contact information, use it
+			for advertising, or share it with third parties outside the matching operation.
 		</p>
 	</section>
 
 	<section class="docs-section-card legal-section">
 		<h2>Your control</h2>
 		<p>
-			You can revoke contact-matching permission at any time through product settings. Revocation stops
-			future matching and triggers deletion of stored match data where technically feasible.
+			You can revoke contact-matching permission at any time through product settings. Revocation
+			stops future matching and triggers deletion of stored match data where technically feasible.
 		</p>
 	</section>
 

@@ -9,37 +9,24 @@
   "examples": [
     "{\"cabildeos\":[{\"title\":\"Water allocation reform\",\"phase\":\"open\"}],\"cursor\":\"next-token\"}"
   ],
-  "relationships": [
-    "Returns arrays of com.para.civic.defs#cabildeoView."
-  ],
+  "relationships": ["Returns arrays of com.para.civic.defs#cabildeoView."],
   "constraints": [
     "Pagination and optional filters shape the list surface rather than returning raw records."
   ],
   "lifecycle": [
     "Used to populate the cabildeo list and community-scoped civic browse surfaces."
   ],
-  "writers": [
-    "Read-only query over indexed civic views."
-  ],
-  "readers": [
-    "Cabildeo list route",
-    "Community civic browsing"
-  ],
-  "routes": [
-    "/communities/cabildeos"
-  ],
-  "xrpcMethods": [
-    "com.para.civic.listCabildeos"
-  ],
+  "writers": ["Read-only query over indexed civic views."],
+  "readers": ["Cabildeo list route", "Community civic browsing"],
+  "routes": ["/communities/cabildeos"],
+  "xrpcMethods": ["com.para.civic.listCabildeos"],
   "indexing": [
     "Serves from indexed cabildeo view state rather than raw records."
   ],
   "moderation": [
     "Community filters can constrain visibility and browse context."
   ],
-  "productSurfaces": [
-    "Cabildeo list"
-  ],
+  "productSurfaces": ["Cabildeo list"],
   "fields": [
     {
       "name": "cabildeos",

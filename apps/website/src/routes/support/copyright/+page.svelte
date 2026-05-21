@@ -4,15 +4,15 @@
 </script>
 
 <svelte:head>
-	<title>{`Copyright Policy • PARA`}</title>
+	<title>Copyright Policy • PARA</title>
 	<meta
 		name="description"
-		content={`Copyright policy for PARA—how to report infringement and how we handle takedown requests.`}
+		content="Copyright policy for PARA—how to report infringement and how we handle takedown requests."
 	/>
 </svelte:head>
 
 <div class="docs-page legal-page">
-	<nav class="legal-breadcrumb" aria-label={`Breadcrumb`}>
+	<nav class="legal-breadcrumb" aria-label="Breadcrumb">
 		<a href={resolve('/support')}>Support</a>
 		<span aria-hidden="true">/</span>
 		<span>Copyright policy</span>
@@ -36,17 +36,17 @@
 		<ul>
 			<li>Identification of the copyrighted work you claim has been infringed.</li>
 			<li>
-				Identification of the material you claim is infringing, including enough detail for us to locate
-				it (for example, a link or post identifier).
+				Identification of the material you claim is infringing, including enough detail for us to
+				locate it (for example, a link or post identifier).
 			</li>
 			<li>
-				A good-faith statement that the use is not authorized by the copyright owner, its agent, or the
-				law.
+				A good-faith statement that the use is not authorized by the copyright owner, its agent, or
+				the law.
 			</li>
 			<li>Your contact details.</li>
 			<li>
-				A statement under penalty of perjury (where required by law) that your notice is accurate and
-				that you are the copyright owner or authorized to act on the owner&rsquo;s behalf.
+				A statement under penalty of perjury (where required by law) that your notice is accurate
+				and that you are the copyright owner or authorized to act on the owner&rsquo;s behalf.
 			</li>
 		</ul>
 		<p>
@@ -58,8 +58,8 @@
 	<section class="docs-section-card legal-section">
 		<h2>Counter-notice</h2>
 		<p>
-			If your material was removed and you believe it was a mistake or misidentification, you may submit
-			a counter-notice to
+			If your material was removed and you believe it was a mistake or misidentification, you may
+			submit a counter-notice to
 			<a href="mailto:{contactEmails.legal}">{contactEmails.legal}</a>
 			with:
 		</p>
@@ -75,9 +75,7 @@
 
 	<section class="docs-section-card legal-section">
 		<h2>Repeat infringers</h2>
-		<p>
-			We may suspend or terminate accounts of repeat infringers where appropriate.
-		</p>
+		<p>We may suspend or terminate accounts of repeat infringers where appropriate.</p>
 	</section>
 
 	<section class="docs-section-card">

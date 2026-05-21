@@ -39,12 +39,8 @@
 		<h2>Scope</h2>
 		<p>This pledge covers:</p>
 		<ul>
-			<li>
-				Use of PARA software and services for any purpose, commercial or non-commercial.
-			</li>
-			<li>
-				Modification and distribution of PARA open-source code under its published licenses.
-			</li>
+			<li>Use of PARA software and services for any purpose, commercial or non-commercial.</li>
+			<li>Modification and distribution of PARA open-source code under its published licenses.</li>
 			<li>
 				Development of compatible applications, clients, or tools that interoperate with PARA
 				infrastructure.

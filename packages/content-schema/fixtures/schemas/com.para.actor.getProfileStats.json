@@ -28,23 +28,13 @@
     "Profile and representative views.",
     "Any civic surface that needs Para-specific actor summaries."
   ],
-  "routes": [
-    "/profile/:name",
-    "/representatives"
-  ],
-  "xrpcMethods": [
-    "com.para.actor.getProfileStats"
-  ],
-  "indexing": [
-    "Depends on indexed actor state and Para status records."
-  ],
+  "routes": ["/profile/:name", "/representatives"],
+  "xrpcMethods": ["com.para.actor.getProfileStats"],
+  "indexing": ["Depends on indexed actor state and Para status records."],
   "moderation": [
     "BlockedActor and BlockedByActor errors enforce actor-level safety constraints."
   ],
-  "productSurfaces": [
-    "Representative summaries",
-    "Profile civic stats"
-  ],
+  "productSurfaces": ["Representative summaries", "Profile civic stats"],
   "fields": [
     {
       "name": "actor",

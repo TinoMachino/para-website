@@ -39,8 +39,8 @@
 		<h2>Public data</h2>
 		<p>
 			AT Protocol–style infrastructure is designed around public repositories. Most content you post
-			through PARA is public by default and may be replicated by other services on the network. We do
-			not control how third-party applications index, display, or retain public data.
+			through PARA is public by default and may be replicated by other services on the network. We
+			do not control how third-party applications index, display, or retain public data.
 		</p>
 	</section>
 
@@ -55,8 +55,8 @@
 	<section class="docs-section-card legal-section">
 		<h2>Federation</h2>
 		<p>
-			When data is federated to other services, those services operate under their own privacy policies.
-			We encourage you to review the policies of any third-party application you use.
+			When data is federated to other services, those services operate under their own privacy
+			policies. We encourage you to review the policies of any third-party application you use.
 		</p>
 	</section>
 

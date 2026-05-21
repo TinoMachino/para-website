@@ -11,12 +11,11 @@
 
 <section class="docs-hero-card">
 	<p class="docs-hero-kicker">Documentation</p>
-	# PARA docs
-
-	
+	<h1>PARA docs</h1>
+	<p>
 		The docs are simpler now. Start with the thesis, the product routes, or the contracts depending on
 		what you actually need.
-	
+	</p>
 
 	<div class="docs-link-grid">
 		<a class="docs-link-card" href="/thesis">
@@ -37,7 +36,7 @@
 <div class="docs-editorial-block">
 	<section class="docs-section-card">
 		<p class="docs-section-kicker">Choose a lane</p>
-		## Use the shortest path that fits your question
+		<h2>Use the shortest path that fits your question</h2>
 
 		<div class="docs-split-grid">
 			<div class="docs-note-panel">
@@ -54,14 +53,14 @@
 			</div>
 			<div class="docs-note-panel">
 				<h3>How mature is it?</h3>
-				<p>Use <a href="/docs/status">Status</a> to distinguish implemented, partial, and thesis-only areas.</p>
+				<p>Open <a href="/docs/schemas">Schemas</a> to see which contracts are stable and which are still experimental.</p>
 			</div>
 		</div>
 	</section>
 
 	<section class="docs-section-card">
 		<p class="docs-section-kicker">Docs map</p>
-		## The reference is split into four clear layers
+		<h2>The reference is split into four clear layers</h2>
 
 		<div class="docs-meta-grid">
 			<div class="docs-meta-card">
@@ -74,7 +73,7 @@
 			</div>
 			<div class="docs-meta-card">
 				<span class="docs-meta-label">Operations</span>
-				<div class="docs-meta-value"><a href="/trust-and-safety">Trust and safety</a>, <a href="/try-app">Try app</a>, and <a href="/docs/status">Status</a> cover access and guardrails.</div>
+				<div class="docs-meta-value"><a href="/trust-and-safety">Trust and safety</a>, <a href="/try-app">Try app</a>, and <a href="/support">Support</a> cover access and guardrails.</div>
 			</div>
 			<div class="docs-meta-card">
 				<span class="docs-meta-label">Contracts</span>

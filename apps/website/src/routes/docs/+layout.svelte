@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import { afterNavigate } from '$app/navigation';
+	import { getArchitectureNotes, getSchemaIndex } from '@parasocial/content-schema';
+	import { flowNav, primaryNav, readerNav } from '$lib/content/navigation';
 	import { openSourceRepos } from '$lib/content/site';
 	import { siteUrl, siteName } from '$lib/content/site';
-	import Toc from '$lib/components/docs/Toc.svelte';
 
 	let { children, data } = $props();
+
+	const SVG_NS = 'http://www.w3.org/2000/svg';
 
 	function isSectionActive(href: string) {
 		if (href === '/docs') {
@@ -15,45 +17,98 @@
 		return page.url.pathname === href || page.url.pathname.startsWith(`${href}/`);
 	}
 
+	let sidebarOpen = $state(false);
+
 	const ogTitle = $derived(page.data.title ?? 'Docs');
 	const ogDescription = $derived(page.data.description ?? 'Technical documentation for PARA.');
 	const canonical = $derived(`${siteUrl}${page.url.pathname}`);
 	const ogImage = $derived(`${siteUrl}/product/social-card-default.png`);
+	const visiblePrimaryNav = $derived(data?.primaryNav ?? primaryNav);
+	const visibleReaderNav = $derived(data?.readerNav ?? readerNav);
+	const visibleFlowNav = $derived(data?.flowNav ?? flowNav);
+	const visibleSchemaIndex = $derived(data?.schemaIndex ?? getSchemaIndex());
+	const visibleArchitectureNotes = $derived(data?.architectureNotes ?? getArchitectureNotes());
 
-	// Progressive enhancement: add copy buttons to plain <pre> blocks in docs prose
-	afterNavigate(() => {
-		if (typeof document === 'undefined') return;
-		const container = document.querySelector('.docs-content');
-		if (!container) return;
+	function createSvgIcon(kind: 'copy' | 'check') {
+		const svg = document.createElementNS(SVG_NS, 'svg');
+		svg.setAttribute('width', '14');
+		svg.setAttribute('height', '14');
+		svg.setAttribute('viewBox', '0 0 24 24');
+		svg.setAttribute('fill', 'none');
+		svg.setAttribute('stroke', 'currentColor');
+		svg.setAttribute('stroke-width', kind === 'copy' ? '2' : '2.5');
+		svg.setAttribute('stroke-linecap', 'round');
+		svg.setAttribute('stroke-linejoin', 'round');
 
-		container.querySelectorAll('pre').forEach((pre) => {
-			// Skip if already inside a CodeBlock or enhanced wrapper
-			if (pre.closest('.code-block')) return;
+		if (kind === 'copy') {
+			const rect = document.createElementNS(SVG_NS, 'rect');
+			rect.setAttribute('x', '9');
+			rect.setAttribute('y', '9');
+			rect.setAttribute('width', '13');
+			rect.setAttribute('height', '13');
+			rect.setAttribute('rx', '2');
+			rect.setAttribute('ry', '2');
+			svg.append(rect);
 
-			const wrapper = document.createElement('div');
-			wrapper.className = 'code-block';
+			const path = document.createElementNS(SVG_NS, 'path');
+			path.setAttribute('d', 'M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1');
+			svg.append(path);
+		} else {
+			const polyline = document.createElementNS(SVG_NS, 'polyline');
+			polyline.setAttribute('points', '20 6 9 17 4 12');
+			svg.append(polyline);
+		}
 
-			const btn = document.createElement('button');
-			btn.type = 'button';
-			btn.className = 'copy-btn';
-			btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Copy</span>`;
-			btn.setAttribute('aria-label', 'Copy code');
+		return svg;
+	}
 
-			btn.addEventListener('click', () => {
-				navigator.clipboard.writeText(pre.textContent || '');
-				btn.classList.add('copied');
-				btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Copied</span>`;
-				setTimeout(() => {
-					btn.classList.remove('copied');
-					btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Copy</span>`;
-				}, 2000);
+	function setCopyButtonState(button: HTMLButtonElement, copied = false) {
+		button.classList.toggle('copied', copied);
+		button.replaceChildren(
+			createSvgIcon(copied ? 'check' : 'copy'),
+			document.createTextNode(copied ? 'Copied' : 'Copy')
+		);
+	}
+
+	function copyCodeButtons(node: HTMLElement) {
+		function enhance() {
+			node.querySelectorAll('pre').forEach((pre) => {
+				if (pre.closest('.code-block')) return;
+
+				const wrapper = document.createElement('div');
+				wrapper.className = 'code-block';
+
+				const button = document.createElement('button');
+				button.type = 'button';
+				button.className = 'copy-btn';
+				button.setAttribute('aria-label', 'Copy code');
+				setCopyButtonState(button);
+
+				button.addEventListener('click', () => {
+					void navigator.clipboard.writeText(pre.textContent || '');
+					setCopyButtonState(button, true);
+					setTimeout(() => {
+						setCopyButtonState(button);
+					}, 2000);
+				});
+
+				pre.parentNode?.insertBefore(wrapper, pre);
+				wrapper.appendChild(pre);
+				wrapper.appendChild(button);
 			});
+		}
 
-			pre.parentNode?.insertBefore(wrapper, pre);
-			wrapper.appendChild(pre);
-			wrapper.appendChild(btn);
-		});
-	});
+		enhance();
+
+		const observer = new MutationObserver(enhance);
+		observer.observe(node, { childList: true, subtree: true });
+
+		return {
+			destroy() {
+				observer.disconnect();
+			}
+		};
+	}
 </script>
 
 <svelte:head>
@@ -78,107 +133,119 @@
 <div class="docs-shell">
 	<div class="docs-layout">
 		<aside class="docs-panel sidebar">
-			<div class="sidebar-block sidebar-start">
-				<p class="sidebar-kicker">Docs</p>
-				<a class="brand" href={resolve('/docs')}>PARA Docs</a>
-				<p class="sidebar-copy">
-					Product context first, protocol detail nearby, and clear exits into trust, app access, and
-					the open repos.
-				</p>
-				<div class="sidebar-shortcuts">
-					<a href={resolve('/docs')}>Guide</a>
-					<a href={resolve('/docs/schemas')}>Schemas</a>
-					<a href={resolve('/try-app')}>Try app</a>
-				</div>
-			</div>
-
-			<div class="sidebar-block sidebar-highlight">
-				<p class="sidebar-title">Recommended path</p>
-				<div class="highlight-card">
-					<strong>Start with the guide, then branch.</strong>
-					<p>
-						Read the docs overview, jump into product flows, and open schema reference only when you
-						want contract detail.
+			<button
+				type="button"
+				class="sidebar-toggle"
+				aria-expanded={sidebarOpen}
+				aria-controls="sidebar-nav"
+				onclick={() => (sidebarOpen = !sidebarOpen)}
+			>
+				<span>Menu</span>
+				<svg
+					width="16"
+					height="16"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					{#if sidebarOpen}
+						<line x1="18" y1="6" x2="6" y2="18" />
+						<line x1="6" y1="6" x2="18" y2="18" />
+					{:else}
+						<line x1="3" y1="12" x2="21" y2="12" />
+						<line x1="3" y1="6" x2="21" y2="6" />
+						<line x1="3" y1="18" x2="21" y2="18" />
+					{/if}
+				</svg>
+			</button>
+			<div id="sidebar-nav" class="sidebar-nav" class:open={sidebarOpen}>
+				<div class="sidebar-block sidebar-start">
+					<p class="sidebar-kicker">Docs</p>
+					<a class="brand" href={resolve('/docs')}>PARA Docs</a>
+					<p class="sidebar-copy">
+						Product context first, protocol detail nearby, and clear exits into trust, app access,
+						and the open repos.
 					</p>
 				</div>
-			</div>
 
-			<nav class="sidebar-block">
-				<p class="sidebar-title">Core docs</p>
-				<div class="nav-list">
-					{#each data.primaryNav as item (item.href)}
-						<a class:active={isSectionActive(item.href)} href={resolve(item.href)}>
-							{item.label}
-						</a>
-					{/each}
-				</div>
-			</nav>
-
-			<div class="sidebar-block">
-				<p class="sidebar-title">Cross-site paths</p>
-				<div class="nav-list compact">
-					{#each data.readerNav as item (item.href)}
-						<a class:active={page.url.pathname === item.href} href={resolve(item.href)}>
-							{item.label}
-						</a>
-					{/each}
-				</div>
-			</div>
-
-			<div class="sidebar-block">
-				<p class="sidebar-title">Route families</p>
-				<div class="nav-list compact">
-					{#each data.flowNav as item (item.href)}
-						<a class:active={isSectionActive(item.href)} href={resolve(item.href)}>
-							{item.label}
-						</a>
-					{/each}
-				</div>
-			</div>
-
-			<div class="sidebar-block">
-				<p class="sidebar-title">Schemas</p>
-				<div class="nav-list compact schema-list">
-					{#each data.schemaIndex as schema (schema.id)}
-						<a
-							class:active={page.url.pathname === `/docs/schemas/${schema.id}`}
-							href={resolve(`/docs/schemas/${schema.id}`)}
-						>
-							{schema.title}
-						</a>
-					{/each}
-				</div>
-			</div>
-
-			<div class="sidebar-block architecture-notes">
-				<p class="sidebar-title">Implementation notes</p>
-				{#each data.architectureNotes as note (note.id)}
-					<div class="note-row">
-						<strong>{note.title}</strong>
-						<p>{note.summary}</p>
+				<nav class="sidebar-block">
+					<p class="sidebar-title">Core docs</p>
+					<div class="nav-list">
+						{#each visiblePrimaryNav as item (item.href)}
+							<a class:active={isSectionActive(item.href)} href={resolve(item.href)}>
+								{item.label}
+							</a>
+						{/each}
 					</div>
-				{/each}
-			</div>
+				</nav>
 
-			<div class="sidebar-block">
-				<p class="sidebar-title">Open source repos</p>
-				<div class="nav-list compact">
-					{#each openSourceRepos as repo (repo.href)}
-						<a href={repo.href} target="_blank" rel="noreferrer">{repo.label}</a>
+				<div class="sidebar-block">
+					<p class="sidebar-title">Route families</p>
+					<div class="nav-list compact">
+						{#each visibleFlowNav as item (item.href)}
+							<a class:active={isSectionActive(item.href)} href={resolve(item.href)}>
+								{item.label}
+							</a>
+						{/each}
+					</div>
+				</div>
+
+				<div class="sidebar-block">
+					<p class="sidebar-title">Schemas</p>
+					<div class="nav-list compact schema-list">
+						{#each visibleSchemaIndex as schema (schema.id)}
+							{@const suffix = schema.title.startsWith('com.para.')
+								? schema.title.slice('com.para.'.length)
+								: schema.title}
+							<a
+								class:active={page.url.pathname === `/docs/schemas/${schema.id}`}
+								href={resolve(`/docs/schemas/${schema.id}`)}
+								class="schema-link"
+							>
+								{suffix}
+							</a>
+						{/each}
+					</div>
+				</div>
+
+				<div class="sidebar-block architecture-notes">
+					<p class="sidebar-title">Implementation notes</p>
+					{#each visibleArchitectureNotes as note (note.id)}
+						<div class="note-row">
+							<strong>{note.title}</strong>
+							<p>{note.summary}</p>
+						</div>
 					{/each}
+				</div>
+
+				<div class="sidebar-block">
+					<p class="sidebar-title">Open source repos</p>
+					<div class="nav-list compact">
+						{#each openSourceRepos as repo (repo.href)}
+							<a href={repo.href} target="_blank" rel="external noreferrer">{repo.label}</a>
+						{/each}
+					</div>
+				</div>
+
+				<div class="sidebar-block">
+					<p class="sidebar-title">Also on this site</p>
+					<div class="nav-list compact">
+						{#each visibleReaderNav as item (item.href)}
+							<a href={resolve(item.href)}>{item.label}</a>
+						{/each}
+					</div>
 				</div>
 			</div>
 		</aside>
 
-		<main class="docs-panel docs-content">
+		<main class="docs-content" use:copyCodeButtons>
 			<div class="docs-prose">
 				{@render children()}
 			</div>
 		</main>
-
-		<aside class="docs-panel toc-panel">
-			<Toc />
-		</aside>
 	</div>
 </div>
 
@@ -187,24 +254,42 @@
 		width: min(var(--ps-max-width-docs), calc(100% - 2rem));
 		margin: 0 auto;
 		display: grid;
-		grid-template-columns: 290px minmax(0, 1fr) 220px;
+		grid-template-columns: 290px minmax(0, 1fr);
 		gap: 1.75rem;
 		padding: 1.5rem 0 2.5rem;
 	}
 
 	.sidebar {
-		padding: 1.55rem;
+		padding: 1.25rem;
 		position: sticky;
 		top: 5.4rem;
 		align-self: start;
+		max-height: calc(100vh - 6.5rem);
+		overflow: auto;
 	}
 
-	.toc-panel {
-		padding: 0;
-		background: transparent;
-		border: none;
-		box-shadow: none;
-		backdrop-filter: none;
+	.sidebar-toggle {
+		display: none;
+		width: 100%;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.75rem 1rem;
+		margin-bottom: 0.5rem;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 0.75rem;
+		color: #ffffff;
+		font-size: 0.9rem;
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+	.sidebar-toggle:hover {
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	.sidebar-nav {
+		display: contents;
 	}
 
 	.sidebar-start {
@@ -213,8 +298,8 @@
 	}
 
 	.sidebar-block + .sidebar-block {
-		margin-top: 1.45rem;
-		padding-top: 1.2rem;
+		margin-top: 1.05rem;
+		padding-top: 1rem;
 		border-top: 1px solid rgba(255, 255, 255, 0.08);
 	}
 
@@ -228,39 +313,17 @@
 	}
 
 	.brand {
-		font-family: var(--ps-font-display);
+		font-family: var(--ps-font-body);
 		font-size: 1.85rem;
-		letter-spacing: -0.03em;
+		letter-spacing: -0.02em;
 		color: #ffffff;
 	}
 
 	.sidebar-copy,
 	.note-row p {
 		margin: 0.55rem 0 0;
-		color: #c6c0d2;
-		line-height: 1.72;
-	}
-
-	.sidebar-shortcuts {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.55rem;
-	}
-
-	.sidebar-shortcuts a {
-		padding: 0.5rem 0.75rem;
-		border-radius: 999px;
-		background: rgba(255, 255, 255, 0.06);
-		border: 1px solid rgba(255, 255, 255, 0.09);
-		font-size: 0.78rem;
-		font-weight: 700;
-		letter-spacing: 0.04em;
-		text-transform: uppercase;
-		color: #f0f6ff;
-	}
-
-	.sidebar-shortcuts a:hover {
-		background: rgba(255, 255, 255, 0.1);
+		color: #b9b3c6;
+		line-height: 1.58;
 	}
 
 	.sidebar-title {
@@ -274,52 +337,36 @@
 
 	.nav-list {
 		display: grid;
-		gap: 0.45rem;
-	}
-
-	.highlight-card {
-		display: grid;
-		gap: 0.45rem;
-		padding: 1rem;
-		border-radius: 1rem;
-		background:
-			radial-gradient(circle at top right, rgba(127, 214, 255, 0.16), transparent 35%),
-			rgba(255, 255, 255, 0.03);
-		border: 1px solid rgba(255, 255, 255, 0.09);
-	}
-
-	.highlight-card strong,
-	.highlight-card p {
-		margin: 0;
-	}
-
-	.highlight-card strong {
-		color: #ffffff;
-	}
-
-	.highlight-card p {
-		color: #d4ddeb;
-		line-height: 1.7;
+		gap: 0.18rem;
 	}
 
 	.nav-list a {
-		padding: 0.7rem 0.8rem;
-		border-radius: 0.9rem;
+		padding: 0.55rem 0.7rem;
+		border-left: 2px solid transparent;
+		border-radius: 0.55rem;
 		font-weight: 600;
 		color: #d6d0df;
-		background: rgba(255, 255, 255, 0.03);
+		background: transparent;
 		border: 1px solid transparent;
 	}
 
 	.nav-list a.active,
 	.nav-list a:hover {
-		background: rgba(255, 255, 255, 0.08);
-		border-color: var(--para-primary-300);
+		background: rgba(255, 255, 255, 0.055);
+		border-color: transparent;
+		border-left-color: var(--para-primary-300);
 		color: #ffffff;
 	}
 
 	.compact a {
 		font-size: 0.92rem;
+		min-width: 0;
+		overflow-wrap: break-word;
+	}
+
+	.schema-link {
+		font-family: var(--ps-font-mono);
+		font-size: 0.82rem;
 	}
 
 	.schema-list {
@@ -335,13 +382,8 @@
 
 	.note-row {
 		display: grid;
-		gap: 0.6rem;
-		padding: 0.95rem;
-		border-radius: 1rem;
-		background:
-			linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
-			rgba(255, 255, 255, 0.025);
-		border: 1px solid rgba(255, 255, 255, 0.08);
+		gap: 0.35rem;
+		padding: 0.2rem 0.1rem;
 	}
 
 	.note-row strong {
@@ -389,7 +431,10 @@
 		font-family: var(--ps-font-mono);
 		cursor: pointer;
 		opacity: 0;
-		transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease;
+		transition:
+			opacity 0.2s ease,
+			background 0.2s ease,
+			color 0.2s ease;
 	}
 
 	:global(.docs-content .code-block:hover .copy-btn) {
@@ -408,12 +453,6 @@
 		border-color: rgba(42, 198, 255, 0.25);
 	}
 
-	@media (max-width: 1200px) {
-		.docs-layout {
-			grid-template-columns: 290px minmax(0, 1fr);
-		}
-	}
-
 	@media (max-width: 960px) {
 		.docs-layout {
 			grid-template-columns: 1fr;
@@ -422,6 +461,21 @@
 
 		.sidebar {
 			position: static;
+			padding: 1rem;
+			max-height: none;
+		}
+
+		.sidebar-toggle {
+			display: flex;
+		}
+
+		.sidebar-nav {
+			display: none;
+			padding-top: 0.5rem;
+		}
+
+		.sidebar-nav.open {
+			display: block;
 		}
 	}
 </style>

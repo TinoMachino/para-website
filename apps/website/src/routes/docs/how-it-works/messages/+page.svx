@@ -1,0 +1,42 @@
+<svelte:head>
+	<title>Messages • How It Works • PARA Docs</title>
+</svelte:head>
+
+<section class="docs-hero-card">
+	<p class="docs-hero-kicker">How it works</p>
+	<h1>Messages</h1>
+	<p>
+		Conversation is part of the product, not an afterthought. The regular inbox and conversation
+		model are the stable communication layer.
+	</p>
+</section>
+
+<section class="docs-section-card">
+	<p class="docs-section-kicker">Routes</p>
+	<h2>Primary routes</h2>
+	<div class="docs-meta-grid">
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Inbox</span>
+			<div class="docs-meta-value"><code>/messages</code>, <code>/messages/inbox</code>, <code>/messages/:conversation</code></div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Settings</span>
+			<div class="docs-meta-value"><code>/messages/settings</code></div>
+		</div>
+	</div>
+</section>
+
+<section class="docs-section-card">
+	<p class="docs-section-kicker">Maturity</p>
+	<h2>Stable inbox</h2>
+	<p>
+		The inbox model is the implemented part of the communication stack and should be documented as
+		stable product behavior.
+	</p>
+</section>
+
+## Read next
+
+- Read [Agents](/docs/how-it-works/agents)
+- Read [Highlights](/docs/how-it-works/highlights)
+- Read [Trust and safety](/trust-and-safety)

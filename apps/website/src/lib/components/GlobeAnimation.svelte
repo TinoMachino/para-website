@@ -647,7 +647,9 @@ void main() {
 	></canvas>
 	<canvas
 		bind:this={textureCanvasRef}
-		style="position: absolute; top: 50%; left: 50%; width: {preSize.height * textureScale}px; height: {preSize.height * textureScale}px; transform: translate(-50%, -50%); transform-origin: center; pointer-events: none; opacity: {TEXTURE_OPACITY};"
+		style="position: absolute; top: 50%; left: 50%; width: {preSize.height *
+			textureScale}px; height: {preSize.height *
+			textureScale}px; transform: translate(-50%, -50%); transform-origin: center; pointer-events: none; opacity: {TEXTURE_OPACITY};"
 	></canvas>
 	<pre
 		bind:this={preRef}

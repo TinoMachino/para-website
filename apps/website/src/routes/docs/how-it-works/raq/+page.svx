@@ -1,6 +1,3 @@
-<script>
-	import StatusPill from '$lib/components/StatusPill.svelte';
-</script>
 
 <svelte:head>
 	<title>RAQ • How It Works • PARA Docs</title>
@@ -8,13 +5,12 @@
 
 <section class="docs-hero-card">
 	<p class="docs-hero-kicker">How it works</p>
-	# RAQ
-
-	<StatusPill status="partial" />
-
-	RAQ is not just a quiz route. It is a family of routes for assessment, ideological placement,
-	proposals, and open questions. The product goal is to turn disagreement and self-location into a
-	structured civic dataset.
+	<h1>RAQ</h1>
+	<p>
+		RAQ is not just a quiz route. It is a family of routes for assessment, ideological placement,
+		proposals, and open questions. The product goal is to turn disagreement and self-location into a
+		structured civic dataset.
+	</p>
 </section>
 
 <section class="docs-section-card">
@@ -51,4 +47,4 @@
 
 - Read [Communities](/docs/how-it-works/communities)
 - Read [Glossary](/docs/glossary)
-- Read the [Status guide](/docs/status)
+- Read the [Schema reference](/docs/schemas)

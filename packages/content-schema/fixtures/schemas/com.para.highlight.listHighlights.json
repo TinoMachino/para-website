@@ -9,9 +9,7 @@
   "examples": [
     "{\"highlights\":[{\"subjectUri\":\"at://did:plc:example/app.bsky.feed.post/3x\",\"tag\":\"water\"}],\"cursor\":\"next-token\"}"
   ],
-  "relationships": [
-    "Returns arrays of com.para.highlight.defs#highlightView."
-  ],
+  "relationships": ["Returns arrays of com.para.highlight.defs#highlightView."],
   "constraints": [
     "`limit` defaults to 30 and maxes at 100.",
     "Filters support community, state, subject, and creator."
@@ -19,29 +17,17 @@
   "lifecycle": [
     "Powers browse, filter, and discovery views for public highlight annotations."
   ],
-  "writers": [
-    "Read-only query over indexed highlight state."
-  ],
-  "readers": [
-    "Highlights route",
-    "Post highlight browsing"
-  ],
-  "routes": [
-    "/highlights",
-    "/profile/:name/post/:rkey/highlights"
-  ],
-  "xrpcMethods": [
-    "com.para.highlight.listHighlights"
-  ],
+  "writers": ["Read-only query over indexed highlight state."],
+  "readers": ["Highlights route", "Post highlight browsing"],
+  "routes": ["/highlights", "/profile/:name/post/:rkey/highlights"],
+  "xrpcMethods": ["com.para.highlight.listHighlights"],
   "indexing": [
     "Serves from indexed highlight views rather than raw annotation records."
   ],
   "moderation": [
     "Visibility and subject filtering constrain what can be listed publicly."
   ],
-  "productSurfaces": [
-    "Highlights list"
-  ],
+  "productSurfaces": ["Highlights list"],
   "fields": [
     {
       "name": "highlights",

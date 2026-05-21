@@ -1,6 +1,3 @@
-<script>
-	import StatusPill from '$lib/components/StatusPill.svelte';
-</script>
 
 <svelte:head>
 	<title>Highlights • How It Works • PARA Docs</title>
@@ -10,7 +7,6 @@
 	<p class="docs-hero-kicker">How it works</p>
 # Highlights
 
-	<StatusPill status="partial" />
 
 	Highlights are a separate reading layer. They are not just bookmarks with a new name. The route
 	family is meant to let readers annotate, filter, and surface political reading publicly or

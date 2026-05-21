@@ -1,10 +1,12 @@
----
-slug: 'migrando-m8-de-fastify-a-adonisjs'
-title: 'Migrando el backend de m8: de Fastify a AdonisJS sin romper nada'
-description: 'Cómo migramos el backend de m8 de Fastify a AdonisJS v6 en producción, sin downtime y sin reescribir la lógica de dominio.'
-date: 'May 18, 2026'
-author: 'PARA'
----
+<script module>
+	export const metadata = {
+	"slug": "migrando-m8-de-fastify-a-adonisjs",
+	"title": "Migrando el backend de m8: de Fastify a AdonisJS sin romper nada",
+	"description": "Cómo migramos el backend de m8 de Fastify a AdonisJS v6 en producción, sin downtime y sin reescribir la lógica de dominio.",
+	"date": "May 18, 2026",
+	"author": "PARA"
+};
+</script>
 
 > **Contexto**: m8 es el gestor de identidad de PARA — un broker de pruebas, wallet de credenciales y servicio de políticas de confianza para la participación cívica digital. Este post documenta la migración incremental de nuestro backend de Fastify a AdonisJS, en producción, sin downtime y sin reescribir la lógica de dominio.
 

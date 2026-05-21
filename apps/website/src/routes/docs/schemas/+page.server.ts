@@ -4,6 +4,6 @@ export function load() {
 	return {
 		schemas: getSchemaIndex(),
 		title: 'Schema Reference',
-		description: 'Browse the com.para.* lexicons that define PARA\'s civic surfaces.'
+		description: "Browse the com.para.* lexicons that define PARA's civic surfaces."
 	};
 }

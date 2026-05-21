@@ -49,11 +49,10 @@
 
 		const observer = new IntersectionObserver(
 			(entries) => {
-				const visible = entries
-					.filter((e) => e.isIntersecting)
-					.map((e) => e.target.id);
-				if (visible.length > 0) {
-					activeId = visible[0];
+				const visible = entries.filter((e) => e.isIntersecting).map((e) => e.target.id);
+				const firstVisible = visible[0];
+				if (firstVisible) {
+					activeId = firstVisible;
 				}
 			},
 			{ rootMargin: '-80px 0px -60% 0px', threshold: 0 }
@@ -140,7 +139,9 @@
 		color: #a49fb8;
 		line-height: 1.45;
 		cursor: pointer;
-		transition: color 0.15s ease, background 0.15s ease;
+		transition:
+			color 0.15s ease,
+			background 0.15s ease;
 	}
 
 	.toc-link:hover {

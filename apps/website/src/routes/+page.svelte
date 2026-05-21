@@ -2,22 +2,22 @@
 	import { resolve } from '$app/paths';
 	import GlobeAnimation from '$lib/components/GlobeAnimation.svelte';
 	import { content } from '$lib/content/i18n';
-	import { docsBase } from '$lib/content/site';
 
 	const landingFeatures = $derived($content.landingFeatures);
 	const landingHeroActions = $derived($content.landingHeroActions);
 	const landingHeroMetrics = $derived($content.landingHeroMetrics);
 	const landingPillars = $derived($content.landingPillars);
+	const productCues = $derived($content.productCues);
 	const heroPrimaryAction = $derived($content.heroPrimaryAction);
 	const heroSecondaryAction = $derived($content.heroSecondaryAction);
 	const coreFeatures = $derived(landingFeatures.slice(0, 4));
 </script>
 
 <svelte:head>
-	<title>{`PARA | Civic Product and Docs`}</title>
+	<title>PARA | Civic Product and Docs</title>
 	<meta
 		name="description"
-		content={`PARA is a civic social network for plural political identity, policy votes, RAQ flows, and protected participation.`}
+		content="PARA is a civic social network for plural political identity, policy votes, RAQ flows, and protected participation."
 	/>
 </svelte:head>
 
@@ -25,17 +25,18 @@
 	<section class="hero">
 		<div class="container hero-grid">
 			<div class="hero-copy">
-				<div class="eyebrow">PARA • civic social network</div>
-				<h1 class="hero-title">Latent Numerical Solidarity</h1>
+				<div class="eyebrow">{$content.heroEyebrow}</div>
+				<h1 class="hero-title">{$content.heroTitle}</h1>
 				<p class="hero-lede">
-					
-						PARA gives people a clearer way to express policy views, locate themselves politically,
-						and participate without collapsing everything into party branding or generic feeds.
-					
+					{$content.heroLede}
 				</p>
 				<div class="hero-actions">
-					<a class="button button-primary" href={resolve(heroSecondaryAction.href)}>{heroSecondaryAction.label}</a>
-					<a class="button button-secondary" href={resolve(heroPrimaryAction.href)}>{heroPrimaryAction.label}</a>
+					<a class="button button-primary" href={resolve(heroSecondaryAction.href)}
+						>{heroSecondaryAction.label}</a
+					>
+					<a class="button button-secondary" href={resolve(heroPrimaryAction.href)}
+						>{heroPrimaryAction.label}</a
+					>
 				</div>
 				<div class="metric-row">
 					{#each landingHeroMetrics as metric (metric.label)}
@@ -59,11 +60,30 @@
 		</div>
 	</section>
 
+	<section class="product-cues">
+		<div class="container section-head">
+			<div>
+				<div class="eyebrow">{$content.productCuesEyebrow}</div>
+				<h2 class="section-title">{$content.productCuesTitle}</h2>
+			</div>
+		</div>
+
+		<div class="container cue-grid">
+			{#each productCues as cue (cue.title)}
+				<a class="surface-card cue-card" href={resolve(cue.href)}>
+					<p class="card-kicker">{cue.kicker}</p>
+					<h3>{cue.title}</h3>
+					<p>{cue.copy}</p>
+				</a>
+			{/each}
+		</div>
+	</section>
+
 	<section class="principles">
 		<div class="container section-head">
 			<div>
-				<div class="eyebrow">Three ideas</div>
-				<h2 class="section-title">The website only needs to make three claims clearly.</h2>
+				<div class="eyebrow">{$content.principlesEyebrow}</div>
+				<h2 class="section-title">{$content.principlesTitle}</h2>
 			</div>
 		</div>
 
@@ -81,8 +101,8 @@
 	<section class="paths">
 		<div class="container section-head">
 			<div>
-				<div class="eyebrow">Start here</div>
-				<h2 class="section-title">Choose the path that matches what you need.</h2>
+				<div class="eyebrow">{$content.pathsEyebrow}</div>
+				<h2 class="section-title">{$content.pathsTitle}</h2>
 			</div>
 		</div>
 
@@ -92,7 +112,7 @@
 					<p class="card-kicker">{action.eyebrow}</p>
 					<h3>{action.title}</h3>
 					<p>{action.copy}</p>
-					<span class="path-link">Open</span>
+					<span class="path-link">{$content.openLabel}</span>
 				</a>
 			{/each}
 		</div>
@@ -101,8 +121,8 @@
 	<section class="features" id="features">
 		<div class="container section-head">
 			<div>
-				<div class="eyebrow">Core mechanics</div>
-				<h2 class="section-title">Four product ideas do most of the explanatory work.</h2>
+				<div class="eyebrow">{$content.featuresEyebrow}</div>
+				<h2 class="section-title">{$content.featuresTitle}</h2>
 			</div>
 		</div>
 
@@ -118,7 +138,7 @@
 						<p>{feature.copy}</p>
 					</div>
 					<div class="feature-band-side">
-						<p class="side-label">Why it matters</p>
+						<p class="side-label">{$content.featureWhyItMatters}</p>
 						<p>{feature.problem}</p>
 						<a class="path-link" href={resolve(feature.href)}>{feature.cta}</a>
 					</div>
@@ -126,7 +146,6 @@
 			{/each}
 		</div>
 	</section>
-
 </div>
 
 <style>
@@ -140,6 +159,7 @@
 	}
 
 	.hero,
+	.product-cues,
 	.principles,
 	.paths,
 	.features {
@@ -210,6 +230,7 @@
 	}
 
 	.hero-lede,
+	.cue-card p:not(.card-kicker),
 	.principle-card p,
 	.path-card p,
 	.feature-band-copy p,
@@ -352,6 +373,7 @@
 		grid-column: span 5;
 	}
 
+	.cue-grid,
 	.principle-grid,
 	.path-grid {
 		display: grid;
@@ -367,6 +389,18 @@
 		gap: 0.7rem;
 	}
 
+	.cue-card {
+		grid-column: span 3;
+		padding: 1.2rem;
+		display: grid;
+		gap: 0.65rem;
+		align-content: start;
+		min-height: 13rem;
+		transition:
+			transform 0.18s ease,
+			border-color 0.18s ease;
+	}
+
 	.card-index {
 		margin: 0;
 		font-family: var(--ps-font-mono);
@@ -378,6 +412,7 @@
 	}
 
 	.principle-card h3,
+	.cue-card h3,
 	.path-card h3,
 	.feature-band h3 {
 		font-size: 1.55rem;
@@ -402,6 +437,7 @@
 		grid-column: span 3;
 	}
 
+	.cue-card:hover,
 	.path-card:hover,
 	.feature-band:hover {
 		transform: translateY(-2px);
@@ -445,6 +481,7 @@
 	@media (max-width: 1100px) {
 		.hero-grid,
 		.section-head,
+		.cue-grid,
 		.principle-grid,
 		.path-grid {
 			grid-template-columns: 1fr;
@@ -454,6 +491,7 @@
 		.hero-stage,
 		.section-head > :first-child,
 		.section-head > :last-child,
+		.cue-card,
 		.principle-card,
 		.path-card:nth-child(1),
 		.path-card:nth-child(2),

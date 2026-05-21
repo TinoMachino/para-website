@@ -1,6 +1,3 @@
-<script>
-	import StatusPill from '$lib/components/StatusPill.svelte';
-</script>
 
 <svelte:head>
 	<title>Cabildeo • How It Works • PARA Docs</title>
@@ -10,7 +7,6 @@
 	<p class="docs-hero-kicker">How it works</p>
 # Cabildeo
 
-	<StatusPill status="partial" />
 
 	Cabildeo is PARA's strongest route family for structured deliberation. It combines proposals,
 	positions, delegations, phases, and indexed aggregate views into something much closer to a civic

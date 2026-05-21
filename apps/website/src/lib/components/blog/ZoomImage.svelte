@@ -43,26 +43,39 @@
 </button>
 
 {#if open}
-	<!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
-	<div class="zoom-image-overlay" onclick={() => (open = false)}>
+	<div
+		class="zoom-image-overlay"
+		role="dialog"
+		aria-modal="true"
+		aria-label={alt || 'Image preview'}
+	>
+		<button
+			type="button"
+			class="zoom-image-backdrop"
+			onclick={() => (open = false)}
+			aria-label="Close image"
+		></button>
 		<button
 			type="button"
 			class="zoom-image-close"
 			onclick={() => (open = false)}
 			aria-label="Close image"
 		>
-			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<svg
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
 				<line x1="18" y1="6" x2="6" y2="18" />
 				<line x1="6" y1="6" x2="18" y2="18" />
 			</svg>
 		</button>
-		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-		<img
-			{src}
-			{alt}
-			class="zoom-image-expanded"
-			onclick={(e) => e.stopPropagation()}
-		/>
+		<img {src} {alt} class="zoom-image-expanded" />
 	</div>
 {/if}
 
@@ -84,7 +97,9 @@
 		height: auto;
 		border-radius: 1rem;
 		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease;
 		margin: 0 !important;
 	}
 
@@ -107,9 +122,22 @@
 		animation: fadeIn 0.2s ease;
 	}
 
+	.zoom-image-backdrop {
+		position: absolute;
+		inset: 0;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		cursor: zoom-out;
+	}
+
 	@keyframes fadeIn {
-		from { opacity: 0; }
-		to   { opacity: 1; }
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 
 	.zoom-image-close {
@@ -136,18 +164,25 @@
 	}
 
 	.zoom-image-expanded {
+		position: relative;
+		z-index: 101;
 		max-width: 100%;
 		max-height: 90vh;
 		width: auto;
 		height: auto;
 		object-fit: contain;
 		border-radius: 1rem;
-		cursor: zoom-out;
 		animation: scaleIn 0.2s ease;
 	}
 
 	@keyframes scaleIn {
-		from { transform: scale(0.92); opacity: 0; }
-		to   { transform: scale(1); opacity: 1; }
+		from {
+			transform: scale(0.92);
+			opacity: 0;
+		}
+		to {
+			transform: scale(1);
+			opacity: 1;
+		}
 	}
 </style>

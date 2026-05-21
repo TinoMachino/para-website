@@ -3,42 +3,42 @@
 	import { contactEmails } from '$lib/content/site';
 	const policies = [
 		{
-			href: resolve('/support/community-guidelines'),
+			href: '/support/community-guidelines',
 			title: `Community Guidelines`,
 			description: `Rules for safe, respectful, and authentic participation on PARA.`
 		},
 		{
-			href: resolve('/support/terms-of-service'),
+			href: '/support/terms-of-service',
 			title: `Terms of Service`,
 			description: `Rules for using PARA sites, apps, and related services we operate.`
 		},
 		{
-			href: resolve('/support/terms-of-service-government'),
+			href: '/support/terms-of-service-government',
 			title: `Terms of Service Amendment for Government Users`,
 			description: `Additional terms that apply when government entities use PARA in an official capacity.`
 		},
 		{
-			href: resolve('/support/privacy'),
+			href: '/support/privacy',
 			title: `PARA App Privacy Policy`,
 			description: `How we handle information for the PARA app and related services we operate.`
 		},
 		{
-			href: resolve('/support/find-friends-privacy'),
+			href: '/support/find-friends-privacy',
 			title: `Find Friends Privacy Policy`,
 			description: `How contact-matching and friend-discovery features handle your data.`
 		},
 		{
-			href: resolve('/support/protocol-privacy'),
+			href: '/support/protocol-privacy',
 			title: `PARA AT Protocol Network Services Privacy Policy`,
 			description: `Privacy practices for protocol and network infrastructure services.`
 		},
 		{
-			href: resolve('/support/copyright'),
+			href: '/support/copyright',
 			title: `Copyright Policy`,
 			description: `Reporting copyright concerns about content shared through PARA.`
 		},
 		{
-			href: resolve('/support/patent-pledge'),
+			href: '/support/patent-pledge',
 			title: `Patent Non-Aggression Pledge`,
 			description: `Our commitment not to use patents aggressively against the open ecosystem.`
 		}
@@ -46,10 +46,10 @@
 </script>
 
 <svelte:head>
-	<title>{`Support • PARA`}</title>
+	<title>Support • PARA</title>
 	<meta
 		name="description"
-		content={`Contact PARA for help, read policies and legal information, and find channels for regulatory and law-enforcement requests.`}
+		content="Contact PARA for help, read policies and legal information, and find channels for regulatory and law-enforcement requests."
 	/>
 </svelte:head>
 
@@ -70,7 +70,7 @@
 		<ul class="support-policy-list">
 			{#each policies as item (item.title)}
 				<li>
-					<a href={item.href}>{item.title}</a>
+					<a href={resolve(item.href)}>{item.title}</a>
 					<span class="support-policy-desc">{item.description}</span>
 				</li>
 			{/each}
@@ -81,21 +81,18 @@
 		<p class="docs-section-kicker">Legal requests</p>
 		<h2>Regulatory, official, and other legal contact</h2>
 		<p>
-			
-				Use the channel that matches your role. We handle requests in English unless we agree
-				otherwise in writing. Include enough detail for us to locate the relevant material without
-				speculative fishing expeditions.
-			
+			Use the channel that matches your role. We handle requests in English unless we agree
+			otherwise in writing. Include enough detail for us to locate the relevant material without
+			speculative fishing expeditions.
 		</p>
 
 		<ul class="support-legal-tree">
 			<li>
 				<strong>Global Regulatory Compliance Reporting Process</strong>
 				<span>
-					
-						For members of the public reporting content under local law or specific regulatory
-						frameworks, email
-					
+					For members of the public reporting content under local law or specific regulatory
+					frameworks, email
+
 					<a href="mailto:{contactEmails.regulatory}">{contactEmails.regulatory}</a>
 					with jurisdiction, statutory basis, links or identifiers, and the remedy you seek.
 				</span>
@@ -103,34 +100,28 @@
 			<li>
 				<strong>Official Requests Portal</strong>
 				<span>
-					
-						Law enforcement, government agencies, regulators, and designated competent authorities
-						should use
-					
-					<a href="mailto:{contactEmails.legal}">{contactEmails.legal}</a>.
-					
-						Include authority, contact verification, narrow scope, and legal process where
-						applicable. We do not operate a separate self-serve portal yet; describe what you need
-						in the first message.
-					
+					Law enforcement, government agencies, regulators, and designated competent authorities
+					should use
+
+					<a href="mailto:{contactEmails.legal}">{contactEmails.legal}</a>. Include authority,
+					contact verification, narrow scope, and legal process where applicable. We do not operate
+					a separate self-serve portal yet; describe what you need in the first message.
 				</span>
 			</li>
 			<li>
 				<strong>EU Digital Services Act contact</strong>
 				<span>
-					
-						PARA's contact point under Regulation (EU) 2021/784 is
-					
-					<a href="mailto:{contactEmails.euDsa}">{contactEmails.euDsa}</a>.
-					Requests must be made in English.
+					PARA's contact point under Regulation (EU) 2021/784 is
+
+					<a href="mailto:{contactEmails.euDsa}">{contactEmails.euDsa}</a>. Requests must be made in
+					English.
 				</span>
 			</li>
 			<li>
 				<strong>Everything else legal</strong>
 				<span>
-					
-						If your request does not fall within the above three categories, email us at
-					
+					If your request does not fall within the above three categories, email us at
+
 					<a href="mailto:{contactEmails.legal}">{contactEmails.legal}</a>
 					with a clear subject line and enough context to route the message.
 				</span>
@@ -147,7 +138,8 @@
 			</a>
 			<a class="docs-link-card" href={resolve('/trust-and-safety')}>
 				<strong>Trust and safety</strong>
-				<span>How identity, moderation, verification, and account control work in the product.</span>
+				<span>How identity, moderation, verification, and account control work in the product.</span
+				>
 			</a>
 			<a class="docs-link-card" href={resolve('/try-app')}>
 				<strong>Try app</strong>

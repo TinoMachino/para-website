@@ -5,15 +5,15 @@
 </script>
 
 <svelte:head>
-	<title>{`Terms of Service Amendment for Government Users • PARA`}</title>
+	<title>Terms of Service Amendment for Government Users • PARA</title>
 	<meta
 		name="description"
-		content={`Additional terms that apply when government entities use PARA in an official capacity.`}
+		content="Additional terms that apply when government entities use PARA in an official capacity."
 	/>
 </svelte:head>
 
 <div class="docs-page legal-page">
-	<nav class="legal-breadcrumb" aria-label={`Breadcrumb`}>
+	<nav class="legal-breadcrumb" aria-label="Breadcrumb">
 		<a href={resolve('/support')}>Support</a>
 		<span aria-hidden="true">/</span>
 		<span>Government amendment</span>
@@ -28,43 +28,39 @@
 	<section class="docs-section-card legal-section">
 		<h2>Scope</h2>
 		<p>
-			
-				This amendment applies when a government entity, agency, or instrumentality uses PARA in an
-				official capacity. It supplements the PARA
-			
+			This amendment applies when a government entity, agency, or instrumentality uses PARA in an
+			official capacity. It supplements the PARA
+
 			<a href={resolve('/support/terms-of-service')}>Terms of Service</a>
-			and <a href={resolve('/support/community-guidelines')}>Community Guidelines</a>.
-			Where there is a conflict between this amendment and the general Terms, this amendment governs for government use.
+			and <a href={resolve('/support/community-guidelines')}>Community Guidelines</a>. Where there
+			is a conflict between this amendment and the general Terms, this amendment governs for
+			government use.
 		</p>
 	</section>
 
 	<section class="docs-section-card legal-section">
 		<h2>Account setup and verification</h2>
 		<p>
-			
-				Government accounts must be clearly labeled as official and must use contact information
-				tied to the entity&rsquo;s domain or other verifiable channel. We may request additional
-				documentation to confirm status before granting official designations.
-			
+			Government accounts must be clearly labeled as official and must use contact information tied
+			to the entity&rsquo;s domain or other verifiable channel. We may request additional
+			documentation to confirm status before granting official designations.
 		</p>
 	</section>
 
 	<section class="docs-section-card legal-section">
 		<h2>Content and conduct</h2>
 		<p>
-			
-				Government users are expected to follow the same Community Guidelines as all other users.
-				Additionally, government accounts may not use PARA to:
-			
+			Government users are expected to follow the same Community Guidelines as all other users.
+			Additionally, government accounts may not use PARA to:
 		</p>
 		<ul>
-			<li>Spread disinformation or manipulate civic discourse through covert influence operations.</li>
+			<li>
+				Spread disinformation or manipulate civic discourse through covert influence operations.
+			</li>
 			<li>Target individuals for surveillance or harassment outside lawful process.</li>
 			<li>
-				
-					Suppress lawful speech or misuse reporting systems to remove content that is merely
-					critical of the government.
-				
+				Suppress lawful speech or misuse reporting systems to remove content that is merely critical
+				of the government.
 			</li>
 		</ul>
 	</section>
@@ -72,20 +68,19 @@
 	<section class="docs-section-card legal-section">
 		<h2>Data access and legal process</h2>
 		<p>
-			
-				Government requests for user data must follow the legal request channels described on our
-			
+			Government requests for user data must follow the legal request channels described on our
+
 			<a href={resolve('/support')}>Support</a>
-			page. We do not provide bulk or warrantless access to user content. Emergency disclosures are limited to imminent threats of serious harm.
+			page. We do not provide bulk or warrantless access to user content. Emergency disclosures are limited
+			to imminent threats of serious harm.
 		</p>
 	</section>
 
 	<section class="docs-section-card legal-section">
 		<h2>Contact</h2>
 		<p>
-			
-				Government entities with questions about this amendment should contact
-			
+			Government entities with questions about this amendment should contact
+
 			<a href="mailto:{contactEmails.legal}">{contactEmails.legal}</a>
 			before creating official accounts or initiating bulk use.
 		</p>

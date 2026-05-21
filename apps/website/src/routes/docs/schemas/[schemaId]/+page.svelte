@@ -1,5 +1,4 @@
 <script lang="ts">
-	import StatusPill from '$lib/components/StatusPill.svelte';
 	import CodeBlock from '$lib/components/docs/CodeBlock.svelte';
 
 	let { data } = $props();
@@ -15,7 +14,6 @@
 			<p class="eyebrow">Schema reference</p>
 			<h1>{data.schema.title}</h1>
 		</div>
-		<StatusPill status={data.schema.status} />
 	</div>
 	<p>{data.schema.summary}</p>
 </div>
@@ -49,15 +47,21 @@
 				</div>
 				<div>
 					<dt>Lexicon source</dt>
-					<dd>{data.schema.backendOwner ?? 'TBD'}</dd>
+					<dd>{data.schema.backendOwner ?? 'Not published yet'}</dd>
 				</div>
 				<div>
 					<dt>Website source path</dt>
-					<dd><code>{data.schema.sourcePath ?? 'TBD'}</code></dd>
+					<dd>
+						{#if data.schema.sourcePath}
+							<code>{data.schema.sourcePath}</code>
+						{:else}
+							Not published yet
+						{/if}
+					</dd>
 				</div>
 				<div>
 					<dt>Product surfaces</dt>
-					<dd>{data.schema.productSurfaces?.join(', ') ?? 'TBD'}</dd>
+					<dd>{data.schema.productSurfaces?.join(', ') ?? 'Not published yet'}</dd>
 				</div>
 			</dl>
 		</div>
@@ -190,8 +194,13 @@
 <section class="docs-panel detail-card examples-card">
 	<h2>Examples</h2>
 	{#if data.schema.examples?.length}
-		{#each data.highlightedExamples as html, i (i)}
-			<CodeBlock code={data.schema.examples[i]} highlighted={html} />
+		{#each data.schema.examples as example, i (i)}
+			{@const highlighted = data.highlightedExamples[i]}
+			{#if highlighted}
+				<CodeBlock code={example} {highlighted} />
+			{:else}
+				<CodeBlock code={example} />
+			{/if}
 		{/each}
 	{:else}
 		<p class="empty">No example payloads exported yet.</p>

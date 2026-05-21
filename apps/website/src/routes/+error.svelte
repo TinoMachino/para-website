@@ -12,9 +12,7 @@
 	<div class="error-card surface-card">
 		<p class="error-code">{page.status}</p>
 		<h1>Page not found</h1>
-		<p class="error-lead">
-			The page you are looking for does not exist or has been moved.
-		</p>
+		<p class="error-lead">The page you are looking for does not exist or has been moved.</p>
 		<div class="error-actions">
 			<a class="button button-primary" href={resolve('/')}>Go home</a>
 			<a class="button button-secondary" href={resolve('/docs')}>Browse docs</a>

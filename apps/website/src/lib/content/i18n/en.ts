@@ -1,4 +1,43 @@
 export const en = {
+	heroEyebrow: `PARA • civic social network`,
+	heroTitle: `Latent Numerical Solidarity`,
+	heroLede: `PARA gives people a clearer way to express policy views, locate themselves politically, and participate without collapsing everything into party branding or generic feeds.`,
+	principlesEyebrow: `Three ideas`,
+	principlesTitle: `The website only needs to make three claims clearly.`,
+	productCuesEyebrow: `Product surface`,
+	productCuesTitle: `PARA is not only a thesis. It has visible civic actions.`,
+	productCues: [
+		{
+			kicker: `Vote`,
+			title: `Score policies from -3 to +3`,
+			copy: `Capture direction and intensity instead of reducing political input to likes or party preference.`,
+			href: '/docs/product'
+		},
+		{
+			kicker: `Locate`,
+			title: `Use RAQ to build political context`,
+			copy: `Help people understand where they stand and give communities more useful civic data.`,
+			href: '/docs/how-it-works'
+		},
+		{
+			kicker: `Organize`,
+			title: `Turn communities into civic surfaces`,
+			copy: `Separate debate, coordination, representation, and discovery from one generic feed.`,
+			href: '/docs/how-it-works'
+		},
+		{
+			kicker: `Verify`,
+			title: `Inspect the public contracts`,
+			copy: `Keep the product language connected to explicit schema and protocol references.`,
+			href: '/docs/schemas'
+		}
+	],
+	pathsEyebrow: `Start here`,
+	pathsTitle: `Choose the path that matches what you need.`,
+	featuresEyebrow: `Core mechanics`,
+	featuresTitle: `Four product ideas do most of the explanatory work.`,
+	featureWhyItMatters: `Why it matters`,
+	openLabel: `Open`,
 	heroPrimaryAction: {
 		label: `Try the app`,
 		href: '/try-app'
@@ -142,4 +181,4 @@ export const en = {
 		app: `App`,
 		backend: `Backend`
 	}
-};
+} as const;

@@ -15,7 +15,7 @@
 	] as const;
 	const runtimeNotes = [
 		{
-			label: `Recommended defaul`,
+			label: `Recommended default`,
 			value: `Android app-store distribution for normal app access.`
 		},
 		{
@@ -23,7 +23,7 @@
 			value: `GitHub repo plus local client and backend runbooks.`
 		},
 		{
-			label: `Workspace spli`,
+			label: `Workspace split`,
 			value: `Expo client in PARA, backend stack in WhatZatppa, docs site in website.`
 		},
 		{
@@ -34,10 +34,10 @@
 </script>
 
 <svelte:head>
-	<title>{`Try App • PARA`}</title>
+	<title>Try App • PARA</title>
 	<meta
 		name="description"
-		content={`Find PARA through the Android app distribution path or run the app locally from GitHub.`}
+		content="Find PARA through the Android app distribution path or run the app locally from GitHub."
 	/>
 </svelte:head>
 
@@ -47,18 +47,21 @@
 			<p class="docs-hero-kicker">Try app</p>
 			<h1>Use Android first, GitHub second.</h1>
 			<p class="try-app-lead">
-				
-					This page is intentionally simple now: if you want the app, look for the Android build in
-					the app-store distribution path. If you want to develop or test deeply, use GitHub and run
-					the stack locally.
-				
+				This page is intentionally simple now: if you want the app, look for the Android build in
+				the app-store distribution path. If you want to develop or test deeply, use GitHub and run
+				the stack locally.
 			</p>
 			<p class="hero-detail">
 				No shared demo links, no seeded tester accounts, and no extra decision tree.
 			</p>
 
 			<div class="try-app-cta-row">
-				<a class="app-button app-button-accent" href={appRepoUrl} rel="noreferrer" target="_blank">
+				<a
+					class="app-button app-button-accent"
+					href={appRepoUrl}
+					rel="external noreferrer"
+					target="_blank"
+				>
 					View on GitHub
 				</a>
 			</div>
@@ -99,43 +102,9 @@
 	</section>
 
 	<section class="docs-section-card">
-		<p class="docs-section-kicker">Backend path</p>
-		<h2>Bring up the backend the way the current runbooks describe it.</h2>
-		<p>
-			
-				The backend development flow in <code>WhatZatppa</code> is the part that expects Docker. This is the short
-				path that matches the repo runbook.
-			
-		</p>
-
-		<pre><code
-				>cd /Users/mlv/Desktop/MASTER/WhatZatppa
-make nvm-setup
-make deps
-make build
-make run-dev-env</code
-			></pre>
-
-		<div class="docs-meta-grid">
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">PLC</span>
-				<div class="docs-meta-value"><code>http://localhost:2582</code></div>
-			</div>
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">PDS</span>
-				<div class="docs-meta-value"><code>http://localhost:2583</code></div>
-			</div>
-			<div class="docs-meta-card">
-				<span class="docs-meta-label">AppView</span>
-				<div class="docs-meta-value"><code>http://localhost:2584</code></div>
-			</div>
-		</div>
-	</section>
-
-	<section class="docs-section-card">
 		<p class="docs-section-kicker">Read next</p>
 		<div class="docs-link-grid">
-			<a class="docs-link-card" href="/thesis">
+			<a class="docs-link-card" href={resolve('/thesis')}>
 				<strong>About</strong>
 				<span>Return to the political thesis behind the app and the network model.</span>
 			</a>

@@ -1,28 +1,51 @@
+<script>
+	let { data } = $props();
+
+	const completed = $derived(data.milestones.filter((m) => m.target === 'Completed'));
+	const inProgress = $derived(data.milestones.filter((m) => m.target === 'In progress'));
+</script>
+
 <svelte:head>
 	<title>Roadmap • PARA Docs</title>
+	<meta
+		name="description"
+		content="Current milestones for PARA documentation and schema reference coverage."
+	/>
 </svelte:head>
 
 <section class="docs-hero-card">
 	<p class="docs-hero-kicker">Roadmap</p>
-	# Roadmap
-
-	This page tracks ongoing documentation work and reference coverage. It is secondary to the main
-	docs experience and exists for readers who want the current direction of the site.
+	<h1>Roadmap</h1>
+	<p>
+		This page tracks documentation and reference coverage milestones. It is updated from the
+		plan fixture in the content-schema package and reflects the current state of the docs site.
+	</p>
 </section>
 
-## V2 priorities
+{#if inProgress.length > 0}
+	<section class="docs-section-card">
+		<p class="docs-section-kicker">In progress</p>
+		<div class="docs-meta-grid">
+			{#each inProgress as milestone (milestone.id)}
+				<div class="docs-meta-card">
+					<span class="docs-meta-label">{milestone.title}</span>
+					<div class="docs-meta-value">{milestone.summary}</div>
+				</div>
+			{/each}
+		</div>
+	</section>
+{/if}
 
-- unify the public site at `/` and `/docs`
-- remove the external docs placeholder and broken two-app mental model
-- replace made-up schema content with curated `com.para.*` docs
-- make the docs navigation reflect real sections rather than side experiments
-
-## Manual by design
-
-The site is still manually authored in V2. That is intentional. The goal is to make the content true first, not to automate it before the language and information architecture are stable.
-
-## What comes later
-
-- deeper schema coverage for more `com.para.*` lexicons
-- examples tied more closely to real client and service flows
-- stronger synchronization between the website and the source repos once the docs vocabulary stabilizes
+{#if completed.length > 0}
+	<section class="docs-section-card">
+		<p class="docs-section-kicker">Completed</p>
+		<div class="docs-meta-grid">
+			{#each completed as milestone (milestone.id)}
+				<div class="docs-meta-card">
+					<span class="docs-meta-label">{milestone.title}</span>
+					<div class="docs-meta-value">{milestone.summary}</div>
+				</div>
+			{/each}
+		</div>
+	</section>
+{/if}

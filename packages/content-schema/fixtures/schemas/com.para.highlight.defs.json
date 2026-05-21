@@ -9,9 +9,7 @@
   "examples": [
     "{\"highlightView\":{\"subjectUri\":\"at://did:plc:example/app.bsky.feed.post/3x\",\"text\":\"Key quote\",\"start\":0,\"end\":44,\"visibility\":\"public\"}}"
   ],
-  "relationships": [
-    "Backs list and detail highlight queries."
-  ],
+  "relationships": ["Backs list and detail highlight queries."],
   "constraints": [
     "`highlightView` requires subjectUri, text, range start/end, color, visibility, and createdAt."
   ],

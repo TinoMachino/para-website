@@ -3,8 +3,8 @@
 	import { page } from '$app/state';
 	import { beforeNavigate, afterNavigate } from '$app/navigation';
 	import { openSourceRepos } from '$lib/content/site';
-import { content } from '$lib/content/i18n';
-import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
+	import { content } from '$lib/content/i18n';
+	import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 	import '@parasocial/ui/tokens.css';
 	import favicon from '$lib/assets/favicon.png';
 	import logomark from '$lib/assets/logomark.png';
@@ -14,7 +14,6 @@ import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 
 	const topNav = [
 		{ href: '/thesis', label: 'Thesis' },
-		{ href: '/trust-and-safety', label: 'Trust and safety' },
 		{ href: '/docs', label: 'Docs' },
 		{ href: '/blog', label: 'Blog' },
 		{ href: '/try-app', label: 'Try app' }
@@ -76,8 +75,12 @@ import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 				</p>
 				<div class="footer-repo-list">
 					{#each openSourceRepos as repo, i (repo.label)}
-						<a href={repo.href} target="_blank" rel="noreferrer">
-							{i === 0 ? $content.footerRepoLabels.website : i === 1 ? $content.footerRepoLabels.app : $content.footerRepoLabels.backend} repo
+						<a href={repo.href} target="_blank" rel="external noreferrer">
+							{i === 0
+								? $content.footerRepoLabels.website
+								: i === 1
+									? $content.footerRepoLabels.app
+									: $content.footerRepoLabels.backend} repo
 						</a>
 					{/each}
 				</div>

@@ -4,15 +4,15 @@
 </script>
 
 <svelte:head>
-	<title>{`Privacy Policy • PARA`}</title>
+	<title>Privacy Policy • PARA</title>
 	<meta
 		name="description"
-		content={`Privacy policy for PARA websites, apps, and related services operated by the project.`}
+		content="Privacy policy for PARA websites, apps, and related services operated by the project."
 	/>
 </svelte:head>
 
 <div class="docs-page legal-page">
-	<nav class="legal-breadcrumb" aria-label={`Breadcrumb`}>
+	<nav class="legal-breadcrumb" aria-label="Breadcrumb">
 		<a href={resolve('/support')}>Support</a>
 		<span aria-hidden="true">/</span>
 		<span>Privacy policy</span>
@@ -22,57 +22,47 @@
 		<p class="docs-hero-kicker">Legal</p>
 		<h1>Privacy policy</h1>
 		<p class="legal-note">
-			
-				High-level statement for the public site and PARA services we operate. Federation and
-				third-party hosts introduce additional processors; your counsel should review end-to-end
-				flows before launch.
-			
+			High-level statement for the public site and PARA services we operate. Federation and
+			third-party hosts introduce additional processors; your counsel should review end-to-end flows
+			before launch.
 		</p>
 	</section>
 
 	<section class="docs-section-card legal-section">
 		<h2>What we may collect</h2>
 		<p>
-			
-				Depending on the surface, we may process account identifiers, content you submit, technical
-				logs needed to run the service, and communications you send to support or legal addresses.
-				We aim to collect the minimum needed for civic features, safety, and reliability.
-			
+			Depending on the surface, we may process account identifiers, content you submit, technical
+			logs needed to run the service, and communications you send to support or legal addresses. We
+			aim to collect the minimum needed for civic features, safety, and reliability.
 		</p>
 	</section>
 
 	<section class="docs-section-card legal-section">
 		<h2>How we use information</h2>
 		<p>
-			
-				We use data to operate and improve the product, enforce policies, comply with law, and
-				protect users. Automated decisions, if any, are described in product documentation rather
-				than hidden here; refer to the docs for feature-specific behavior.
-			
+			We use data to operate and improve the product, enforce policies, comply with law, and protect
+			users. Automated decisions, if any, are described in product documentation rather than hidden
+			here; refer to the docs for feature-specific behavior.
 		</p>
 	</section>
 
 	<section class="docs-section-card legal-section" id="protocol-and-federation">
 		<h2>Protocol and federation</h2>
 		<p>
-			
-				PARA is designed around open, AT Protocol–style civic infrastructure. Federating or
-				bridging data to other services may mean additional copies of public material exist outside
-				our direct control. Use the schema and architecture docs to understand what is replicated
-				where.
-			
+			PARA is designed around open, AT Protocol–style civic infrastructure. Federating or bridging
+			data to other services may mean additional copies of public material exist outside our direct
+			control. Use the schema and architecture docs to understand what is replicated where.
 		</p>
 	</section>
 
 	<section class="docs-section-card legal-section">
 		<h2>Retention and deletion</h2>
 		<p>
-			
-				We retain information as long as needed to operate the service and meet legal obligations.
-				You can request deletion or export help through
-			
-			<a href="mailto:{contactEmails.support}">{contactEmails.support}</a>;
-			we will respond when staffing allows and when your request is verifiable.
+			We retain information as long as needed to operate the service and meet legal obligations. You
+			can request deletion or export help through
+
+			<a href="mailto:{contactEmails.support}">{contactEmails.support}</a>; we will respond when
+			staffing allows and when your request is verifiable.
 		</p>
 	</section>
 

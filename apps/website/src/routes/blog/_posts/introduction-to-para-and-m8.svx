@@ -1,10 +1,12 @@
----
-slug: 'introduction-to-para-and-m8'
-title: 'Introduction to PARA and m8'
-description: 'How the PARA civic platform and the m8 identity broker work together to build a new civic layer.'
-date: 'May 12, 2026'
-author: 'PARA'
----
+<script module>
+	export const metadata = {
+	"slug": "introduction-to-para-and-m8",
+	"title": "Introduction to PARA and m8",
+	"description": "How the PARA civic platform and the m8 identity broker work together to build a new civic layer.",
+	"date": "May 12, 2026",
+	"author": "PARA"
+};
+</script>
 
 PARA is a new civic layer designed to reduce the friction of democratic participation. However, building a trusted political network requires solving a fundamental problem: how do you verify that someone is a real citizen without forcing them to reveal their real identity to the public?
 

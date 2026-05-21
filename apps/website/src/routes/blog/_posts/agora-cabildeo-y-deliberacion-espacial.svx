@@ -1,10 +1,12 @@
----
-slug: 'agora-cabildeo-y-deliberacion-espacial'
-title: 'Ágora, Cabildeo y Deliberación Espacial'
-description: 'Tres formas de ejercer la política. Solo una está diseñada para escalar la inteligencia colectiva sin sacrificar transparencia ni pluralidad.'
-date: 'May 13, 2026'
-author: 'PARA'
----
+<script module>
+	export const metadata = {
+	"slug": "agora-cabildeo-y-deliberacion-espacial",
+	"title": "Ágora, Cabildeo y Deliberación Espacial",
+	"description": "Tres formas de ejercer la política. Solo una está diseñada para escalar la inteligencia colectiva sin sacrificar transparencia ni pluralidad.",
+	"date": "May 13, 2026",
+	"author": "PARA"
+};
+</script>
 
 La democracia tiene un problema de formato. La política se sigue haciendo en salones cerrados o en plazas abarrotadas, y ninguno de esos dos espacios está diseñado para *pensar* en colectivo. En PARA no creemos que la tecnología sustituya la política, pero sí que el *medio* en el que deliberamos determina qué ideas emergen y cuáles se ahogan. Por eso construimos tres espacios distintos —y uno de ellos es el que este post intenta explicar.
 

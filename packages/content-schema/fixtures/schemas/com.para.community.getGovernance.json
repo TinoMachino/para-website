@@ -19,28 +19,17 @@
   "lifecycle": [
     "Read when a community profile needs governance roster and role hierarchy overlays."
   ],
-  "writers": [
-    "Read-only query over computed governance state."
-  ],
-  "readers": [
-    "Community profile and governance-adjacent overlays."
-  ],
-  "routes": [
-    "/communities/profile/:communityId"
-  ],
-  "xrpcMethods": [
-    "com.para.community.getGovernance"
-  ],
+  "writers": ["Read-only query over computed governance state."],
+  "readers": ["Community profile and governance-adjacent overlays."],
+  "routes": ["/communities/profile/:communityId"],
+  "xrpcMethods": ["com.para.community.getGovernance"],
   "indexing": [
     "Computes roster, counters, history, and summary views into one payload."
   ],
   "moderation": [
     "Governance state determines who is legible as moderator, official, or deputy inside a community."
   ],
-  "productSurfaces": [
-    "Community profile",
-    "Community governance overlays"
-  ],
+  "productSurfaces": ["Community profile", "Community governance overlays"],
   "fields": [
     {
       "name": "community",

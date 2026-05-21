@@ -1,46 +1,51 @@
-<script>
-	import StatusPill from '$lib/components/StatusPill.svelte';
-</script>
-
 <svelte:head>
 	<title>Communities • How It Works • PARA Docs</title>
 </svelte:head>
 
 <section class="docs-hero-card">
 	<p class="docs-hero-kicker">How it works</p>
-# Communities
-
-	<StatusPill status="implemented" />
-
-	Communities are one of PARA's clearest non-generic structures. They turn the app away from a
-	single global feed and toward belief clusters, civic hubs, badges, governance, and community-level
-	participation.
+	<h1>Communities</h1>
+	<p>
+		Communities are one of PARA's clearest non-generic structures. They turn the app away from a
+		single global feed and toward belief clusters, civic hubs, badges, governance, and community-level
+		participation.
+	</p>
 </section>
 
 <section class="docs-section-card">
 	<p class="docs-section-kicker">Routes</p>
-## Primary routes
+	<h2>Primary routes</h2>
 	<div class="docs-meta-grid">
-		<div class="docs-meta-card"><span class="docs-meta-label">Hub routes</span><div class="docs-meta-value"><code>/communities</code>, <code>/base</code>, <code>/my-base</code></div></div>
-		<div class="docs-meta-card"><span class="docs-meta-label">Profile route</span><div class="docs-meta-value"><code>/communities/profile/:communityId</code></div></div>
-		<div class="docs-meta-card"><span class="docs-meta-label">Adjacent routes</span><div class="docs-meta-value"><code>/communities/:communityId/raq</code>, <code>/communities/:communityId/voters</code>, <code>/communities/:communityId/badges</code></div></div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Hub routes</span>
+			<div class="docs-meta-value"><code>/communities</code>, <code>/base</code>, <code>/my-base</code></div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Profile route</span>
+			<div class="docs-meta-value"><code>/communities/profile/:communityId</code></div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Adjacent routes</span>
+			<div class="docs-meta-value"><code>/communities/:communityId/raq</code>, <code>/communities/:communityId/voters</code>, <code>/communities/:communityId/badges</code></div>
+		</div>
 	</div>
 </section>
 
 <section class="docs-section-card">
 	<p class="docs-section-kicker">State ownership</p>
-## What this route family owns
+	<h2>What this route family owns</h2>
 	<ul>
 		<li>Community identity, slug, and profile framing.</li>
-		<li>Governance roster and role hierarchy overlays.</li>
+		<li>Governance roster and role hierarchy overlays: moderators, officials, deputies.</li>
 		<li>Community-scoped participation routes such as RAQ, voters, and badges.</li>
 		<li>Entry into related civic surfaces such as cabildeos and local reading.</li>
+		<li>Community-level counters and audit history.</li>
 	</ul>
 </section>
 
 <section class="docs-section-card">
 	<p class="docs-section-kicker">User actions</p>
-## What users do here
+	<h2>What users do here</h2>
 	<ul>
 		<li>Find a political home around ideas, regions, or issue clusters.</li>
 		<li>Read governance and role assignment instead of treating the community as a flat feed.</li>
@@ -56,40 +61,48 @@
 
 <section class="docs-section-card">
 	<p class="docs-section-kicker">Backend contracts</p>
-## Schema support
+	<h2>Schema support</h2>
 
 	<p>
-		Community governance is backed by two schemas: a view definition that describes the shape of
-		governance data, and a query that returns the live roster for a given community.
+		Community governance is backed by a view definition that describes the shape of governance data,
+		and a query that returns the live roster for a given community.
 	</p>
 
-	### <code>com.para.community.defs</code>
+	<h3><code>com.para.community.defs</code></h3>
 	<div class="docs-meta-grid">
 		<div class="docs-meta-card">
-			<span class="docs-meta-label"><code>moderators</code></span>
-			<div class="docs-meta-value">Array of moderator handles with role and active status.</div>
+			<span class="docs-meta-label"><code>summary</code></span>
+			<div class="docs-meta-value">Community-level counters: members, visible posters, policy posts, matter posts, and badge holders.</div>
 		</div>
 		<div class="docs-meta-card">
-			<span class="docs-meta-label"><code>officials</code></span>
-			<div class="docs-meta-value">Array of officials with title, scope, and tenure.</div>
+			<span class="docs-meta-label"><code>moderatorView</code></span>
+			<div class="docs-meta-value">Governance view with role, badge, and capability metadata for a moderator.</div>
 		</div>
 		<div class="docs-meta-card">
-			<span class="docs-meta-label"><code>deputies</code></span>
-			<div class="docs-meta-value">Array of deputy handles with delegation and active status.</div>
+			<span class="docs-meta-label"><code>officialView</code></span>
+				<div class="docs-meta-value">Public official view including office and mandate.</div>
 		</div>
 		<div class="docs-meta-card">
-			<span class="docs-meta-label"><code>history</code></span>
-			<div class="docs-meta-value">Chronological governance events: role changes, elections, and moderation actions.</div>
+			<span class="docs-meta-label"><code>deputyRoleView</code></span>
+			<div class="docs-meta-value">Role hierarchy entry with active holder, capabilities, votes, and applicant queue.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label"><code>metadata</code></span>
+			<div class="docs-meta-value">Governance metadata: term length, review cadence, escalation path, and flair identifiers.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label"><code>historyEntry</code></span>
+			<div class="docs-meta-value">Audit-friendly entry describing who changed what and when.</div>
 		</div>
 	</div>
 
-	### <code>com.para.community.getGovernance</code>
+	<h3><code>com.para.community.getGovernance</code></h3>
 	<p>
 		This XRPC query returns the live governance view for a community. It is read-only and serves
 		from indexed state rather than scanning raw records.
 	</p>
 	<ul>
-		<li>Returns the full governance roster: moderators, officials, deputies, and history.</li>
+		<li>Returns the full governance roster: moderators, officials, deputies, summary, counters, and edit history.</li>
 		<li>Used by the community profile route and moderation dashboards.</li>
 		<li>Backed by indexed governance state in the AppView.</li>
 	</ul>

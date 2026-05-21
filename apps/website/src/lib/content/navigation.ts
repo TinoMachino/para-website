@@ -3,8 +3,8 @@ type StaticHref =
 	| '/docs/getting-started'
 	| '/docs/how-it-works'
 	| '/docs/product'
+	| '/docs/architecture'
 	| '/docs/glossary'
-	| '/docs/status'
 	| '/docs/schemas'
 	| '/docs/roadmap';
 
@@ -13,9 +13,10 @@ export const primaryNav = [
 	{ href: '/docs/getting-started', label: 'Getting started' },
 	{ href: '/docs/how-it-works', label: 'How it works' },
 	{ href: '/docs/product', label: 'Product' },
+	{ href: '/docs/architecture', label: 'Architecture' },
 	{ href: '/docs/glossary', label: 'Glossary' },
-	{ href: '/docs/status', label: 'Status' },
-	{ href: '/docs/schemas', label: 'Schemas' }
+	{ href: '/docs/schemas', label: 'Schemas' },
+	{ href: '/docs/roadmap', label: 'Roadmap' }
 ] satisfies Array<{ href: StaticHref; label: string }>;
 
 type FlowHref =
@@ -25,7 +26,8 @@ type FlowHref =
 	| '/docs/how-it-works/representatives'
 	| '/docs/how-it-works/highlights'
 	| '/docs/how-it-works/map-and-discovery'
-	| '/docs/how-it-works/messages-and-agents';
+	| '/docs/how-it-works/messages'
+	| '/docs/how-it-works/agents';
 
 export const flowNav = [
 	{ href: '/docs/how-it-works/communities', label: 'Communities' },
@@ -34,7 +36,8 @@ export const flowNav = [
 	{ href: '/docs/how-it-works/representatives', label: 'Representatives' },
 	{ href: '/docs/how-it-works/highlights', label: 'Highlights' },
 	{ href: '/docs/how-it-works/map-and-discovery', label: 'Map and discovery' },
-	{ href: '/docs/how-it-works/messages-and-agents', label: 'Messages and agents' }
+	{ href: '/docs/how-it-works/messages', label: 'Messages' },
+	{ href: '/docs/how-it-works/agents', label: 'Agents' }
 ] satisfies Array<{ href: FlowHref; label: string }>;
 
 export const readerNav = [

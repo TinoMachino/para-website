@@ -1,10 +1,12 @@
----
-slug: 'passkit-vs-m8-arquitectura-prueba'
-title: 'PassKit Identity vs m8: traer tu credencial vs construir tu reputación'
-description: 'Análisis arquitectónico: cómo funciona PassKit Identity de Apple, por qué México no tiene mDL todavía, y cómo m8 ocupa ese vacío con un modelo de prueba distribuida.'
-date: 'May 9, 2026'
-author: 'PARA'
----
+<script module>
+	export const metadata = {
+	"slug": "passkit-vs-m8-arquitectura-prueba",
+	"title": "PassKit Identity vs m8: traer tu credencial vs construir tu reputación",
+	"description": "Análisis arquitectónico: cómo funciona PassKit Identity de Apple, por qué México no tiene mDL todavía, y cómo m8 ocupa ese vacío con un modelo de prueba distribuida.",
+	"date": "May 9, 2026",
+	"author": "PARA"
+};
+</script>
 
 Apple publicó recientemente la documentación para **requesting identity data from a Wallet pass**: una API que permite a apps de terceros leer credenciales verificadas almacenadas en Apple Wallet. El caso de uso estrella es el Mobile Driving License (mDL), un estándar ISO que varios estados de EE.UU. ya emiten.
 

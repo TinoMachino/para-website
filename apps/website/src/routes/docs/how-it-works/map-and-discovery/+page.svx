@@ -1,43 +1,104 @@
-<script>
-	import StatusPill from '$lib/components/StatusPill.svelte';
-</script>
-
 <svelte:head>
-	<title>Map and Discovery • How It Works • PARA Docs</title>
+	<title>Map • How It Works • PARA Docs</title>
 </svelte:head>
 
 <section class="docs-hero-card">
 	<p class="docs-hero-kicker">How it works</p>
-	# Map and discovery
-
-	<StatusPill status="experimental" />
-
-	PARA uses discovery routes to turn political reading into something more structured than searching
-	for hot takes. Search, map, compass, and comparison belong to the civic reading layer.
+	<h1>Map</h1>
+	<p>
+		The map turns political data into something spatially legible. States, federal districts, cities,
+		and live civic activity are rendered as browsable layers over Mexico. This is not a generic
+		location feature — it is a civic intelligence surface.
+	</p>
 </section>
 
 <section class="docs-section-card">
 	<p class="docs-section-kicker">Routes</p>
 	<h2>Primary routes</h2>
 	<div class="docs-meta-grid">
-		<div class="docs-meta-card"><span class="docs-meta-label">Search routes</span><div class="docs-meta-value"><code>/search</code>, <code>/topic/:topic</code>, <code>/hashtag/:tag</code></div></div>
-		<div class="docs-meta-card"><span class="docs-meta-label">Civic reading</span><div class="docs-meta-value"><code>/map</code>, <code>/compass</code>, <code>/comparison</code></div></div>
-		<div class="docs-meta-card"><span class="docs-meta-label">Current role</span><div class="docs-meta-value">These routes already shape product identity, but their technical reference layer is still thinner than feed or civic records.</div></div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Map</span>
+			<div class="docs-meta-value"><code>/map</code>, <code>/map?state=:state&layer=:layer</code>, <code>/map?state=:state&city=:city</code></div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">District profile</span>
+			<div class="docs-meta-value"><code>/district-profile/:districtId?tab=overview|activity</code></div>
+		</div>
 	</div>
 </section>
 
 <section class="docs-section-card">
-	<p class="docs-section-kicker">Why experimental</p>
-	<h2>What the docs should avoid overstating</h2>
+	<p class="docs-section-kicker">Layers</p>
+	<h2>Four map layers</h2>
+	<div class="docs-meta-grid">
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">States</span>
+			<div class="docs-meta-value">All 32 Mexican states as selectable polygons. Selecting a state opens its summary sidebar with dominant party, approval, and active civic metrics.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Districts</span>
+			<div class="docs-meta-value">300 federal electoral districts. Each shows turnout, registered voters, current deputy, and dominant party. Districts can be opened for full profile detail.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Cities</span>
+			<div class="docs-meta-value">Major cities per state with population, dominant party, and governing mayor. City selection zooms to municipal scale.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Civic</span>
+			<div class="docs-meta-value">Density overlay of active cabildeos per state. Color intensity scales with the number of open civic deliberations in each region.</div>
+		</div>
+	</div>
+</section>
+
+<section class="docs-section-card">
+	<p class="docs-section-kicker">Search</p>
+	<h2>Find states, districts, and cities</h2>
+	<p>
+		The map search indexes all 32 states, 300 federal districts, and every major city. It handles
+		accent-insensitive text, aliases (CDMX, DF, Edomex), and partial matching. Districts can be
+		found by number ("Distrito 7") or by deputy name.
+	</p>
+</section>
+
+<section class="docs-section-card">
+	<p class="docs-section-kicker">Zone filters</p>
+	<h2>Heatmap lenses</h2>
+	<p>
+		Users can apply a discourse lens to color the map by political topic. Choose between Matter or
+		Policy, then select a specific item. States tint based on how much that topic is discussed
+		locally. This turns the map from a geographic view into an ideological distribution view.
+	</p>
+</section>
+
+<section class="docs-section-card">
+	<p class="docs-section-kicker">State ownership</p>
+	<h2>What this route family owns</h2>
 	<ul>
-		<li>The routes are real and matter to the product story.</li>
-		<li>The current published lexicon set does not yet give this area the same contract depth as cabildeo or highlight flows.</li>
-		<li>The docs should describe discovery as present, but keep the strongest future claims labeled as direction.</li>
+		<li>GeoJSON rendering of Mexico at state, district, and city granularity.</li>
+		<li>Indexed civic data overlay (cabildeo density, party dominance).</li>
+		<li>Search and alias resolution for Mexican political geography.</li>
+		<li>Geolocation-based "Near me" routing (Mexico-only).</li>
+		<li>District profile deep-links with overview and activity tabs.</li>
 	</ul>
+</section>
+
+<section class="docs-section-card">
+	<p class="docs-section-kicker">District profiles</p>
+	<h2>What a district profile contains</h2>
+	<div class="docs-meta-grid">
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Overview</span>
+			<div class="docs-meta-value">Party breakdown, turnout percentage, registered voter count, current deputy, and open cabildeos or RAQ questions scoped to the district.</div>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Activity</span>
+			<div class="docs-meta-value">Timeline of civic actions in the district: cabildeo participation, RAQ responses, and community engagement metrics.</div>
+		</div>
+	</div>
 </section>
 
 ## Read next
 
-- Read [Representatives](/docs/how-it-works/representatives)
 - Read [Communities](/docs/how-it-works/communities)
-- Read [Thesis](/thesis)
+- Read [Cabildeo](/docs/how-it-works/cabildeo)
+- Read [Representatives](/docs/how-it-works/representatives)

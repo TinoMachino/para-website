@@ -1,24 +1,21 @@
-<script lang="ts">
-	import StatusPill from '$lib/components/StatusPill.svelte';
-</script>
+
 
 <svelte:head>
 	<title>{`How It Works • PARA Docs`}</title>
 	<meta
 		name="description"
-		content={`Operational docs for PARA’s main civic route families: communities, RAQ, cabildeo, representatives, highlights, maps, and agent-adjacent communication.`}
+		content={`Operational docs for PARA’s main civic route families: communities, RAQ, cabildeo, representatives, highlights, maps, and messages, and agents.`}
 	/>
 </svelte:head>
 
 <section class="docs-hero-card">
 	<p class="docs-hero-kicker">How it works</p>
-	# The product layer between thesis and schemas
-
-	
+	<h1>The product layer between thesis and schemas</h1>
+	<p>
 		This section explains PARA as a working civic app. It sits between the thesis pages and the
 		schema reference because most readers need route behavior, state ownership, and maturity before
 		they need lexicon detail.
-	
+	</p>
 </section>
 
 <div class="docs-link-grid">
@@ -46,9 +43,13 @@
 		<strong>Map and discovery</strong>
 		<span>Search, map, compass, and comparative reading routes.</span>
 	</a>
-	<a class="docs-link-card" href="/docs/how-it-works/messages-and-agents">
-		<strong>Messages and agents</strong>
-		<span>Inbox routes plus earlier agent-chat surfaces.</span>
+	<a class="docs-link-card" href="/docs/how-it-works/messages">
+		<strong>Messages</strong>
+		<span>Stable inbox and conversation routes.</span>
+	</a>
+	<a class="docs-link-card" href="/docs/how-it-works/agents">
+		<strong>Agents</strong>
+		<span>Agent-chat surfaces and earlier interaction models.</span>
 	</a>
 </div>
 
@@ -58,27 +59,24 @@
 	<div class="docs-meta-grid">
 		<div class="docs-meta-card">
 			<span class="docs-meta-label">Communities</span>
-			<StatusPill status="implemented" />
 		</div>
 		<div class="docs-meta-card">
 			<span class="docs-meta-label">RAQ</span>
-			<StatusPill status="partial" />
 		</div>
 		<div class="docs-meta-card">
 			<span class="docs-meta-label">Cabildeo</span>
-			<StatusPill status="partial" />
 		</div>
 		<div class="docs-meta-card">
 			<span class="docs-meta-label">Highlights</span>
-			<StatusPill status="partial" />
 		</div>
 		<div class="docs-meta-card">
 			<span class="docs-meta-label">Map and discovery</span>
-			<StatusPill status="experimental" />
 		</div>
 		<div class="docs-meta-card">
-			<span class="docs-meta-label">Messages and agents</span>
-			<StatusPill status="implemented" />
+			<span class="docs-meta-label">Messages</span>
+		</div>
+		<div class="docs-meta-card">
+			<span class="docs-meta-label">Agents</span>
 		</div>
 	</div>
 </section>
@@ -86,5 +84,5 @@
 ## Read next
 
 - Start with [Communities](/docs/how-it-works/communities)
-- Read the [Status guide](/docs/status)
+- Read the [Schema reference](/docs/schemas)
 - Browse the [Schema reference](/docs/schemas)

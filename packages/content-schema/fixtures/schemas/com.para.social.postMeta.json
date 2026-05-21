@@ -22,18 +22,13 @@
   "writers": [
     "Clients or backend post pipelines that classify a Para post into civic categories."
   ],
-  "readers": [
-    "Policy and matter surfaces",
-    "Post reading and civic filters"
-  ],
+  "readers": ["Policy and matter surfaces", "Post reading and civic filters"],
   "routes": [
     "/policy-details",
     "/policies-dashboard",
     "/profile/:name/post/:rkey"
   ],
-  "xrpcMethods": [
-    "com.para.social.getPostMeta"
-  ],
+  "xrpcMethods": ["com.para.social.getPostMeta"],
   "indexing": [
     "Used as a civic metadata overlay for post classification and filtering."
   ],

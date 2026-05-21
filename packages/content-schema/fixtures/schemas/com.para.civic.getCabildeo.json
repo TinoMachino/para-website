@@ -9,12 +9,8 @@
   "examples": [
     "{\"cabildeo\":{\"title\":\"Water allocation reform\",\"phase\":\"deliberating\",\"voteTotals\":{\"total\":94,\"direct\":60,\"delegated\":34}}}"
   ],
-  "relationships": [
-    "Returns com.para.civic.defs#cabildeoView."
-  ],
-  "constraints": [
-    "`cabildeo` at-uri is required."
-  ],
+  "relationships": ["Returns com.para.civic.defs#cabildeoView."],
+  "constraints": ["`cabildeo` at-uri is required."],
   "lifecycle": [
     "Read whenever the client opens a single cabildeo detail page.",
     "Hydrates both aggregate counts and the current viewer’s civic context."
@@ -22,26 +18,17 @@
   "writers": [
     "Not written directly by clients; served from indexed civic state."
   ],
-  "readers": [
-    "Cabildeo detail screen",
-    "Delegated vote flow"
-  ],
+  "readers": ["Cabildeo detail screen", "Delegated vote flow"],
   "routes": [
     "/communities/cabildeos/:cabildeoUri",
     "/communities/cabildeos/:cabildeoUri/delegate-vote"
   ],
-  "xrpcMethods": [
-    "com.para.civic.getCabildeo"
-  ],
-  "indexing": [
-    "Depends on com.para.civic.defs#cabildeoView materialization."
-  ],
+  "xrpcMethods": ["com.para.civic.getCabildeo"],
+  "indexing": ["Depends on com.para.civic.defs#cabildeoView materialization."],
   "moderation": [
     "Viewer context can change what the user is allowed to do next even when the query succeeds."
   ],
-  "productSurfaces": [
-    "Cabildeo detail"
-  ],
+  "productSurfaces": ["Cabildeo detail"],
   "fields": [
     {
       "name": "cabildeo",

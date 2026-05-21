@@ -8,10 +8,11 @@
 
 <section class="docs-hero-card">
 	<p class="docs-hero-kicker">Glossary</p>
-	# Shared vocabulary
-
-	PARA uses internal vocabulary that carries product meaning. This page is the canonical reference
-	for those terms so the other docs can stay shorter and more consistent.
+	<h1>Shared vocabulary</h1>
+	<p>
+		PARA uses internal vocabulary that carries product meaning. This page is the canonical reference
+		for those terms so the other docs can stay shorter and more consistent.
+	</p>
 </section>
 
 <section class="docs-section-card">
@@ -93,12 +94,12 @@
 		<li><strong>Highlights:</strong> a separate reading layer for annotations, not just bookmarks.</li>
 		<li><strong>Representatives:</strong> a civic route family for political actors and comparison, distinct from generic profiles.</li>
 		<li><strong>Community profile:</strong> the route where a belief cluster, community identity, and governance overlays come together.</li>
-		<li><strong>Agent chat:</strong> conversation with a community or premium agent; still earlier and less stable than the regular inbox model.</li>
+		<li><strong>Agent chat:</strong> conversation with a community or premium AI agent through a dedicated messaging surface. Agents are scoped to communities and provide automated assistance, moderation, and civic reasoning.</li>
 	</ul>
 </section>
 
 ## Read next
 
 - Read [How it works](/docs/how-it-works)
-- Read the [Status guide](/docs/status)
+- Read the [Schema reference](/docs/schemas)
 - Read [Thesis](/thesis)

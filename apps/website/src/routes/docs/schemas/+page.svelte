@@ -1,9 +1,43 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { architectureLayers } from '$lib/content/site';
-	import StatusPill from '$lib/components/StatusPill.svelte';
 
 	let { data } = $props();
+
+	function splitPrefix(title: string) {
+		if (title.startsWith('com.para.identity.')) {
+			return { prefix: 'com.para.identity.', name: title.slice('com.para.identity.'.length) };
+		}
+		if (title.startsWith('com.para.social.')) {
+			return { prefix: 'com.para.social.', name: title.slice('com.para.social.'.length) };
+		}
+		if (title.startsWith('com.para.')) {
+			return { prefix: 'com.para.', name: title.slice('com.para.'.length) };
+		}
+		return { prefix: '', name: title };
+	}
+
+	function categoryOf(schema: (typeof data.schemas)[0]) {
+		const id = schema.id;
+		if (id.includes('.identity.')) return 'Identity';
+		if (id.endsWith('.defs')) return 'Views';
+		if (id.startsWith('com.para.social.')) return 'Metadata overlays';
+		if (schema.tags.includes('queries') || id.includes('.get') || id.includes('.list'))
+			return 'Queries';
+		return 'Records';
+	}
+
+	const grouped = $derived(() => {
+		const buckets: Record<string, typeof data.schemas> = {};
+		const order = ['Records', 'Metadata overlays', 'Views', 'Queries', 'Identity'];
+		for (const schema of data.schemas) {
+			const cat = categoryOf(schema);
+			buckets[cat] ??= [];
+			buckets[cat].push(schema);
+		}
+		return order
+			.map((cat) => ({ category: cat, items: buckets[cat] ?? [] }))
+			.filter((g) => g.items.length > 0);
+	});
 </script>
 
 <svelte:head>
@@ -15,53 +49,40 @@
 		<p class="intro-kicker">Schemas</p>
 		<h1>Schema reference</h1>
 		<p>
-			Use this section when you want the technical shape behind PARA's public surfaces. These
-			pages curate the <code>com.para.*</code> lexicons in WhatZatppa and m8 so the records and views are easier to read in
-			the context of the product.
+			Technical shape behind PARA's civic surfaces. These <code>com.para.*</code> lexicons describe records,
+			views, queries, and metadata overlays in WhatZatppa and m8.
 		</p>
 	</div>
 </section>
 
-<div class="schema-grid">
-	{#each data.schemas as schema (schema.id)}
-		<a class="schema-card docs-panel" href={resolve(`/docs/schemas/${schema.id}`)}>
-			<div class="schema-card-head">
-				<h2>{schema.title}</h2>
-				<StatusPill status={schema.status} />
-			</div>
-			<p>{schema.summary}</p>
-			<div class="schema-tags">
-				{#each schema.tags as tag (tag)}
-					<span>{tag}</span>
+<div class="schema-index">
+	{#each grouped() as group (group.category)}
+		<section class="schema-group">
+			<h2 class="group-heading">{group.category}</h2>
+			<div class="schema-list">
+				{#each group.items as schema (schema.id)}
+					{@const parts = splitPrefix(schema.title)}
+					<a class="schema-row" href={resolve(`/docs/schemas/${schema.id}`)}>
+						<div class="schema-name">
+							<code class="prefix">{parts.prefix}</code>
+							<span class="suffix">{parts.name}</span>
+						</div>
+						<p class="schema-summary">{schema.summary}</p>
+						<div class="schema-tags">
+							{#each schema.tags as tag (tag)}
+								<span class="tag">{tag}</span>
+							{/each}
+						</div>
+					</a>
 				{/each}
 			</div>
-		</a>
+		</section>
 	{/each}
 </div>
 
-<section class="docs-panel schema-appendix">
-	<div class="docs-prose appendix-prose">
-		<p class="intro-kicker">Implementation appendix</p>
-		<h2>How the schemas fit the backend</h2>
-		<p>
-			Schema reference is where the technical layer becomes concrete. The notes below connect the
-			records and views to the product surfaces they support.
-		</p>
-	</div>
-	<div class="appendix-grid">
-		{#each architectureLayers as layer (layer.title)}
-			<article class="appendix-card">
-				<p class="appendix-kicker">{layer.eyebrow}</p>
-				<h3>{layer.title}</h3>
-				<p>{layer.copy}</p>
-			</article>
-		{/each}
-	</div>
-</section>
-
 <style>
 	.schema-intro {
-		margin-bottom: 1.4rem;
+		margin-bottom: 2rem;
 		padding: 1.4rem 1.55rem;
 	}
 
@@ -74,104 +95,114 @@
 		color: var(--para-accent-text);
 	}
 
-	.schema-grid {
+	.schema-index {
 		display: grid;
-		gap: 1.15rem;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 2.5rem;
 	}
 
-	.schema-appendix {
-		margin-top: 1.4rem;
-		padding: 1.4rem 1.55rem;
+	.schema-group {
+		padding: 0;
 	}
 
-	.appendix-prose {
-		max-width: 42rem;
-	}
-
-	.appendix-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1rem;
-		margin-top: 1.25rem;
-	}
-
-	.appendix-card {
-		padding: 1.1rem;
-		border-radius: 1.1rem;
-		border: 1px solid rgba(255, 255, 255, 0.08);
-		background: rgba(255, 255, 255, 0.04);
-	}
-
-	.appendix-kicker {
-		margin: 0 0 0.45rem;
-		font-size: 0.75rem;
+	.group-heading {
+		margin: 0 0 0.6rem;
+		font-size: 0.78rem;
 		font-weight: 800;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
-		color: #a9c7ff;
+		color: #918ba0;
 	}
 
-	.schema-card {
-		padding: 1.4rem;
-		transition:
-			transform 160ms ease,
-			border-color 160ms ease,
-			box-shadow 160ms ease;
+	.schema-list {
+		display: grid;
+		gap: 0;
 	}
 
-	.schema-card:hover {
-		transform: translateY(-3px);
-		border-color: var(--para-primary-300);
-		box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+	.schema-row {
+		display: grid;
+		gap: 0.35rem;
+		padding: 1rem 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+		color: inherit;
+		text-decoration: none;
+		transition: background 0.15s ease;
 	}
 
-	.schema-card-head {
+	.schema-row:first-child {
+		border-top: 1px solid rgba(255, 255, 255, 0.07);
+	}
+
+	.schema-row:hover {
+		background: rgba(255, 255, 255, 0.025);
+		margin: 0 -0.85rem;
+		padding-left: 0.85rem;
+		padding-right: 0.85rem;
+		border-radius: 0.6rem;
+		border-color: transparent;
+	}
+
+	.schema-row:hover + .schema-row {
+		border-top-color: transparent;
+	}
+
+	.schema-name {
 		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-		gap: 0.8rem;
-		margin-bottom: 0.9rem;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0;
+		font-family: var(--ps-font-mono);
+		font-size: 1.05rem;
+		font-weight: 600;
+		line-height: 1.4;
 	}
 
-	h2 {
+	.prefix {
+		color: #6b6580;
+		font-size: 0.9em;
+		background: none;
+		padding: 0;
+	}
+
+	.suffix {
+		color: #ffffff;
+	}
+
+	.schema-summary {
 		margin: 0;
-		font-size: 1.28rem;
-		line-height: 1.15;
-		color: #ffffff;
-	}
-
-	h3 {
-		margin: 0 0 0.65rem;
-		font-size: 1.08rem;
-		line-height: 1.2;
-		color: #ffffff;
-	}
-
-	p {
-		margin: 0 0 1.1rem;
-		line-height: 1.8;
-		color: #cdc8d8;
+		font-size: 0.95rem;
+		line-height: 1.65;
+		color: #b0a8c4;
+		max-width: 52rem;
 	}
 
 	.schema-tags {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.55rem;
+		gap: 0.4rem;
+		margin-top: 0.15rem;
 	}
 
-	.schema-tags span {
-		padding: 0.42rem 0.68rem;
-		border-radius: var(--ps-radius-pill);
-		background: rgba(255, 255, 255, 0.09);
-		color: #f3f6ff;
-		font-size: 0.82rem;
-		font-weight: 600;
+	.tag {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: #7a7391;
 	}
 
-	@media (max-width: 960px) {
-		.appendix-grid {
-			grid-template-columns: 1fr;
+	.tag::before {
+		content: '•';
+		margin-right: 0.35rem;
+		color: #4a4560;
+	}
+
+	.tag:first-child::before {
+		content: none;
+	}
+
+	@media (max-width: 600px) {
+		.schema-name {
+			font-size: 0.92rem;
 		}
 	}
 </style>

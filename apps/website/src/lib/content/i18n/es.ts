@@ -1,4 +1,43 @@
 export const es = {
+	heroEyebrow: `PARA • red social cívica`,
+	heroTitle: `Solidaridad numérica latente`,
+	heroLede: `PARA da a las personas una forma más clara de expresar posturas de política pública, ubicarse políticamente y participar sin reducir todo a marca partidista o feeds genéricos.`,
+	principlesEyebrow: `Tres ideas`,
+	principlesTitle: `El sitio solo necesita explicar tres afirmaciones con claridad.`,
+	productCuesEyebrow: `Superficie de producto`,
+	productCuesTitle: `PARA no es solo una tesis. Tiene acciones cívicas visibles.`,
+	productCues: [
+		{
+			kicker: `Vota`,
+			title: `Califica políticas de -3 a +3`,
+			copy: `Captura dirección e intensidad en lugar de reducir el input político a likes o preferencia partidista.`,
+			href: '/docs/product'
+		},
+		{
+			kicker: `Ubícate`,
+			title: `Usa RAQ para crear contexto político`,
+			copy: `Ayuda a las personas a entender dónde están y da a las comunidades datos cívicos más útiles.`,
+			href: '/docs/how-it-works'
+		},
+		{
+			kicker: `Organiza`,
+			title: `Convierte comunidades en superficies cívicas`,
+			copy: `Separa debate, coordinación, representación y descubrimiento de un feed genérico.`,
+			href: '/docs/how-it-works'
+		},
+		{
+			kicker: `Verifica`,
+			title: `Inspecciona los contratos públicos`,
+			copy: `Mantén el lenguaje de producto conectado con referencias explícitas de schema y protocolo.`,
+			href: '/docs/schemas'
+		}
+	],
+	pathsEyebrow: `Empieza aquí`,
+	pathsTitle: `Elige la ruta que coincide con lo que necesitas.`,
+	featuresEyebrow: `Mecánicas centrales`,
+	featuresTitle: `Cuatro ideas de producto hacen la mayor parte del trabajo explicativo.`,
+	featureWhyItMatters: `Por qué importa`,
+	openLabel: `Abrir`,
 	heroPrimaryAction: {
 		label: `Prueba la app`,
 		href: '/try-app'
@@ -142,4 +181,4 @@ export const es = {
 		app: `App`,
 		backend: `Backend`
 	}
-};
+} as const;

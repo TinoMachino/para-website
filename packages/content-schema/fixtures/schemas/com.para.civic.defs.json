@@ -44,11 +44,7 @@
   "moderation": [
     "Community scope and viewer context shape which civic activity is shown to a user."
   ],
-  "productSurfaces": [
-    "Cabildeo detail",
-    "Cabildeo list",
-    "Delegated voting"
-  ],
+  "productSurfaces": ["Cabildeo detail", "Cabildeo list", "Delegated voting"],
   "fields": [
     {
       "name": "cabildeoView",
