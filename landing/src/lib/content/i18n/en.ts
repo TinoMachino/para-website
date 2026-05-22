@@ -11,25 +11,25 @@ export const en = {
 			kicker: `Vote`,
 			title: `Score policies from -3 to +3`,
 			copy: `Capture direction and intensity instead of reducing political input to likes or party preference.`,
-			href: '/docs/product'
+			href: '/thesis'
 		},
 		{
 			kicker: `Locate`,
 			title: `Use RAQ to build political context`,
 			copy: `Help people understand where they stand and give communities more useful civic data.`,
-			href: '/docs/how-it-works'
+			href: '/thesis'
 		},
 		{
 			kicker: `Organize`,
 			title: `Turn communities into civic surfaces`,
 			copy: `Separate debate, coordination, representation, and discovery from one generic feed.`,
-			href: '/docs/how-it-works'
+			href: '/thesis'
 		},
 		{
 			kicker: `Verify`,
 			title: `Inspect the public contracts`,
 			copy: `Keep the product language connected to explicit schema and protocol references.`,
-			href: '/docs/schemas'
+			href: '/thesis'
 		}
 	],
 	pathsEyebrow: `Start here`,
@@ -38,13 +38,9 @@ export const en = {
 	featuresTitle: `Four product ideas do most of the explanatory work.`,
 	featureWhyItMatters: `Why it matters`,
 	openLabel: `Open`,
-	heroPrimaryAction: {
-		label: `Try the app`,
-		href: '/try-app'
-	},
 	heroSecondaryAction: {
-		label: `Read the docs`,
-		href: '/docs'
+		label: `Read the thesis`,
+		href: '/thesis'
 	},
 	landingHeroMetrics: [
 		{ value: '-3 to +3', label: `policy vote range` },
@@ -163,16 +159,10 @@ export const en = {
 			href: '/thesis'
 		},
 		{
-			eyebrow: `Try app`,
-			title: `Find the app or run it locally`,
-			copy: `Use Android for normal access, or GitHub when you want local setup.`,
-			href: '/try-app'
-		},
-		{
 			eyebrow: `Schemas`,
 			title: `Browse the schema reference`,
 			copy: `Open the com.para.* reference when you want the contract layer.`,
-			href: '/docs/schemas'
+			href: '/thesis'
 		}
 	],
 	chapters: [
@@ -190,8 +180,7 @@ export const en = {
 		}
 	],
 	bottomCta: [
-		{ label: `Read the thesis`, href: '/thesis' },
-		{ label: `Browse the docs`, href: '/docs' }
+		{ label: `Read the thesis`, href: '/thesis' }
 	],
 	footerCopy: `Browse the thesis, product surfaces, trust model, app access, and schema reference from any entry point.`,
 	footerRepoLabels: {

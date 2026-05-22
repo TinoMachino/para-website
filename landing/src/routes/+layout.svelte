@@ -15,8 +15,7 @@
 
 	const topNav = [
 		{ href: '/thesis', label: 'Thesis' },
-		{ href: '/blog', label: 'Blog' },
-		{ href: '/try-app', label: 'Try app' }
+		{ href: '/blog', label: 'Blog' }
 	] as const;
 
 	const isActive = (href: string) =>
@@ -103,7 +102,6 @@
 				<a href={resolve('/thesis')}>Thesis</a>
 				<a href={resolve('/blog')}>Blog</a>
 				<a href={resolve('/trust-and-safety')}>Trust and safety</a>
-				<a href={resolve('/try-app')}>Try app</a>
 				<a href={resolve('/support')}>Support</a>
 				<a href={resolve('/support/terms-of-service')}>Terms</a>
 			</div>

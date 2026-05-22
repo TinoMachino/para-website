@@ -318,7 +318,7 @@
 						<p>Return to the broader democratic-friction argument.</p>
 						<span class="path-link">Open</span>
 					</a>
-					<a class="surface-card path-card" href="/docs/product">
+					<a class="surface-card path-card" href="/thesis">
 						<p class="card-kicker">Product</p>
 						<h3>Product surfaces</h3>
 						<p>See how communities, voting, RAQ, and civic participation work together.</p>

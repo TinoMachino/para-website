@@ -299,7 +299,7 @@
 				<strong>Trust and safety</strong>
 				<span>Read how anonymity, moderation, verification, and control work in practice.</span>
 			</a>
-			<a class="docs-link-card" href={resolve('/docs/schemas')}>
+			<a class="docs-link-card" href={resolve('/thesis')}>
 				<strong>Schema reference</strong>
 				<span>Browse the schema reference and the technical notes behind the product.</span>
 			</a>

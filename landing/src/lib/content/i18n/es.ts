@@ -11,25 +11,25 @@ export const es = {
 			kicker: `Vota`,
 			title: `Califica políticas de -3 a +3`,
 			copy: `Captura dirección e intensidad en lugar de reducir el input político a likes o preferencia partidista.`,
-			href: '/docs/product'
+			href: '/thesis'
 		},
 		{
 			kicker: `Ubícate`,
 			title: `Usa RAQ para crear contexto político`,
 			copy: `Ayuda a las personas a entender dónde están y da a las comunidades datos cívicos más útiles.`,
-			href: '/docs/how-it-works'
+			href: '/thesis'
 		},
 		{
 			kicker: `Organiza`,
 			title: `Convierte comunidades en superficies cívicas`,
 			copy: `Separa debate, coordinación, representación y descubrimiento de un feed genérico.`,
-			href: '/docs/how-it-works'
+			href: '/thesis'
 		},
 		{
 			kicker: `Verifica`,
 			title: `Inspecciona los contratos públicos`,
 			copy: `Mantén el lenguaje de producto conectado con referencias explícitas de schema y protocolo.`,
-			href: '/docs/schemas'
+			href: '/thesis'
 		}
 	],
 	pathsEyebrow: `Empieza aquí`,
@@ -38,13 +38,9 @@ export const es = {
 	featuresTitle: `Cuatro ideas de producto hacen la mayor parte del trabajo explicativo.`,
 	featureWhyItMatters: `Por qué importa`,
 	openLabel: `Abrir`,
-	heroPrimaryAction: {
-		label: `Prueba la app`,
-		href: '/try-app'
-	},
 	heroSecondaryAction: {
-		label: `Lee la documentación`,
-		href: '/docs'
+		label: `Lee la tesis`,
+		href: '/thesis'
 	},
 	landingHeroMetrics: [
 		{ value: '-3 a +3', label: `rango de votación de políticas` },
@@ -163,16 +159,10 @@ export const es = {
 			href: '/thesis'
 		},
 		{
-			eyebrow: `Prueba la app`,
-			title: `Encuentra la app o ejecútala localmente`,
-			copy: `Usa Android para acceso normal, o GitHub cuando quieras configuración local.`,
-			href: '/try-app'
-		},
-		{
 			eyebrow: `Schemas`,
 			title: `Explora la referencia de schemas`,
 			copy: `Abre la referencia com.para.* cuando quieras ver la capa de contratos.`,
-			href: '/docs/schemas'
+			href: '/thesis'
 		}
 	],
 	chapters: [
@@ -190,8 +180,7 @@ export const es = {
 		}
 	],
 	bottomCta: [
-		{ label: `Lee la tesis`, href: '/thesis' },
-		{ label: `Explora la documentación`, href: '/docs' }
+		{ label: `Lee la tesis`, href: '/thesis' }
 	],
 	footerCopy: `Explora la tesis, superficies de producto, modelo de confianza, acceso a la app y referencia de schemas desde cualquier punto de entrada.`,
 	footerRepoLabels: {

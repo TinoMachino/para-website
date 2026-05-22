@@ -75,9 +75,9 @@
 				<strong>Privacy policy</strong>
 				<span>Main privacy statement.</span>
 			</a>
-			<a class="docs-link-card" href={resolve('/docs' as any)}>
-				<strong>Documentation</strong>
-				<span>Protocol and architecture reference.</span>
+			<a class="docs-link-card" href={resolve('/thesis' as any)}>
+				<strong>Read the thesis</strong>
+				<span>The democratic problem, the second-layer idea, and why PARA exists.</span>
 			</a>
 			<a class="docs-link-card" href={resolve('/support')}>
 				<strong>Support</strong>

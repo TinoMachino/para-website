@@ -132,18 +132,14 @@
 	<section class="docs-section-card">
 		<p class="docs-section-kicker">Also useful</p>
 		<div class="docs-link-grid">
-			<a class="docs-link-card" href={resolve('/docs' as any)}>
-				<strong>Documentation</strong>
-				<span>Product and protocol reference for builders and contributors.</span>
+			<a class="docs-link-card" href={resolve('/thesis' as any)}>
+				<strong>Read the thesis</strong>
+				<span>The democratic problem, the second-layer idea, and why PARA exists.</span>
 			</a>
 			<a class="docs-link-card" href={resolve('/trust-and-safety')}>
 				<strong>Trust and safety</strong>
 				<span>How identity, moderation, verification, and account control work in the product.</span
 				>
-			</a>
-			<a class="docs-link-card" href={resolve('/try-app')}>
-				<strong>Try app</strong>
-				<span>Distribution and local setup paths for the client.</span>
 			</a>
 		</div>
 	</section>

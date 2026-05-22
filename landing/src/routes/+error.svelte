@@ -15,7 +15,7 @@
 		<p class="error-lead">The page you are looking for does not exist or has been moved.</p>
 		<div class="error-actions">
 			<a class="button button-primary" href={resolve('/')}>Go home</a>
-			<a class="button button-secondary" href={resolve('/docs' as any)}>Browse docs</a>
+			<a class="button button-secondary" href={resolve('/thesis' as any)}>Read the thesis</a>
 			<a class="button button-secondary" href={resolve('/support')}>Get support</a>
 		</div>
 	</div>
