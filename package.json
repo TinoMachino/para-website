@@ -6,10 +6,8 @@
 	"scripts": {
 		"dev": "pnpm --filter @parasocial/website dev",
 		"dev:website": "pnpm --filter @parasocial/website dev",
-		"dev:docs": "pnpm --filter @parasocial/docs dev",
 		"dev:landing": "pnpm --filter @parasocial/website dev",
 		"build:site": "pnpm --filter @parasocial/website build",
-		"build:docs": "pnpm --filter @parasocial/docs build",
 		"build:landing": "pnpm --filter @parasocial/website build",
 		"upload:android-apk": "sh ./scripts/upload-android-apk.sh",
 		"deploy:site": "pnpm build:site && sh -c 'test -n \"$CLOUDFLARE_PAGES_PROJECT\" || { echo \"Set CLOUDFLARE_PAGES_PROJECT\"; exit 1; }; pnpm dlx wrangler@latest pages deploy landing/build --project-name \"$CLOUDFLARE_PAGES_PROJECT\"'",
