@@ -248,7 +248,7 @@
 	<section class="about-band">
 		<div class="about-band-header">
 			<p class="docs-section-kicker">Product surfaces</p>
-			<h2>Six ideas that do most of the explanatory work.</h2>
+			<h2>Four ideas that do most of the explanatory work.</h2>
 			<p>
 				
 					PARA is built around concrete civic surfaces that reduce friction between thought,

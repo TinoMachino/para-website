@@ -1,0 +1,39 @@
+<script module>
+	export const metadata = {
+		"slug": "raq-and-communities",
+		"title": "RAQ: Turn Ideology Into Structured Context",
+		"description": "How PARA's Rightfully Asked Questions help users locate themselves politically and give communities data they can actually use.",
+		"date": "May 22, 2026",
+		"author": "PARA"
+	};
+</script>
+
+Party labels are packages. Most people do not agree with every item inside. But online political discussion forces you to pick a color and defend it, collapsing complex views into tribal signaling.
+
+PARA's Rightfully Asked Questions (RAQ) replace party packages with a political landscape.
+
+## What RAQ does
+
+RAQ is a structured questionnaire that maps your positions across multiple political dimensions — economic, social, institutional, environmental. Instead of a binary left/right score, you get a coordinate on a belief map.
+
+- See where you actually stand, not where your party says you stand.
+- Compare your map with others without forcing consensus.
+- Generate structured data that communities and agents can build on.
+
+## Communities that hold difference
+
+Traditional political groups often demand conformity. PARA communities are organized around belief regions, not loyalty tests.
+
+- Debate, memes, coordination, and conflict coexist in the same community.
+- Intergroup antagonism becomes visible, comparable data instead of hidden resentment.
+- Communities gain memory: past positions, evolving views, and collective knowledge trees.
+
+## The data value
+
+RAQ data is not just for self-discovery. It powers:
+
+- **Education tools** that show ideological diversity within and across regions.
+- **Agents** that train on structured belief maps instead of sentiment scores.
+- **Comparison interfaces** that let you see overlap with people you assumed you disagreed with.
+
+When ideology becomes structured context, disagreement becomes actionable instead of toxic.

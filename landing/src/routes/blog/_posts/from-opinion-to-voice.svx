@@ -1,0 +1,34 @@
+<script module>
+	export const metadata = {
+		"slug": "from-opinion-to-voice",
+		"title": "Political Expression Needs a Grammar",
+		"description": "Why unstructured social media posts fail democracy, and how PARA's #POLICY|| and #MATTER| flairs turn opinion into actionable civic data.",
+		"date": "May 22, 2026",
+		"author": "PARA"
+	};
+</script>
+
+Likes, shares, and angry comments are not political participation. They are engagement metrics for platforms that sell attention. When you post about a policy on a traditional social network, your position gets flattened into a number that benefits the algorithm, not democracy.
+
+PARA treats political speech as data that should be structured, located, and cumulative.
+
+## What structured expression looks like
+
+- **#POLICY||-2** — You name the policy, you score your position from -3 to +3, and you add intensity. A single flair carries what you think, how strongly you think it, and what subject it applies to.
+- **#MATTER|** — You raise an issue before a policy even exists. No bill required. Just a clear signal that something needs attention, geotagged and countable.
+
+Both formats are machine-readable, geographically tagged, and stackable. One post is an opinion. One hundred posts with the same flair are a dataset.
+
+## From noise to consequence
+
+Politicians and officials currently navigate civic sentiment through polls, protests, and headlines. All three are expensive, slow, or easy to ignore. PARA gives them something new: live, structured, geographic civic data that updates continuously.
+
+- Journalists find stories in live civic maps instead of waiting for press releases.
+- Civic groups build campaigns on structured datasets instead of screenshot threads.
+- Citizens see their positions aggregated and compared, not buried in chronological feeds.
+
+## Built for Mexico's reality
+
+This is not designed for a prettier political feed. It is designed for a more plural democratic future where expressing a position is as easy as posting, but as legible as a vote.
+
+The friction between thought, expression, and political consequence is not a technology problem. It is a format problem. PARA solves the format.

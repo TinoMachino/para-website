@@ -1,0 +1,42 @@
+<script module>
+	export const metadata = {
+		"slug": "trust-and-infrastructure",
+		"title": "Trust Needs Real Infrastructure",
+		"description": "How PARA balances protected participation with public trust through cryptographic anonymity and validated identity.",
+		"date": "May 22, 2026",
+		"author": "PARA"
+	};
+</script>
+
+Civic platforms usually force a false choice: either you participate openly with full exposure, or you stay silent. Neither option serves a healthy democracy. Whistleblowers, dissenters, and vulnerable communities need protection. Officials, journalists, and researchers need credibility.
+
+PARA provides both through the same infrastructure.
+
+## Two trust models, one broker
+
+The m8 identity broker handles both pseudonymous and verified identities using cryptographic proofs:
+
+- **Pseudonyms** — Backed by proof-of-personhood without exposing your real name. Your expertise and participation history carry weight. Your identity does not.
+- **Verified identities** — Linked to real credentials for users who need public accountability. Their positions carry official weight where that matters.
+
+Both types pass through the same trust layer. The difference is exposure, not validity.
+
+## Why anonymity is infrastructure
+
+Anonymity in PARA is not a privacy feature. It is a democratic safeguard:
+
+- Teachers and public workers can criticize policy without career risk.
+- Journalists can investigate without premature exposure.
+- Minors and vulnerable groups can practice citizenship before they feel safe going public.
+
+The cryptographic backing prevents Sybil attacks, bots, and fake amplification. Pseudonymous does not mean unaccountable. It means accountably protected.
+
+## Validation where it counts
+
+Where civic participation needs grounding — budget consultations, representative feedback, official petitions — verified identities provide the weight that institutions require. The same broker handles both modes, so users switch context without switching systems.
+
+## The public-sector value
+
+PARA's main differentiated investment is anonymity technology with value beyond any single app. The same infrastructure that protects a teacher in Puebla can protect a patient filing a medical complaint or a citizen reporting corruption.
+
+Trust is not a feeling. It is infrastructure. PARA builds it.

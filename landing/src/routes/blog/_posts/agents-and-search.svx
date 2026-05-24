@@ -1,0 +1,38 @@
+<script module>
+	export const metadata = {
+		"slug": "agents-and-search",
+		"title": "Agents Are Core Utilities, Not Gimmicks",
+		"description": "How PARA's built-in AI agents turn civic data into readable, comparable, and actionable product surfaces.",
+		"date": "May 22, 2026",
+		"author": "PARA"
+	};
+</script>
+
+Civic information is broken. Government announcements are dense with jargon. Social media buries relevant policy in entertainment. Bias is invisible until someone with time and expertise points it out.
+
+PARA treats AI agents as infrastructure, not features. They exist to make civic data usable.
+
+## What PARA agents do
+
+- **Summarize** complex policy documents into plain language you can read in under two minutes.
+- **Bias Light** highlights framing, omissions, and loaded language in political content so you know what you are reading.
+- **Classify and cluster** positions across communities, making comparison possible without forcing consensus.
+
+These are not chatbots. They are tools that process structured civic data and return structured civic insight.
+
+## Collective and individual agents
+
+- **Collective agents** are trained on community knowledge trees — living datasets that a community builds, curates, and governs. The agent represents shared values and evolves with the group's debates.
+- **Individual agents** assist with reading, writing, and research, grounded in real civic data rather than generic LLM outputs.
+
+Both types operate on PARA's structured formats, so their outputs are traceable to actual positions, policies, and matters — not hallucinations.
+
+## API-first
+
+External developers and organizations can use PARA's API to:
+
+- Classify political content at scale.
+- Generate summaries and comparisons.
+- Build tools that consume structured civic data as infrastructure.
+
+This is not engagement farming. It is civic intelligence: real data, real agents, real utility.

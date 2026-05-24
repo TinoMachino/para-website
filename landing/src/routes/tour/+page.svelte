@@ -22,7 +22,7 @@
 
 	<section class="tour-hero">
 		<div class="container hero-stack">
-			<div class="eyebrow">Product tour • six concrete stops</div>
+			<div class="eyebrow">Product tour • four concrete stops</div>
 			<h1 class="section-title">See the civic surfaces before you read the protocol.</h1>
 			<p class="section-copy">
 				PARA needs a first-click experience that shows what the product actually does. This tour

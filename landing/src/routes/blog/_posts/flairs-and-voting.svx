@@ -1,0 +1,39 @@
+<script module>
+	export const metadata = {
+		"slug": "flairs-and-voting",
+		"title": "Policies and Matters Get Their Own Format",
+		"description": "How #POLICY|| and #MATTER| turn generic posting into structured political input with direction and intensity.",
+		"date": "May 22, 2026",
+		"author": "PARA"
+	};
+</script>
+
+Likes and retweets are not votes. They carry no direction, no intensity, and no subject specificity. When political expression is reduced to engagement metrics, democracy loses the signal it needs to respond.
+
+PARA replaces generic posting with structured political formats.
+
+## #POLICY|| — Vote on what exists
+
+When a bill, proposal, or government announcement exists, you tag it with `#POLICY||` and score it from -3 to +3.
+
+- **Direction** — Negative scores mean opposition. Positive scores mean support. Zero means neutral or undecided.
+- **Intensity** — A -1 is mild disagreement. A -3 is strong opposition. This matters for prioritization.
+- **Subject** — The flair itself names the policy, so aggregation is automatic and unambiguous.
+
+A `#POLICY||-2` on a healthcare bill tells everyone — including algorithms, journalists, and officials — exactly what you think, how strongly you think it, and what you are thinking about.
+
+## #MATTER| — Raise what does not exist yet
+
+Not every issue has a policy attached. Sometimes you need to say: *this problem needs attention before anyone writes a bill.*
+
+`#MATTER|` is for that. It raises issues, geotags them, and lets others add their voices. When enough people mark the same matter, it becomes visible as emergent civic demand — before any politician acts on it.
+
+## The dataset effect
+
+One person scoring a policy is an opinion. One thousand people scoring the same policy across regions is a political dataset that:
+
+- Shows geographic patterns of support and opposition.
+- Reveals intensity gaps that polls usually miss.
+- Creates live accountability: politicians can watch positions shift in real time.
+
+Policy voting should not be a one-day ritual every few years. It should be a continuous, structured conversation.

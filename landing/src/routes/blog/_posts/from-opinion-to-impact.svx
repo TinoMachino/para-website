@@ -1,0 +1,41 @@
+<script module>
+	export const metadata = {
+		"slug": "from-opinion-to-impact",
+		"title": "From Opinion to Impact: Why Civic Speech Needs Structure",
+		"description": "How unstructured frustration gets ignored, and how PARA's formats make political positions visible and actionable.",
+		"date": "May 22, 2026",
+		"author": "PARA"
+	};
+</script>
+
+Democracy is not broken because people do not care. It is broken because caring is too hard to measure. Elections happen every few years. Protests require time and courage. Social media posts get lost in algorithms designed to sell attention, not record it.
+
+PARA adds a thin but sturdy layer between daily life and democratic power.
+
+## The measurement problem
+
+When a community is frustrated about school funding cuts, that frustration currently disperses across:
+
+- Private WhatsApp groups that officials never see.
+- Facebook posts buried by algorithmic feeds.
+- Occasional letters to representatives that get templated responses.
+
+None of these formats are countable, comparable, or geographically precise. So none of them create political consequence.
+
+## What changes with structure
+
+PARA's `#MATTER|` and `#POLICY||` flairs give civic speech a consistent format:
+
+- **Location-tagged** — Officials see where issues cluster geographically.
+- **Directional** — Scores from -3 to +3 show not just sentiment, but intensity.
+- **Cumulative** — One hundred structured posts are a dataset. One hundred angry comments are just noise.
+
+## The outcome
+
+Structured civic data changes who listens and how they respond:
+
+- Local journalists find live story leads in civic maps.
+- City officials see geographic demand patterns instead of anecdotal complaints.
+- Citizens watch their positions aggregate and compare in real time.
+
+Maps, unlike whispers, are very hard to ignore.

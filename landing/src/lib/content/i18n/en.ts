@@ -79,40 +79,28 @@ export const en = {
 	],
 	landingFeatures: [
 		{
-			eyebrow: `Problem`,
-			title: `From opinion to political impact`,
-			problem: `Makes political positions visible, comparable, and easier to act on.`,
-			copy: `PARA starts from a simple premise: democracy stays thin when public opinion is hard to express clearly and hard to turn into civic consequence.`,
+			eyebrow: `Expression`,
+			title: `From scattered opinion to structured political voice`,
+			problem: `Makes civic speech as easy as posting, but as legible as a vote.`,
+			copy: `PARA starts from a simple premise: democracy stays thin when public opinion is hard to express clearly and harder to turn into consequence. So we built a new grammar for political speech — #POLICY|| and #MATTER| — where every post carries direction, intensity, and context.`,
 			points: [
 				`Built around a more plural democratic future for Mexico, not a prettier political feed`,
-				`Designed to reduce the friction between thought, expression, and political consequence`
+				`#POLICY||-2 captures both subject and degree of support, turning posts into live civic data instead of one-day rituals`
 			],
-			href: '/thesis',
-			cta: `Read the thesis`
+			href: '/blog/from-opinion-to-voice',
+			cta: `Read the story`
 		},
 		{
-			eyebrow: `Second layer`,
-			title: `A second layer across existing networks`,
-			problem: `Lowers the cost of participation without asking users to abandon their audience.`,
-			copy: `PARA can link identities, publish across networks, and carry political context wherever public discussion is already happening.`,
+			eyebrow: `Trust layer`,
+			title: `A second layer built on real trust infrastructure`,
+			problem: `Lets people participate across networks without abandoning their audience or their safety.`,
+			copy: `PARA sits on top of the networks people already use, adding political context without forcing migration. But a layer is only as good as the trust beneath it — so we combine anonymity where freedom of thought needs protection with validation where civic power needs grounding.`,
 			points: [
-				`Cross-network publishing preserves reach while adding civic context`,
-				`Shared political tags make posts legible as political speech instead of generic content`
+				`Cross-network publishing preserves reach while shared political tags make posts legible as civic speech`,
+				`Geographic trends and opinion tooling push parties toward coherence, while anonymity technology protects speakers with broader public-sector value`
 			],
-			href: '/thesis',
-			cta: `Read the second-layer model`
-		},
-		{
-			eyebrow: `Flairs + voting`,
-			title: `Policies and matters get their own format`,
-			problem: `Turns generic posting into structured political input.`,
-			copy: `PARA introduces #POLICY|| and #MATTER| so users can separate policy design from issue attention, then vote with both direction and intensity.`,
-			points: [
-				`#POLICY||-2 captures both subject and degree of support or disagreement`,
-				`Policy voting becomes a live political dataset rather than a one-day ritual`
-			],
-			href: '/thesis',
-			cta: `Read the voting model`
+			href: '/blog/trust-layer-across-networks',
+			cta: `See explanation`
 		},
 		{
 			eyebrow: `RAQ + communities`,
@@ -123,32 +111,20 @@ export const en = {
 				`Intergroup antagonism becomes visible data for education, comparison, and agent behavior`,
 				`Communities can support debate, memes, coordination, and conflict without losing the data value`
 			],
-			href: '/thesis',
-			cta: `Read the RAQ model`
+			href: '/blog/raq-and-communities',
+			cta: `Find your place`
 		},
 		{
-			eyebrow: `AI + search`,
-			title: `Agents and search are core utilities`,
+			eyebrow: `AI`,
+			title: `Agents are core utilities`,
 			problem: `Makes the network useful for reading, comparison, moderation, and external tools.`,
-			copy: `PARA is meant to power more than a feed. Search, clustering, classification, and generation turn civic data into usable product utilities.`,
+			copy: `PARA is meant to power more than a feed. Clustering, classification, and generation turn civic data into usable product utilities.`,
 			points: [
 				`The API can classify political content, highlight bias, and generate text`,
 				`Collective and individual agents can support education, entertainment, and assisted writing`
 			],
-			href: '/thesis',
-			cta: `Read the agent model`
-		},
-		{
-			eyebrow: `Trust + infra`,
-			title: `Trust needs real infrastructure`,
-			problem: `Balances protected participation with public trust.`,
-			copy: `PARA combines anonymity where freedom of thought needs protection with validation where civic participation needs grounding.`,
-			points: [
-				`Geographic trends and opinion tooling can push parties toward greater coherence`,
-				`The main differentiated investment is anonymity technology with broader public-sector value`
-			],
-			href: '/thesis',
-			cta: `Read the trust model`
+			href: '/blog/agents-and-search',
+			cta: `Explore agents`
 		}
 	],
 	landingHeroActions: [
@@ -172,7 +148,7 @@ export const en = {
 		},
 		{
 			headline: `You are not a party package.`,
-			body: `Support a healthcare reform. Oppose a tax hike. Do both without picking a color. #POLICY|| and #MATTER| give political speech its own grammar — direction, intensity, and clarity. Communities form by belief and compass region. Debate becomes data. Disagreement becomes actionable.`
+			body: `Support a healthcare reform. Oppose a tax hike. Do both without picking a color. #POLICY|| and #MATTER| give political speech its own grammar — direction, intensity, and clarity. We provide six default Civic Tree groupings to get you started, but communities can build their own trees: custom policy clusters, regional issue maps, or thematic collections that match how they actually think. Each tree becomes a living knowledge database for exploring the mind of a community — what it values, how it shifts, where it disagrees. Powered by an integration with Semble.so.`
 		},
 		{
 			headline: `Your community has a memory. And now it has a mind.`,

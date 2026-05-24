@@ -1,0 +1,38 @@
+<script module>
+	export const metadata = {
+		"slug": "trust-layer-across-networks",
+		"title": "A Trustworthy Second Layer for Political Participation",
+		"description": "How PARA adds civic context to the networks people already use, without forcing migration or sacrificing safety.",
+		"date": "May 22, 2026",
+		"author": "PARA"
+	};
+</script>
+
+Every civic platform faces the same trap: it either demands that users abandon their existing networks and rebuild their audiences from zero, or it operates as a silo that no one outside the bubble ever sees.
+
+PARA does neither. It is a second layer that sits on top of the networks people already use.
+
+## How the second layer works
+
+When you publish on PARA, your post carries civic context — #POLICY|| scores, #MATTER| tags, geographic markers, and RAQ positioning — and can sync to Bluesky, Twitter, and other open networks. Your audience stays where it is. Your message gains political legibility.
+
+- Cross-network publishing preserves reach while adding civic structure.
+- Shared political tags make posts readable as political speech, not generic content.
+- No new audience to build. No platform to abandon.
+
+## Trust infrastructure that scales
+
+A layer is only as good as the trust beneath it. PARA combines two trust models through the same m8 proof broker:
+
+- **Pseudonyms with cryptographic backing** — For users who need protection. Their expertise and participation carry weight without exposing their identity.
+- **Verified identities** — For users and officials who need accountability. Their positions carry public credibility where that matters.
+
+You choose your exposure level per post. The infrastructure supports both without forcing either.
+
+## Why this matters
+
+- Geographic trends become visible to parties, media, and researchers in real time.
+- Civic participation scales without requiring civic courage.
+- Anonymity technology serves broader public-sector value beyond any single app.
+
+A trustworthy layer makes every voice count — not by making everyone shout louder, but by making speech structurally harder to ignore.

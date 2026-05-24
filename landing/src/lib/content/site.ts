@@ -16,19 +16,9 @@ export const contactEmails = {
 
 export const openSourceRepos = [
 	{
-		label: `Website`,
-		href: 'https://github.com/mexico-parasocial/para-app',
-		copy: `Public docs and website workspace`
-	},
-	{
 		label: `App`,
 		href: 'https://github.com/mexico-parasocial/para-app',
 		copy: `Public PARA client workspace`
-	},
-	{
-		label: `Backend`,
-		href: 'https://github.com/mexico-parasocial/m8-app',
-		copy: `Public m8 identity backend workspace`
 	}
 ] as const;
 

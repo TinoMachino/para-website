@@ -87,13 +87,9 @@
 					{$content.footerCopy}
 				</p>
 				<div class="footer-repo-list">
-					{#each openSourceRepos as repo, i (repo.label)}
+					{#each openSourceRepos as repo (repo.label)}
 						<a href={repo.href} target="_blank" rel="external noreferrer">
-							{i === 0
-								? $content.footerRepoLabels.website
-								: i === 1
-									? $content.footerRepoLabels.app
-									: $content.footerRepoLabels.backend} repo
+								{repo.label} repo
 						</a>
 					{/each}
 				</div>

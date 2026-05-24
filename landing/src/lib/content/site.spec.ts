@@ -14,7 +14,7 @@ describe('site content contract', () => {
 
 	it('reflects PARA and WhatZatppa themes', () => {
 		expect(landingPillars).toHaveLength(3);
-		expect(landingFeatures).toHaveLength(6);
+		expect(landingFeatures).toHaveLength(4);
 		expect(architectureNotes[0]).toContain('flairs');
 		expect(developerPromises[0]).toContain('RAQ');
 	});

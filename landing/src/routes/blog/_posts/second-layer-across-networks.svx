@@ -1,0 +1,39 @@
+<script module>
+	export const metadata = {
+		"slug": "second-layer-across-networks",
+		"title": "A Second Layer Across Existing Networks",
+		"description": "How PARA lowers the cost of political participation by adding civic context to the apps people already use.",
+		"date": "May 22, 2026",
+		"author": "PARA"
+	};
+</script>
+
+The hardest part of civic participation is rarely the opinion. It is the migration. New platforms demand new accounts, new audiences, new habits. Most people do not have time to rebuild their network just to post about a policy.
+
+PARA solves this by being a second layer, not a new platform.
+
+## What second layer means
+
+PARA sits on top of existing networks — Bluesky, Twitter, and others — and adds civic structure to posts that originate there or sync from PARA.
+
+- Your audience stays where it is.
+- Your posts gain political context: #POLICY|| scores, #MATTER| tags, geographic markers, RAQ positioning.
+- Cross-network publishing means one structured post can reach multiple platforms with full civic metadata intact.
+
+## Why this lowers the barrier
+
+- No need to convince your community to download a new app.
+- No need to rebuild your following from zero.
+- No need to choose between reach and structure.
+
+A neighborhood WhatsApp group can organize on WhatsApp, publish through PARA, and have their civic signal appear on public feeds with full political legibility.
+
+## Political context, not generic content
+
+The key difference is the tag. A post about school funding on a traditional network is content. The same post with a `#POLICY||-2` flair and a geographic tag is civic data. It is:
+
+- Machine-readable for aggregation.
+- Location-specific for geographic analysis.
+- Intensity-scored for prioritization.
+
+The second layer does not replace your networks. It makes them politically useful.
