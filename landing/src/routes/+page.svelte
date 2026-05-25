@@ -68,7 +68,7 @@
 				<div class="hero-trust-badges">
 					<span class="trust-badge">🇲🇽 Built for Mexico</span>
 					<span class="trust-badge">Open Source</span>
-					<span class="trust-badge">Bluesky Infra</span>
+					<span class="trust-badge">Anonymous by default</span>
 				</div>
 			</div>
 
