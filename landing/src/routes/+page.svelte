@@ -1,11 +1,32 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { page } from '$app/state';
 	import GlobeAnimation from '$lib/components/GlobeAnimation.svelte';
 	import { content } from '$lib/content/i18n';
+	import { siteUrl, siteName } from '$lib/content/site';
 
 	const chapters = $derived($content.chapters);
 	const bottomCta = $derived($content.bottomCta);
 	const heroAction = $derived($content.heroSecondaryAction);
+
+	const canonical = $derived(`${siteUrl}${page.url.pathname}`);
+	const ogImage = $derived(`${siteUrl}/product/social-card-default.png`);
+
+	let email = $state('');
+	let submitted = $state(false);
+
+	function handleWaitlistSubmit(e: Event) {
+		e.preventDefault();
+		if (!email) return;
+		// TODO: wire to backend (e.g., Cloudflare Workers, Formspree, or newsletter API)
+		if (typeof window !== 'undefined') {
+			const existing = JSON.parse(localStorage.getItem('para-waitlist') || '[]');
+			existing.push({ email, date: new Date().toISOString() });
+			localStorage.setItem('para-waitlist', JSON.stringify(existing));
+		}
+		submitted = true;
+		email = '';
+	}
 </script>
 
 <svelte:head>
@@ -14,6 +35,20 @@
 		name="description"
 		content="PARA is a civic social network for plural political identity, policy votes, RAQ flows, and protected participation."
 	/>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content={`${siteName} | Civic Product and Docs`} />
+	<meta property="og:description" content="PARA is a civic social network for plural political identity, policy votes, RAQ flows, and protected participation." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={canonical} />
+	<meta property="og:image" content={ogImage} />
+	<meta property="og:site_name" content={siteName} />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={`${siteName} | Civic Product and Docs`} />
+	<meta name="twitter:description" content="PARA is a civic social network for plural political identity, policy votes, RAQ flows, and protected participation." />
+	<meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
 <div class="site-home">
@@ -29,6 +64,11 @@
 					<a class="button button-primary" href={resolve(heroAction.href as any)}>
 						{heroAction.label}
 					</a>
+				</div>
+				<div class="hero-trust-badges">
+					<span class="trust-badge">🇲🇽 Built for Mexico</span>
+					<span class="trust-badge">Open Source</span>
+					<span class="trust-badge">Bluesky Infra</span>
 				</div>
 			</div>
 
@@ -54,6 +94,32 @@
 			</div>
 		</section>
 	{/each}
+
+	<section class="waitlist-section">
+		<div class="container">
+			<div class="waitlist-card surface-card">
+				<h2 class="waitlist-title">Get early access</h2>
+				<p class="waitlist-lede">
+					PARA is rolling out in phases. Join the waitlist to be among the first to participate
+					in Mexico's civic conversation.
+				</p>
+				{#if !submitted}
+					<form class="waitlist-form" onsubmit={handleWaitlistSubmit}>
+						<input
+							class="waitlist-input"
+							type="email"
+							placeholder="Enter your email"
+							required
+							bind:value={email}
+						/>
+						<button type="submit" class="button button-primary">Join waitlist</button>
+					</form>
+				{:else}
+					<p class="waitlist-success">Thanks! We'll be in touch when spots open.</p>
+				{/if}
+			</div>
+		</div>
+	</section>
 
 	<section class="bottom-cta">
 		<div class="container bottom-cta-inner">
@@ -264,6 +330,103 @@
 		flex-wrap: wrap;
 		gap: 0.85rem;
 		justify-content: center;
+	}
+
+	.hero-trust-badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+		margin-top: 1.25rem;
+	}
+
+	.trust-badge {
+		padding: 0.4rem 0.85rem;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(255, 255, 255, 0.04);
+		font-family: var(--ps-font-mono);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: #8f8aa1;
+	}
+
+	.waitlist-section {
+		padding: 2.5rem 0;
+	}
+
+	.waitlist-card {
+		padding: clamp(2rem, 4vw, 3rem);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 1.6rem;
+		background:
+			linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+			rgba(8, 16, 28, 0.62);
+		box-shadow:
+			inset 0 1px 0 rgba(255, 255, 255, 0.05),
+			0 20px 60px rgba(0, 0, 0, 0.18);
+		backdrop-filter: blur(18px);
+		display: grid;
+		gap: 1rem;
+		max-width: 44rem;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.waitlist-title {
+		margin: 0;
+		font-family: 'PARA Cinzel', var(--ps-font-display), serif;
+		font-size: clamp(1.6rem, 3vw, 2.4rem);
+		font-weight: 600;
+		line-height: 1.05;
+		color: #f8fbff;
+		letter-spacing: -0.01em;
+	}
+
+	.waitlist-lede {
+		margin: 0;
+		color: #bcc8d9;
+		line-height: 1.72;
+		font-size: 1.05rem;
+		max-width: 32rem;
+		justify-self: center;
+	}
+
+	.waitlist-form {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		justify-content: center;
+		margin-top: 0.5rem;
+	}
+
+	.waitlist-input {
+		flex: 1 1 16rem;
+		max-width: 22rem;
+		padding: 0.9rem 1.1rem;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(255, 255, 255, 0.05);
+		color: #f8fbff;
+		font-size: 1rem;
+		outline: none;
+		transition: border-color 0.2s ease;
+	}
+
+	.waitlist-input::placeholder {
+		color: #6b6580;
+	}
+
+	.waitlist-input:focus {
+		border-color: rgba(72, 38, 127, 0.6);
+	}
+
+	.waitlist-success {
+		margin: 0;
+		color: #c8b6ef;
+		font-weight: 600;
+		font-size: 1.05rem;
 	}
 
 	@media (max-width: 1100px) {

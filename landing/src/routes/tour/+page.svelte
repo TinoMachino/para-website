@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import {
-		architectureNotes,
-		developerPromises,
-		docsBase,
-		landingFeatures
-	} from '$lib/content/site';
+	import { page } from '$app/state';
+	import { content } from '$lib/content/i18n';
+	import { docsBase, siteUrl, siteName } from '$lib/content/site';
+
+	const canonical = $derived(`${siteUrl}${page.url.pathname}`);
+	const ogImage = $derived(`${siteUrl}/product/social-card-default.png`);
 </script>
 
 <svelte:head>
@@ -14,6 +14,20 @@
 		name="description"
 		content="Take a product tour through PARA's communities, cabildeos, representation, trust surfaces, and docs-backed implementation story."
 	/>
+
+	<!-- Open Graph -->
+	<meta property="og:title" content={`Product Tour • ${siteName}`} />
+	<meta property="og:description" content="Take a product tour through PARA's communities, cabildeos, representation, trust surfaces, and docs-backed implementation story." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={canonical} />
+	<meta property="og:image" content={ogImage} />
+	<meta property="og:site_name" content={siteName} />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={`Product Tour • ${siteName}`} />
+	<meta name="twitter:description" content="Take a product tour through PARA's communities, cabildeos, representation, trust surfaces, and docs-backed implementation story." />
+	<meta name="twitter:image" content={ogImage} />
 </svelte:head>
 
 <div class="tour-shell">
@@ -52,7 +66,7 @@
 				<h2>Every stop points to an actual route or docs surface.</h2>
 			</div>
 			<div class="feature-grid">
-				{#each landingFeatures as feature (feature.title)}
+				{#each $content.landingFeatures as feature (feature.title)}
 					<article class="feature-card">
 						<p class="feature-eyebrow">{feature.eyebrow}</p>
 						<h3>{feature.title}</h3>
@@ -76,7 +90,7 @@
 				<div class="eyebrow">What this proves</div>
 				<h2>The product has a visible shape, not just a slogan.</h2>
 				<ul class="summary-list">
-					{#each architectureNotes as note (note)}
+					{#each $content.architectureNotes as note (note)}
 						<li>{note}</li>
 					{/each}
 				</ul>
@@ -85,7 +99,7 @@
 				<div class="eyebrow">Next step</div>
 				<h2>Move from the tour into the implementation handoff.</h2>
 				<ul class="summary-list">
-					{#each developerPromises as promise (promise)}
+					{#each $content.developerPromises as promise (promise)}
 						<li>{promise}</li>
 					{/each}
 				</ul>

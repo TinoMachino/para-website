@@ -158,6 +158,16 @@ export const en = {
 	bottomCta: [
 		{ label: `Read the thesis`, href: '/thesis' }
 	],
+	architectureNotes: [
+		`Policies and matters can be encoded as dedicated flairs, then voted on quantitatively instead of being reduced to generic posting.`,
+		`RAQ, intergroup antagonism, and community voting can build a political dataset that keeps personal and collective agents evolving.`,
+		`Bluesky-derived infrastructure keeps distribution costs lower while cryptographic anonymity and civic intelligence remain the main differentiated investments.`
+	],
+	developerPromises: [
+		`About and schema docs that explain the democratic-friction thesis, flairs, voting, RAQ, agents, and community governance`,
+		`One origin for the landing page, about page, roadmap, and /docs reference`,
+		`Technical docs for Bluesky-based civic infrastructure, classification APIs, search systems, and anonymity methods`
+	],
 	footerCopy: `Browse the thesis, product surfaces, trust model, app access, and schema reference from any entry point.`,
 	footerRepoLabels: {
 		website: `Website`,

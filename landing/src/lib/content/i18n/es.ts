@@ -158,6 +158,16 @@ export const es = {
 	bottomCta: [
 		{ label: `Lee la tesis`, href: '/thesis' }
 	],
+	architectureNotes: [
+		`Las políticas y los asuntos pueden codificarse como flairs dedicados, y luego votarse cuantitativamente en lugar de reducirse a publicaciones genéricas.`,
+		`El RAQ, el antagonismo intergrupal y la votación comunitaria pueden construir un dataset político que mantenga a los agentes personales y colectivos en evolución.`,
+		`La infraestructura derivada de Bluesky mantiene los costos de distribución más bajos, mientras que el anonimato criptográfico y la inteligencia cívica siguen siendo las principales inversiones diferenciadas.`
+	],
+	developerPromises: [
+		`Documentación acerca de y de schemas que explican la tesis de fricción democrática, flairs, votación, RAQ, agentes y gobernanza comunitaria`,
+		`Un origen para la página de inicio, la página acerca de, la hoja de ruta y la referencia /docs`,
+		`Documentación técnica para infraestructura cívica basada en Bluesky, APIs de clasificación, sistemas de búsqueda y métodos de anonimato`
+	],
 	footerCopy: `Explora la tesis, superficies de producto, modelo de confianza, acceso a la app y referencia de schemas desde cualquier punto de entrada.`,
 	footerRepoLabels: {
 		website: `Sitio Web`,

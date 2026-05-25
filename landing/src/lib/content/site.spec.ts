@@ -1,11 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import {
-	architectureNotes,
-	developerPromises,
-	docsBase,
-	landingFeatures,
-	landingPillars
-} from './site';
+import { docsBase } from './site';
+import { en } from './i18n/en';
+
+const { landingPillars, landingFeatures, architectureNotes, developerPromises } = en;
 
 describe('site content contract', () => {
 	it('points docs CTAs to the docs route', () => {

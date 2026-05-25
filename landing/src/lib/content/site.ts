@@ -1,5 +1,3 @@
-import { en } from './i18n/en';
-
 export const siteUrl = 'https://paramx.social';
 export const siteName = 'PARA';
 
@@ -23,14 +21,6 @@ export const openSourceRepos = [
 ] as const;
 
 export const productTourHref = '/tour';
-
-export const heroPrimaryAction = en.heroPrimaryAction;
-export const heroSecondaryAction = en.heroSecondaryAction;
-export const landingHeroMetrics = en.landingHeroMetrics;
-export const landingHeroActions = en.landingHeroActions;
-export const landingSignals = en.landingSignals;
-export const landingPillars = en.landingPillars;
-export const landingFeatures = en.landingFeatures;
 
 export const surfaceChecklist = [
 	`A problem statement centered on democratic friction`,
@@ -58,16 +48,4 @@ export const architectureLayers = [
 		title: `Docs that connect both views`,
 		copy: `The public site should bridge product language and protocol language so the docs read like a coherent system rather than disconnected notes.`
 	}
-] as const;
-
-export const architectureNotes = [
-	`Policies and matters can be encoded as dedicated flairs, then voted on quantitatively instead of being reduced to generic posting.`,
-	`RAQ, intergroup antagonism, and community voting can build a political dataset that keeps personal and collective agents evolving.`,
-	`Bluesky-derived infrastructure keeps distribution costs lower while cryptographic anonymity and civic intelligence remain the main differentiated investments.`
-] as const;
-
-export const developerPromises = [
-	`About and schema docs that explain the democratic-friction thesis, flairs, voting, RAQ, agents, and community governance`,
-	`One origin for the landing page, about page, roadmap, and /docs reference`,
-	`Technical docs for Bluesky-based civic infrastructure, classification APIs, search systems, and anonymity methods`
 ] as const;

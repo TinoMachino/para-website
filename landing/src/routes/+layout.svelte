@@ -34,6 +34,13 @@
 <svelte:head>
 	<link rel="icon" type="image/png" href={favicon} />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link
+		rel="preload"
+		href="/fonts/Cinzel-SemiBold.ttf"
+		as="font"
+		type="font/ttf"
+		crossorigin="anonymous"
+	/>
 </svelte:head>
 
 <div class="site-shell">
